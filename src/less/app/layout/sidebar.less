@@ -1,0 +1,131 @@
+/**
+   Component: sidebar.less
+*/
+ 
+@scrollbar-wd:                    17px;
+
+.sidebar-wrapper {
+  height: 100%;
+  overflow-x: hidden;
+  background-color: inherit;  
+  hr {
+    margin: 10px 5px;
+    border-top-color: rgba(0,0,0,.15);
+  }
+}
+
+.sidebar {
+  position: relative;
+  height: 100%;
+  width: @aside-wd + @scrollbar-wd;  // hides the scrollbar
+  padding-bottom: 50px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background-color: inherit;
+  &:after { content: "";}
+  .nav-heading {
+    padding: 12px 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .035em;
+    pointer-events: none;
+    cursor: default;
+  }
+ 
+  > .sidebar-nav {
+    width: @aside-wd;
+    padding-bottom: 20px;
+    -webkit-transform: translate3d(0,0,0);
+    // level 1
+    > .nav {
+      position: relative;
+
+      > li {
+        > a {
+          padding: 12px 15px;
+          letter-spacing: .025em;
+          font-weight: 500;
+          .transition(background-color .2s ease);
+
+          &:focus, &:hover {
+            text-decoration: none;
+            outline: none;
+          }
+
+          // Item icon
+          > .sidebar-item-icon {
+            width: 1.7em;
+            display: inline-block;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+          }
+        }
+        &.active {
+          > .sidebar-subnav {
+            height: auto!important;
+            margin-left: 0;
+            overflow: auto;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  } // sidebar-nav 
+}
+
+// Sub Levels
+.sidebar-subnav {
+  
+  height: 0;
+  margin-left: -20px;
+  overflow: hidden;
+  opacity: 0;
+  .transition(all .2s ease-in-out 0s);
+
+  > li  {
+    > a {
+      display: block;
+      position: relative;
+      padding: 10px 20px;
+      padding-left: 40px;
+      font-weight: normal;
+      .transition(background-color .2s ease);
+    }
+  } // li
+
+  > .sidebar-subnav-header {
+    display: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    > a {
+      padding: 0 !important;
+      background-color: transparent !important;
+    }
+  }
+
+}
+
+
+// Desktop styles
+// ---------------------------------
+
+@media @tablet {
+  
+  .sidebar > .sidebar-nav > .nav {
+    padding-right: 0;
+    .label,
+    .sidebar-item-caret {
+      margin: 2px 0 0 0;
+      overflow: hidden;
+    }
+    .sidebar-item-caret + .label {
+      margin-right: 5px;
+    }
+
+  }
+
+} // @media @desktop
+

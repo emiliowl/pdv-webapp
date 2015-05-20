@@ -1,0 +1,66 @@
+.app-view-header
+  | Dashboard
+  small(ng-bind="app.name + ' - ' + app.description")
+  small
+    strong(ng-bind="user.email")
+
+.container-fluid(ng-controller="DashboardController as ctrl")
+  .text-center
+    h1 {{ctrl.title}}
+    p {{ctrl.text}}
+    button.mr.mb-sm.btn.btn-info(type='button', ripple="", ng-click="ctrl.loadPatients()")
+      | Carregar Pacientes!
+    button.mr.mb-sm.btn.btn-success(type='button', ripple="", ng-click="ctrl.authenticate()")
+      | Autenticar!
+    button.mr.mb-sm.btn.btn-danger(type='button', ripple="", ng-click="ctrl.logout()")
+      | Sair!
+  br
+  br
+  .row
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          | Basic Table
+        .panel-body
+          // START table-responsive
+          .table-responsive
+            table.table
+              thead
+                tr(show="ctrl.patients")
+                  th
+                    |nome
+                  th
+                    |last name
+                  th
+                    |gender
+                  th
+                    |born
+                  th
+                    |emergency
+                  th
+                    |emergency nr
+              tbody
+                tr(ng-repeat="patient in ctrl.patients")
+                  td
+                    span(ng-bind="patient.name")
+                  td
+                    span(ng-bind="patient.last_name")
+                  td
+                    span(ng-bind="patient.gender")
+                  td
+                    span(ng-bind="patient.born | date")
+                  td
+                    span(ng-bind="patient.emergency_contact")
+                  td
+                    span(ng-bind="patient.emergency_phone")
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          a.pull-right.btn.btn-sm.btn-primary(ng-mousedown='csv.generate()', ng-href='{{ csv.link() }}', download='test.csv') Export to CSV
+          .panel-title Table Export
+        .table-responsive
+          table.table.table-bordered.table-striped(ng-table='ctrl.tableParams4', export-csv='csv')
+            tbody
+              tr(ng-repeat='user in $data')
+                td(data-title="'Name'") {{user.name}}
+                td(data-title="'Age'") {{user.age}}
