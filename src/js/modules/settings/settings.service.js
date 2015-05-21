@@ -9,7 +9,7 @@
         .module('naut')
         .service('settings', settings);
     /* @ngInject */
-    function settings($rootScope, $localStorage, $translate) {
+    function settings($rootScope, $localStorage, $translate, $http) {
       /*jshint validthis:true*/
       var self = this;
 
@@ -60,7 +60,8 @@
             brand:         'bg-purple',
             topbar:        'bg-purple'
           }
-        };      
+        };
+        getEnvironmentVariables();
       }
 
       function loadAndWatch() {
@@ -81,6 +82,14 @@
 
       function setTheme(idx) {
         $rootScope.app.theme = this.themes[1];
+      }
+
+      function getEnvironmentVariables() {
+        return $http.get('/rest/getenv').success(function (data) {
+          $rootScope.app.env = data;
+        }).error(function (data) {
+          $rootScope.app.env = {backend: 'http://localhost:5000'};
+        });
       }
 
     }

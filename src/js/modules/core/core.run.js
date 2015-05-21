@@ -9,7 +9,6 @@
         .module('naut')
         .run(appRun);
 
-
     appRun.$inject = ['$rootScope', '$state', '$stateParams', '$localStorage', 'translator', 'settings'];
     function appRun($rootScope, $state, $stateParams, $localStorage, translator, settings) {
 
@@ -20,7 +19,6 @@
 
       translator.init();
       settings.init();
-      
     }
 
 })();

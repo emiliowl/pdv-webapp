@@ -22,7 +22,7 @@ html(lang="en", ng-app="naut")
   body(ng-clok='', ng-class="{ 'layout-material': true, 'aside-offscreen' : app.sidebar.isOffscreen, 'footer-hidden': false, 'in-app': !$state.includes('page')}")
     .app-container(data-ui-view="", data-autoscroll='false', ng-controller="CoreController")
     // Settings
-    .settings-wrapper(ng-include="'templates/settings.html'", ng-class="{'visible': showSettings}", ng-init="showSettings = false")
+    //.settings-wrapper(ng-include="'templates/settings.html'", ng-class="{'visible': showSettings}", ng-init="showSettings = false")
     // End Settings
 
     // Layer Morph

@@ -10,7 +10,7 @@
     function DashboardController(dashboardService, ngTableParams) {
         var self = this;
         self.patients = dashboardService.patients;
-        self.title = 'Naut - Bootstrap + AngularJS (Seed Project)';
+        self.title = 'MS PDV - Simplicidade e eficiencia para seu ponto de vendas';
         self.text = 'This project is an application skeleton for a typical AngularJS web app. You can use it to quickly bootstrap your angular webapp projects and dev environment for these projects.' +
             'The seed app doesnt do much, just shows how to wire some controllers and views together.';
 

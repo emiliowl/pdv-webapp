@@ -12,7 +12,7 @@
         self.patients = [];
 
         self.getAll = function() {
-            return $http.get('http://localhost:5000/patients.json').success(function (data) {
+            return $http.get($rootScope.app.env.backend + '/patients.json').success(function (data) {
                 angular.copy(data, self.patients);
             }).error(function (data) {
                 toaster.error('Aviso', 'Erro ao conectar com servidor');

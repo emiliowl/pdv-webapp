@@ -5,27 +5,51 @@
         ul.nav
           // Iterates over all sidebar items
           li.nav-heading
-            span.text-muted(translate='sidebar.heading.HEADER') Main Navigation
-          li(ng-class="{active:$state.includes('app')}")
-            a(href='', title='Layouts', ripple='')
-              em.sidebar-item-icon.icon-layout
-              em.sidebar-item-caret.fa.pull-right.fa-angle-right
-              span Layouts
+            span.text-muted(translate='sidebar.heading.HEADER') Navegação Principal
+          li(ng-class="{active:$state.includes('register')}")
+            a(href='', title='Cadastros', ripple='')
+              em.sidebar-item-icon.fa.fa-edit
+              em.sidebar-item-caret.fa.pull-right
+                span Cadastros
             ul.nav.sidebar-subnav
-              li.sidebar-subnav-header
-                a
-                  em.sidebar-item-icon.fa.fa-angle-right
-                  | Layouts
               li(ui-sref-active="active")
-                a(ui-sref='app.dashboard', title='Default', ripple='')
-                  em.sidebar-item-icon
-                  span Default
+                a(ui-sref='register.pdv', title='PDV', ripple='')
+                  em.sidebar-item-icon.fa.fa-shopping-cart
+                  span PDV(Loja)
               li(ui-sref-active="active")
-                a(ui-sref='app-dock.dashboard', title='Docked', ripple='')
-                  em.sidebar-item-icon
-                  span Docked
+                a(ui-sref='register.products', title='produtos', ripple='')
+                  em.sidebar-item-icon.fa.fa-table
+                  span Produtos
+          li(ng-class="{active:$state.includes('management')}")
+            a(href='', title='Gestão', ripple='')
+              em.sidebar-item-icon.fa.fa-bar-chart
+              em.sidebar-item-caret.fa.pull-right
+                span Gestão
+            ul.nav.sidebar-subnav
               li(ui-sref-active="active")
-                a(ui-sref='app-fh.columns', title='Full Height', ripple='')
-                  em.sidebar-item-icon
-                  span Full Height
+                a(ui-sref='management.cashier', title='caixa', ripple='')
+                  em.sidebar-item-icon.fa.fa-tags
+                  span Caixa
+              li(ui-sref-active="active")
+                a(ui-sref='management.stock', title='estoque', ripple='')
+                  em.sidebar-item-icon.fa.fa-dollar
+                  span Estoque
+              li(ui-sref-active="active")
+                a(ui-sref='management.sells', title='vendas', ripple='')
+                  em.sidebar-item-icon.fa.fa-money
+                  span Vendas
+          li(ng-class="{active:$state.includes('app')}")
+            a(href='', title='Operações', ripple='')
+              em.sidebar-item-icon.fa.fa-cogs
+              em.sidebar-item-caret.fa.pull-right
+                span Operações
+            ul.nav.sidebar-subnav
+              li(ui-sref-active="active")
+                a(ui-sref='app.dashboard', title='dashboard', ripple='')
+                  em.sidebar-item-icon.fa.fa-dashboard
+                  span Dashboard
+              li(ui-sref-active="active")
+                a(ui-sref='app.sales', title='frente de loja', ripple='')
+                  em.sidebar-item-icon.fa.fa-desktop
+                  span Frente de Caixa
 // END Sidebar

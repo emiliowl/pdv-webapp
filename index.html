@@ -19,7 +19,7 @@
 <body ng-clok="" ng-class="{ 'layout-material': true, 'aside-offscreen' : app.sidebar.isOffscreen, 'footer-hidden': false, 'in-app': !$state.includes('page')}">
    <div data-ui-view="" data-autoscroll="false" ng-controller="CoreController" class="app-container"></div>
    <!-- Settings-->
-   <div ng-include="'templates/settings.html'" ng-class="{'visible': showSettings}" ng-init="showSettings = false" class="settings-wrapper"></div>
+   <!--.settings-wrapper(ng-include="'templates/settings.html'", ng-class="{'visible': showSettings}", ng-init="showSettings = false")-->
    <!-- End Settings-->
    <!-- Layer Morph-->
    <div class="layer-morph-overlay">

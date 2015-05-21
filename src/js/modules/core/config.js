@@ -4,10 +4,9 @@
 (function () {
   'use strict';
 
-  angular
-    .module('naut')
-    .config(commonConfig)
-    .config(lazyLoadConfig);
+  angular.module('naut')
+         .config(commonConfig)
+         .config(lazyLoadConfig);
 
   // Common object accessibility
   commonConfig.$inject = ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$httpProvider', 'AuthProvider'];
@@ -24,13 +23,10 @@
 
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.withCredentials = true;
-    //AuthProvider.registerPath('https://careminder.herokuapp.com/users.json');
-    //AuthProvider.loginPath('https://careminder.herokuapp.com/users/sign_in.json');
-    //AuthProvider.logoutPath('https://careminder.herokuapp.com/users/sign_out.json');
 
-    AuthProvider.registerPath('http://localhost:5000/users.json');
-    AuthProvider.loginPath('http://localhost:5000/users/sign_in.json');
-    AuthProvider.logoutPath('http://localhost:5000/users/sign_out.json');
+    AuthProvider.registerPath(environmentBackend()  + '/users.json');
+    AuthProvider.loginPath(environmentBackend()     + '/users/sign_in.json');
+    AuthProvider.logoutPath(environmentBackend()    + '/users/sign_out.json');
 
     AuthProvider.registerMethod('POST');
     AuthProvider.loginMethod('POST');
@@ -47,6 +43,14 @@
       modules: VENDOR_ASSETS.modules
     });
 
+  }
+
+  var environmentBackend = function(){
+    return {
+      'localhost' : 'http://localhost:5000',
+      'mspdv-dev.herokuapp.com' : 'http://mspdv-dev-backend.herokuapp.com',
+      'mspdv.herokuapp.com' : 'https://mspdv-backend.herokuapp.com'
+    }[window.location.hostname];
   }
 
 })();
