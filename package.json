@@ -1,7 +1,7 @@
 {
-  "name": "Naut",
+  "name": "MS PDV",
   "version": "1.0.0",
-  "description": "Bootstrap Admin Theme + AngularJS",
+  "description": "PDV simples e eficiente",
   "author": "@geedmo",
   "dependencies": {
     "bower": "^1.3.12",

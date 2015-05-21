@@ -34,8 +34,8 @@
       function init() {
         // Global settings
         $rootScope.app = {
-          name:          'Naut',
-          description:   'Bootstrap + AngularJS',
+          name:          'MS PDV',
+          description:   'A solução para PDV mais simples e eficiente',
           year:          new Date().getFullYear(),
           views: {
             animation: 'ng-fadeInLeft2'
@@ -51,14 +51,14 @@
           footer: {
             hidden: false
           },
-          themeId: 0,
+          themeId: 1,
           // default theme
           theme: {
-            name:          'primary',
+            name:          'purple',
             sidebar:       'bg-white',
-            sidebarHeader: 'bg-primary bg-light',
-            brand:         'bg-primary',
-            topbar:        'bg-primary'
+            sidebarHeader: 'bg-purple bg-light',
+            brand:         'bg-purple',
+            topbar:        'bg-purple'
           }
         };      
       }
@@ -80,7 +80,7 @@
       }
 
       function setTheme(idx) {
-        $rootScope.app.theme = this.themes[idx];
+        $rootScope.app.theme = this.themes[1];
       }
 
     }

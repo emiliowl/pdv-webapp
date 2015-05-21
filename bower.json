@@ -1,10 +1,10 @@
 {
-  "name": "Naut",
+  "name": "MS PDV",
   "version": "1.0.0",
   "authors": [
     "@geedmo"
   ],
-  "description": "Bootstrap admin theme + AngularJS",
+  "description": "A solução em PDV mais simples e eficiente",
   "keywords": [
     "bootstrap",
     "angular",

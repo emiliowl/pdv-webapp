@@ -12,14 +12,14 @@ html(lang="en", ng-app="naut")
     meta(name='description', content='{{app.description}}')
     meta(name='keywords', content='app, responsive, angular, bootstrap, dashboard, admin')
 
-    title(data-ng-bind="pageTitle()") Naut - Bootstrap Admin Theme + AngularJS
+    title(data-ng-bind="pageTitle()") MS PDV - A solução para PDV mais simples e eficiente
 
     // build:css app/css/application.css
     link(rel='stylesheet', href="app/css/bootstrap.css")
     link(rel='stylesheet', href="app/css/styles.css")
     // endbuild
 
-  body(ng-clok='', ng-class="{ 'layout-fixed' : app.layout.isFixed, 'layout-boxed' : app.layout.isBoxed, 'layout-dock' : app.layout.isDocked, 'layout-material': app.layout.isMaterial, 'aside-offscreen' : app.sidebar.isOffscreen, 'footer-hidden': app.footer.hidden, 'in-app': !$state.includes('page')}")
+  body(ng-clok='', ng-class="{ 'layout-material': true, 'aside-offscreen' : app.sidebar.isOffscreen, 'footer-hidden': false, 'in-app': !$state.includes('page')}")
     .app-container(data-ui-view="", data-autoscroll='false', ng-controller="CoreController")
     // Settings
     .settings-wrapper(ng-include="'templates/settings.html'", ng-class="{'visible': showSettings}", ng-init="showSettings = false")
@@ -33,7 +33,7 @@ html(lang="en", ng-app="naut")
     .layer-morph-container.bg-info
         .layer-morph-wrapper
             #layer-search.layer-morph(ng-include="'templates/layer-search.html'")
-            .layer-morph-footer Naut
+            .layer-morph-footer MS PDV
     // End Layer Morph
 
     // build:vendor app/js/vendor.js
