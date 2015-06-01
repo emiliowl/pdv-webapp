@@ -7,7 +7,7 @@
 
     angular.module('naut').controller('DashboardController', DashboardController);
     /* @ngInject */
-    function DashboardController(dashboardService, ngTableParams) {
+    function DashboardController(dashboardService, ngTableParams, $rootScope, $state) {
         var self = this;
         self.patients = dashboardService.patients;
         self.title = 'MS PDV - Simplicidade e eficiencia para seu ponto de vendas';
@@ -18,12 +18,10 @@
             dashboardService.getAll();
         };
 
-        self.authenticate = function() {
-            dashboardService.authenticate();
-        };
-
         self.logout = function() {
-            dashboardService.logout();
+            $rootScope.logout(function() {
+                                $state.go('security.login');
+                              });
         };
 
         var data4 = [{name: 'Moroni', age: 50},

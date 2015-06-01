@@ -4,7 +4,7 @@
     angular.module('naut').controller('AuthController', AuthController);
 
     /* @ngInject */
-    function AuthController(authService, toaster) {
+    function AuthController(authService, toaster, $state) {
         var self = this;
 
         self.user = {};
@@ -13,7 +13,9 @@
             if (self.user
                 && self.user.email && self.user.email !== ''
                 && self.user.password && self.user.password !== '') {
-                authService.authenticate(self.user);
+                authService.authenticate(self.user, function() {
+                    $state.go('app.dashboard');
+                });
             } else {
                 toaster.error('Aviso', 'Obrigatorio preencher usuario e senha');
             }

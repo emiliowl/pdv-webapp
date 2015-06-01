@@ -9,32 +9,38 @@
     function AuthService($rootScope, Auth, toaster, $http) {
         var self = this;
 
-        self.authenticate = function(user) {
+        self.authenticate = function(user, onAfterLogin) {
             Auth.login({email: user.email, password: user.password}).then(function() {
                 toaster.success('Mensagem', 'Bem vindo!');
+                if (onAfterLogin) {
+                    onAfterLogin();
+                }
             }, function() {
                 toaster.error('Aviso', 'Erro ao autenticar');
             });
         };
 
         self.createUser = function(user) {
-            return $http.post($rootScope.app.env.backend + '/users.json', {user: user}dd).success(function (data) {
+            return $http.post($rootScope.app.env.backend + '/users.json', {user: user}).success(function (data) {
                 toaster.success('Mensagem', 'Usuário criado com sucesso!');
             }).error(function (data) {
                 toaster.error('Aviso', 'Erro ao tentar criar usuário');
             });
         };
 
-        //self.logout = function() {
-        //    Auth.logout().then(function() {
-        //        toaster.success('Mensagem', 'Obrigado pela visita!');
-        //    }, function() {
-        //        toaster.error('Erro', 'Erro ao sair');
-        //    });
-        //};
+        self.logout = function(onAfterLogout) {
+            Auth.logout().then(function() {
+                toaster.success('Mensagem', 'Obrigado pela visita!');
+                if(onAfterLogout) {
+                    onAfterLogout();
+                }
+            }, function() {
+                toaster.error('Erro', 'Erro ao sair');
+            });
+        };
 
         $rootScope.signedIn = Auth.isAuthenticated;
-        $rootScope.logout = Auth.logout;
+        $rootScope.logout = self.logout;
 
         Auth.currentUser().then(function (user) {
             $rootScope.user = user;
