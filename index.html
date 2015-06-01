@@ -16,7 +16,7 @@
    <!-- endbuild-->
 </head>
 
-<body ng-clok="" ng-class="{ 'layout-material': true, 'aside-offscreen' : app.sidebar.isOffscreen, 'footer-hidden': false, 'in-app': !$state.includes('page')}">
+<body ng-clok="" ng-class="{ 'layout-material': true, 'aside-offscreen' : app.sidebar.isOffscreen, 'footer-hidden': false, 'in-app': !$state.includes('security')}">
    <div data-ui-view="" data-autoscroll="false" ng-controller="CoreController" class="app-container"></div>
    <!-- Settings-->
    <!--.settings-wrapper(ng-include="'templates/settings.html'", ng-class="{'visible': showSettings}", ng-init="showSettings = false")-->
@@ -60,6 +60,8 @@
    <!-- endbuild-->
    <!-- build:js app/js/application.js-->
    <script src="src/js/app.module.js"></script>
+   <script src="src/js/custom/auth/auth.controller.js"></script>
+   <script src="src/js/custom/auth/auth.service.js"></script>
    <script src="src/js/custom/sales.controller.js"></script>
    <script src="src/js/modules/charts/flot-chart-options.services.js"></script>
    <script src="src/js/modules/charts/flot-chart.controller.js"></script>
@@ -103,6 +105,7 @@
    <script src="src/js/modules/settings/settings.service.js"></script>
    <script src="src/js/modules/translator/translator.config.js"></script>
    <script src="src/js/modules/translator/translator.service.js"></script>
+   <script src="src/js/modules/ui/scrollable.directive.js"></script>
    <script src="app/js/templates.js"></script>
    <!-- endbuild-->
 </body>

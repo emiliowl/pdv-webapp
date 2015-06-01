@@ -19,7 +19,7 @@ html(lang="en", ng-app="naut")
     link(rel='stylesheet', href="app/css/styles.css")
     // endbuild
 
-  body(ng-clok='', ng-class="{ 'layout-material': true, 'aside-offscreen' : app.sidebar.isOffscreen, 'footer-hidden': false, 'in-app': !$state.includes('page')}")
+  body(ng-clok='', ng-class="{ 'layout-material': true, 'aside-offscreen' : app.sidebar.isOffscreen, 'footer-hidden': false, 'in-app': !$state.includes('security')}")
     .app-container(data-ui-view="", data-autoscroll='false', ng-controller="CoreController")
     // Settings
     //.settings-wrapper(ng-include="'templates/settings.html'", ng-class="{'visible': showSettings}", ng-init="showSettings = false")

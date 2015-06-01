@@ -1,0 +1,43 @@
+<div class="container container-sm animated fadeInDown">
+   <div class="center-block mt-xl">
+      <!-- START panel-->
+      <h1 class="center-block">MS PDV</h1>
+      <div class="panel">
+         <div class="panel-body">
+            <p class="pv text-bold">Credenciais</p>
+            <form role="form" class="mb-lg">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group has-feedback mb">
+                        <input id="login" type="email" placeholder="Seu email" autocomplete="off" ng-model="ctrl.user.email" class="form-control" />
+                        <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                     </div>
+                     <br/>
+                     <div class="form-group has-feedback">
+                        <input id="password" type="password" placeholder="Sua senha" ng-model="ctrl.user.password" class="form-control" />
+                        <span class="fa fa-lock form-control-feedback text-muted"></span>
+                     </div>
+                     <div class="checkbox c-checkbox pull-left mt0">
+                        <label>
+                           <input type="checkbox" value="" />
+                           <span class="fa fa-check"></span>Lembre-se de mim</label>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <button type="submit" ng-click="ctrl.authenticate()" ripple="" class="btn btn-block btn-info mb">Login</button>
+                     <p class="text-muted mb0">Ainda não é cliente?</p>
+                     <a ui-sref="security.register" class="btn btn-block btn-default">
+                        <strong>Criar minha conta</strong>
+                     </a>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+      <div class="text-center mt">
+         <!--a.text-muted(ui-sref="page.recover") Esqueci minha senha!-->
+      </div>
+      <!-- END panel-->
+      <div ng-include="'app/views/cached/footer.html'" class="p-lg text-center"></div>
+   </div>
+</div>

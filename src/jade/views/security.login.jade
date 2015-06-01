@@ -1,0 +1,31 @@
+.container.container-sm.animated.fadeInDown
+  .center-block.mt-xl
+    // START panel
+    h1.center-block MS PDV
+    .panel
+      .panel-body
+        p.pv.text-bold Credenciais
+        form(role='form').mb-lg
+          .row
+            .col-md-6
+              .form-group.has-feedback.mb
+                input#login.form-control(type='email', placeholder='Seu email', autocomplete="off" ng-model="ctrl.user.email")
+                span.fa.fa-envelope.form-control-feedback.text-muted
+              br
+              .form-group.has-feedback
+                input#password.form-control(type='password', placeholder='Sua senha' ng-model="ctrl.user.password")
+                span.fa.fa-lock.form-control-feedback.text-muted
+              .checkbox.c-checkbox.pull-left.mt0
+                label
+                  input(type='checkbox', value='')
+                  span.fa.fa-check
+                  |  Lembre-se de mim
+            .col-md-6
+              button.btn.btn-block.btn-info.mb(type='submit' ng-click="ctrl.authenticate()" ripple="") Login
+              p.text-muted.mb0 Ainda não é cliente?
+              a(ui-sref="security.register").btn.btn-block.btn-default
+                strong Criar minha conta
+    .text-center.mt
+      //a.text-muted(ui-sref="page.recover") Esqueci minha senha!
+    // END panel
+    .p-lg.text-center(ng-include="'app/views/cached/footer.html'")

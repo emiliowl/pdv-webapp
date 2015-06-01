@@ -1,0 +1,34 @@
+.container.container-sm.animated.fadeInDown
+  .center-block.mt-xl
+    // START panel
+    h1.center-block MS PDV
+    .panel
+      .panel-body
+        p.pv.text-bold CRIE SUA CONTA
+        form(role='form').mb-lg
+          .row
+            .col-md-6
+              .form-group.has-feedback
+                input#signupInputEmail.form-control(type='email', placeholder='Your email', autocomplete="off" ng-model="ctrl.user.email")
+                span.fa.fa-envelope.form-control-feedback.text-muted
+              .form-group.has-feedback
+                input#signupInputPassword.form-control(type='password', placeholder='Your password', autocomplete="off" ng-model="ctrl.user.password")
+                span.fa.fa-lock.form-control-feedback.text-muted
+              .form-group.has-feedback
+                input#signupInputRePassword.form-control(type='password', placeholder='Type again your password', autocomplete="off" ng-model="ctrl.user.password2")
+                span.fa.fa-lock.form-control-feedback.text-muted
+              .clearfix
+                .checkbox.c-checkbox.pull-left.mt0
+                  label
+                    input(type='checkbox', value='')
+                    span.fa.fa-check
+                    |  I agree with the 
+                    a(href="") terms
+            .col-md-6        
+              button.btn.btn-block.btn-primary(type='submit' ripple="" ng-click="ctrl.createUser()") Criar conta!
+              br
+              p.pt-lg.text-center.mt-sm Já possui registro?
+              a(ui-sref="security.login").btn.btn-block.btn-default: strong Login
+
+    // END panel
+    .p-lg.text-center(ng-include="'app/views/cached/footer.html'")
