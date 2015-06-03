@@ -25,8 +25,10 @@
             if (self.user
                 && self.user.email && self.user.email !== ''
                 && self.user.password && self.user.password !== ''
-                && self.user.password2 && self.user.password2 !== '') {
-                authService.createUser(self.user);
+                && self.user.password_confirmation && self.user.password_confirmation !== '') {
+                authService.createUser(self.user, function() {
+                    $state.go('app.dashboard');
+                });
             } else {
                 toaster.error('Aviso', 'Obrigatorio preencher usuario e senha');
             }

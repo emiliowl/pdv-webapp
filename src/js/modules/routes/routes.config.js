@@ -23,7 +23,7 @@
             },
             onEnter: ['$state', 'Auth', function($state, Auth) {
                 if (!Auth.isAuthenticated()) {
-                    $state.go('security.login');
+                    $state.go('auth.login');
                 }
             }]
         });
@@ -47,23 +47,23 @@
         });
 
         // Single Page Routes
-        $stateProvider.state('security', {
-            url: '/security',
-            templateUrl: Route.base('security.html'),
+        $stateProvider.state('auth', {
+            url: '/auth',
+            templateUrl: Route.base('auth.html'),
             resolve: {
                 assets: Route.require('icons', 'toaster', 'animate')
             }
         });
 
-        $stateProvider.state('security.login', {
+        $stateProvider.state('auth.login', {
             url: '/login',
-            templateUrl: Route.base('security.login.html'),
+            templateUrl: Route.base('auth.login.html'),
             controller: 'AuthController as ctrl'
         });
 
-        $stateProvider.state('security.register', {
+        $stateProvider.state('auth.register', {
             url: '/register',
-            templateUrl: Route.base('security.register.html'),
+            templateUrl: Route.base('auth.register.html'),
             controller: 'AuthController as ctrl'
         });
     }

@@ -20,7 +20,7 @@
 
         self.logout = function() {
             $rootScope.logout(function() {
-                                $state.go('security.login');
+                                $state.go('auth.login');
                               });
         };
 

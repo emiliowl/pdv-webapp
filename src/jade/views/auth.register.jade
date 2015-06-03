@@ -15,7 +15,7 @@
                 input#signupInputPassword.form-control(type='password', placeholder='Your password', autocomplete="off" ng-model="ctrl.user.password")
                 span.fa.fa-lock.form-control-feedback.text-muted
               .form-group.has-feedback
-                input#signupInputRePassword.form-control(type='password', placeholder='Type again your password', autocomplete="off" ng-model="ctrl.user.password2")
+                input#signupInputRePassword.form-control(type='password', placeholder='Type again your password', autocomplete="off" ng-model="ctrl.user.password_confirmation")
                 span.fa.fa-lock.form-control-feedback.text-muted
               .clearfix
                 .checkbox.c-checkbox.pull-left.mt0
@@ -28,7 +28,7 @@
               button.btn.btn-block.btn-primary(type='submit' ripple="" ng-click="ctrl.createUser()") Criar conta!
               br
               p.pt-lg.text-center.mt-sm Já possui registro?
-              a(ui-sref="security.login").btn.btn-block.btn-default: strong Login
+              a(ui-sref="auth.login").btn.btn-block.btn-default: strong Login
 
     // END panel
     .p-lg.text-center(ng-include="'app/views/cached/footer.html'")

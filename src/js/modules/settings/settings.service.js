@@ -64,6 +64,10 @@
         getEnvironmentVariables();
       }
 
+      function initializeCorsCommunicationAndTokenAuthenticity() {
+        $http.get($rootScope.app.env.backend + '/users/sign_in.json').success(function (data) {});
+      }
+
       function loadAndWatch() {
         // Load current settings from local storage
         if( angular.isDefined($localStorage.settings) )
@@ -87,8 +91,10 @@
       function getEnvironmentVariables() {
         return $http.get('/rest/getenv').success(function (data) {
           $rootScope.app.env = data;
+          initializeCorsCommunicationAndTokenAuthenticity();
         }).error(function (data) {
           $rootScope.app.env = {backend: 'http://localhost:5000'};
+          initializeCorsCommunicationAndTokenAuthenticity();
         });
       }
 

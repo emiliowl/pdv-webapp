@@ -10,7 +10,7 @@
         var self = this;
 
         self.authenticate = function(user, onAfterLogin) {
-            Auth.login({email: user.email, password: user.password}).then(function() {
+            Auth.login({email: user.email, password: user.password, remember_me: user.remember_me}).then(function() {
                 toaster.success('Mensagem', 'Bem vindo!');
                 if (onAfterLogin) {
                     onAfterLogin();
@@ -20,11 +20,16 @@
             });
         };
 
-        self.createUser = function(user) {
+        self.createUser = function(user, onAfterCreateUser) {
             return $http.post($rootScope.app.env.backend + '/users.json', {user: user}).success(function (data) {
                 toaster.success('Mensagem', 'Usuário criado com sucesso!');
+                onAfterCreateUser();
             }).error(function (data) {
-                toaster.error('Aviso', 'Erro ao tentar criar usuário');
+                //TODO: show all errors, not only the first
+                var message = "";
+                message = message + Object.keys(data.errors)[0];
+                message = message + ' ' + data.errors[Object.keys(data.errors)[0]];
+                toaster.error('Erro', message);
             });
         };
 
