@@ -25,6 +25,8 @@
     configCORSToken(app, $httpProvider);
   }
 
+
+  // functions for doing the configurations
   function configDeviseAuthProvider($httpProvider, AuthProvider) {
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.withCredentials = true;
@@ -44,7 +46,7 @@
         request: function(config) {
           var token = readCookie('XSRF-TOKEN');
           if (token) {
-            config.headers['X-XSRF-TOKEN'] = decodeURIComponent(token);
+            config.headers['X-XSRF-TOKEN'] = token;
           }
           return config;
         }
@@ -54,17 +56,7 @@
     $httpProvider.interceptors.push('XSRFInterceptor');
   }
 
-  //CORS CONFIG FOR SENDING X-XSRF-TOKEN
-  function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-      var c = ca[i];
-      while (c.charAt(0)==' ') c = c.substring(1,c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-  }
+
 
   // Lazy load configuration
   lazyLoadConfig.$inject = ['$ocLazyLoadProvider', 'VENDOR_ASSETS'];
@@ -78,6 +70,7 @@
 
   }
 
+  // helper methods
   var environmentBackend = function(){
     return {
       'localhost' : 'http://localhost:5000',
@@ -86,6 +79,19 @@
     }[window.location.hostname];
   }
 
+  //CORS CONFIG FOR SENDING X-XSRF-TOKEN
+  function readCookie(name) {
+    var cookieValue = null;
+    document.cookie.split(';').some(function(cookieEntry) {
+      var entry = cookieEntry.split('=');
+      if(entry[0] === name) {
+        cookieValue = decodeURIComponent(entry[1]);
+        return false;
+      }
+      return true;
+    });
+    return cookieValue;
+  }
 })();
 
 
