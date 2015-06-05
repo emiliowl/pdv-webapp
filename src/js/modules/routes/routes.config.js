@@ -21,10 +21,11 @@
             resolve: {
                 _assets: Route.require('icons', 'toaster', 'animate', 'sparklines', 'slimscroll')
             },
-            onEnter: ['$state', 'Auth', function($state, Auth) {
-                if (!Auth.isAuthenticated()) {
+            onEnter: ['$state', 'Auth', 'authService', function($state, Auth, authService) {
+                Auth.currentUser().then(function(user) {
+                }, function(error) {
                     $state.go('auth.login');
-                }
+                });
             }]
         });
 
