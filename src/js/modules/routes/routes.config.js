@@ -11,7 +11,7 @@
     function routesConfig($stateProvider, $urlRouterProvider, Route) {
 
         // Default route
-        $urlRouterProvider.otherwise('/app/dashboard');
+        $urlRouterProvider.otherwise('/app/pos');
 
         // Application Routes States
         $stateProvider.state('app', {
@@ -26,7 +26,8 @@
                 }, function(error) {
                     $state.go('auth.login');
                 });
-            }]
+            }],
+            controller: 'AuthController as authCtrl'
         });
 
         $stateProvider.state('app.dashboard', {
@@ -37,9 +38,21 @@
             }
         });
 
+        $stateProvider.state('app.pos', {
+            url: '/pos',
+            templateUrl: Route.base('app.pos.index.html'),
+            resolve: {
+                assets: Route.require('ngTable', 'ngTableExport')
+            },
+            controller: 'POSController as ctrl',
+            onEnter: ['posService', function(posService) {
+                posService.loadAll();
+            }]
+        });
+
         $stateProvider.state('app.sales', {
             url: '/sales',
-            templateUrl: Route.base('sales.html'),
+            templateUrl: Route.base('app.sales.html'),
             resolve: {
                 assets: Route.require('flot-chart', 'flot-chart-plugins', 'ui.knob', 'loadGoogleMapsJS', function() {
                     return loadGoogleMaps();
@@ -53,19 +66,18 @@
             templateUrl: Route.base('auth.html'),
             resolve: {
                 assets: Route.require('icons', 'toaster', 'animate')
-            }
+            },
+            controller: 'AuthController as ctrl'
         });
 
         $stateProvider.state('auth.login', {
             url: '/login',
             templateUrl: Route.base('auth.login.html'),
-            controller: 'AuthController as ctrl'
         });
 
         $stateProvider.state('auth.register', {
             url: '/register',
-            templateUrl: Route.base('auth.register.html'),
-            controller: 'AuthController as ctrl'
+            templateUrl: Route.base('auth.register.html')
         });
     }
 

@@ -15,8 +15,8 @@
                 if (onAfterLogin) {
                     onAfterLogin();
                 }
-            }, function() {
-                toaster.error('Aviso', 'Erro ao autenticar');
+            }, function(data) {
+                toaster.error('Aviso', 'Usuário/senha não encontrados');
             });
         };
 

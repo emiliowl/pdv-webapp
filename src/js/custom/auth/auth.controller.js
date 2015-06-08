@@ -14,7 +14,7 @@
                 && self.user.email && self.user.email !== ''
                 && self.user.password && self.user.password !== '') {
                 authService.authenticate(self.user, function() {
-                    $state.go('app.dashboard');
+                    $state.go('app.pos');
                 });
             } else {
                 toaster.error('Aviso', 'Obrigatorio preencher usuario e senha');
@@ -28,11 +28,17 @@
                 && self.user.password_confirmation && self.user.password_confirmation !== ''
                 && self.user.agree && self.user.agree != '') {
                 authService.createUser(self.user, function() {
-                    $state.go('app.dashboard');
+                    $state.go('app.pos');
                 });
             } else {
                 toaster.error('Aviso', 'Obrigatorio preencher usuario, senha e aceitar os termos');
             }
+        };
+
+        self.logout = function() {
+            authService.logout(function() {
+                $state.go('auth.login');
+            });
         };
     }
 })();

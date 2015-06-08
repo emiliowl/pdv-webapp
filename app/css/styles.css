@@ -4072,6 +4072,19 @@ fieldset[disabled] .btn-orange.active {
 .btn-offset .layout-material {
   position: fixed;
 }
+.btn-offset-inner {
+  position: absolute;
+  right: 40px;
+  height: 35px;
+  z-index: 9002;
+  bottom: -2%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.btn-offset-inner .layout-fixed,
+.btn-offset-inner .layout-material {
+  position: fixed;
+}
 .btn-switch {
   position: relative;
   display: inline-block;

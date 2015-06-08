@@ -3,14 +3,14 @@ nav.navbar.topnavbar(role='navigation', ng-controller="HeaderNavController")
   
   // START button offset
   .btn-offset
-    button(type="button", btn-layer-morph="", target="#layer-search", ripple="").btn.btn-info.btn-circle.btn-lg.shadow-z1
+    button(type="button", btn-layer-morph="", target="#layer-search", ripple="").btn.btn-info.btn-sm.shadow-z1
       em.fa.fa-search
   // START button offset
 
   // START navbar header
   .navbar-header
     a.navbar-brand(ui-sref='app.dashboard') 
-      img.brand-logo(src="app/img/logo.png", alt="App Logo")
+      | EasyPOS
     // Mobile buttons
     .mobile-toggles
       // Button to show/hide the sidebar on mobile. Visible on mobile only.

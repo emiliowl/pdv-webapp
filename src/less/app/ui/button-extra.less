@@ -16,7 +16,7 @@
   &.btn-default {
     border-color: @btn-default-border;
   }
- 
+
   .input-group .input-sm + .input-group-btn & {
     font-size: 13px;
   }
@@ -51,7 +51,7 @@
 }
 
 // Button Image
-// ----------------------------------- 
+// -----------------------------------
 
 .btn-image {
   padding: 0 !important;
@@ -61,7 +61,7 @@
   }
 }
 
-// 
+//
 // Extension for Bootstrap buttons
 // ------------------------------------
 
@@ -97,7 +97,7 @@
   font-size: 18px;
 }
 
-// Button square 
+// Button square
 
 .btn-square {
   border-radius: 0;
@@ -195,7 +195,7 @@
 
 
 // Button Circle
-// ----------------------------------- 
+// -----------------------------------
 
 .btn-circle {
   width: 35px;
@@ -232,6 +232,19 @@
   height: 35px;
   z-index: 99999;
   top: @header-hg - 30;
+  .translate3d(0,0,0);
+  .layout-fixed,
+  .layout-material {
+    position: fixed;
+  }
+}
+
+.btn-offset-inner {
+  position: absolute;
+  right: 40px;
+  height: 35px;
+  z-index: 9002;
+  bottom: -2%;
   .translate3d(0,0,0);
   .layout-fixed,
   .layout-material {

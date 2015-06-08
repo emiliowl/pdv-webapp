@@ -15,11 +15,12 @@
               .form-group.has-feedback
                 input#password.form-control(type='password', placeholder='Sua senha' ng-model="ctrl.user.password")
                 span.fa.fa-lock.form-control-feedback.text-muted
-              .checkbox.c-checkbox.pull-left.mt0
-                label
-                  input(type='checkbox', value='', ng-model="ctrl.user.remember_me")
-                  span.fa.fa-check
-                  |  Lembre-se de mim
+              .clearfix
+                .checkbox.c-checkbox.pull-left.mt0
+                  label
+                    input(type='checkbox', value='', ng-model="ctrl.user.remember_me")
+                    span.fa.fa-check
+                    |  Lembre-se de mim
             .col-md-6
               button.btn.btn-block.btn-info.mb(type='submit' ng-click="ctrl.authenticate()" ripple="") Login
               p.text-muted.mb0 Ainda não é cliente?
