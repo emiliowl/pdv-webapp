@@ -74,8 +74,8 @@
   var environmentBackend = function(){
     return {
       'localhost' : 'http://localhost:5000',
-      'mspdv-dev.herokuapp.com' : 'http://mspdv-dev-backend.herokuapp.com',
-      'mspdv.herokuapp.com' : 'https://mspdv-backend.herokuapp.com'
+      'lafavoritta-easypos-dev.herokuapp.com' : 'https://api-lafavoritta-easypos-dev.herokuapp.com',
+      'lafavoritta-easypos.herokuapp.com' : 'https://api-lafavoritta-easypos.herokuapp.com'
     }[window.location.hostname];
   }
 

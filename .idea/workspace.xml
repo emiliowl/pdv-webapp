@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b60c09-4543-41e0-a0c7-bc2e2c469fd8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/app.dashboard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/jade/views/app.dashboard.jade" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/custom/pos/app.pos.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/app.pos.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/jade/views/app.pos.jade" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/custom/pos/app.pos.service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/custom/products/app.products.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/app.products.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/jade/views/app.products.jade" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/custom/products/app.products.service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/app.sales.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/dashboard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/jade/views/dashboard.jade" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/app.html" afterPath="$PROJECT_DIR$/app/views/app.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jade/views/app.jade" afterPath="$PROJECT_DIR$/src/jade/views/app.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/modules/dashboard/dashboard.controller.js" afterPath="$PROJECT_DIR$/src/js/modules/dashboard/dashboard.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jade/index.jade" afterPath="$PROJECT_DIR$/src/jade/index.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/modules/routes/routes.config.js" afterPath="$PROJECT_DIR$/src/js/modules/routes/routes.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/modules/settings/settings.controller.js" afterPath="$PROJECT_DIR$/src/js/modules/settings/settings.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cached/settings.html" afterPath="$PROJECT_DIR$/app/views/cached/settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jade/views/cached/settings.jade" afterPath="$PROJECT_DIR$/src/jade/views/cached/settings.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/less/app/common/settings.less" afterPath="$PROJECT_DIR$/src/less/app/common/settings.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cached/sidebar.html" afterPath="$PROJECT_DIR$/app/views/cached/sidebar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jade/views/cached/sidebar.jade" afterPath="$PROJECT_DIR$/src/jade/views/cached/sidebar.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/styles.css.map" afterPath="$PROJECT_DIR$/app/css/styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/styles.css" afterPath="$PROJECT_DIR$/app/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/templates.js" afterPath="$PROJECT_DIR$/app/js/templates.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cached/top-navbar.html" afterPath="$PROJECT_DIR$/app/views/cached/top-navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jade/views/cached/top-navbar.jade" afterPath="$PROJECT_DIR$/src/jade/views/cached/top-navbar.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/modules/core/config.js" afterPath="$PROJECT_DIR$/src/js/modules/core/config.js" />
     </list>
     <ignored path="pdv-webapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,84 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sidebar.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jade/views/cached/sidebar.jade">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/modules/core/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="39" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="39" />
-              <folding>
-                <marker date="1433785054550" expanded="true" signature="87:2649" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="149:209" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="222:681" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="285:451" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="387:451" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="466:681" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="502:681" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="545:681" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="694:1548" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="759:924" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="863:924" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="939:1548" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="975:1153" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1018:1153" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1170:1352" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1213:1352" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1369:1548" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1412:1548" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1561:2230" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1619:1785" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1721:1785" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1800:2230" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1836:2022" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="1879:2022" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="2039:2230" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="2082:2230" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="2243:2649" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="2257:2423" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="2359:2423" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="2438:2649" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="2474:2649" placeholder="..." />
-                <marker date="1433785054550" expanded="true" signature="2517:2649" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.config.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/modules/routes/routes.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31634447">
-              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.products.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jade/views/app.products.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.products.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.products.service.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.31428573">
+              <caret line="76" column="84" selection-start-line="76" selection-start-column="84" selection-end-line="76" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -188,7 +82,6 @@
         <option value="$PROJECT_DIR$/src/js/modules/dashboard/dashboard.service.js" />
         <option value="$PROJECT_DIR$/src/js/modules/settings/settings.service.js" />
         <option value="$PROJECT_DIR$/src/jade/views/auth.register.jade" />
-        <option value="$PROJECT_DIR$/src/js/modules/core/config.js" />
         <option value="$PROJECT_DIR$/src/jade/views/point_of_sale.jade" />
         <option value="$PROJECT_DIR$/src/jade/views/auth.login.jade" />
         <option value="$PROJECT_DIR$/src/js/custom/auth/auth.service.js" />
@@ -209,10 +102,11 @@
         <option value="$PROJECT_DIR$/src/jade/views/app.dashboard.jade" />
         <option value="$PROJECT_DIR$/src/jade/views/cached/sidebar.jade" />
         <option value="$PROJECT_DIR$/src/js/custom/products/app.products.service.js" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3182a6aa-bdec-4598-9174-d09941348a70/console.sql" />
         <option value="$PROJECT_DIR$/src/jade/views/app.products.jade" />
         <option value="$PROJECT_DIR$/src/js/custom/products/app.products.controller.js" />
         <option value="$PROJECT_DIR$/src/js/modules/routes/routes.config.js" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3182a6aa-bdec-4598-9174-d09941348a70/console.sql" />
+        <option value="$PROJECT_DIR$/src/js/modules/core/config.js" />
       </list>
     </option>
   </component>
@@ -318,7 +212,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4652" />
+    <option name="x" value="1366" />
     <option name="y" value="24" />
     <option name="width" value="1920" />
     <option name="height" value="1056" />
@@ -441,18 +335,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="4652" y="24" width="1920" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="1366" y="24" width="1920" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38815117" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38815117" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28702757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18890075" sideWeight="0.8130217" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18890075" sideWeight="0.8130217" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299285" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18303095" sideWeight="0.1869783" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10832444" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10832444" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3258427" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20833333" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -460,9 +356,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299285" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268366" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -565,13 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/angular-devise/src/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="15" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/angular-ui-router/src/state.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.317568">
@@ -590,13 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16954474">
           <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/modules/core/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.190372">
-          <caret line="81" column="40" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -667,13 +547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/modules/settings/settings.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5054705">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -832,83 +705,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jade/views/cached/sidebar.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="39" />
-          <folding>
-            <marker date="1433785054550" expanded="true" signature="87:2649" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="149:209" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="222:681" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="285:451" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="387:451" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="466:681" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="502:681" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="545:681" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="694:1548" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="759:924" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="863:924" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="939:1548" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="975:1153" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1018:1153" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1170:1352" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1213:1352" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1369:1548" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1412:1548" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1561:2230" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1619:1785" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1721:1785" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1800:2230" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1836:2022" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="1879:2022" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="2039:2230" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="2082:2230" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="2243:2649" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="2257:2423" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="2359:2423" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="2438:2649" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="2474:2649" placeholder="..." />
-            <marker date="1433785054550" expanded="true" signature="2517:2649" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3182a6aa-bdec-4598-9174-d09941348a70/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.028213166">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jade/views/app.products.jade">
+    <entry file="file://$PROJECT_DIR$/src/jade/views/cached/sidebar.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.08083832">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/modules/routes/routes.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31634447">
+        <state vertical-scroll-proportion="0.26946107">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jade/views/app.products.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5284431">
+          <caret line="55" column="36" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75449103">
+          <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48802397">
+          <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/modules/settings/settings.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="55" selection-start-line="67" selection-start-column="55" selection-end-line="67" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/angular-devise/src/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14285715">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/modules/core/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31428573">
+          <caret line="76" column="84" selection-start-line="76" selection-start-column="84" selection-end-line="76" selection-end-column="84" />
           <folding />
         </state>
       </provider>
