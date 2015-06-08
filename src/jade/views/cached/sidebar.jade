@@ -13,11 +13,7 @@
                 span Cadastros
             ul.nav.sidebar-subnav
               li(ui-sref-active="active")
-                a(ui-sref='register.pdv', title='PDV', ripple='')
-                  em.sidebar-item-icon.fa.fa-shopping-cart
-                  span PDV(Loja)
-              li(ui-sref-active="active")
-                a(ui-sref='register.products', title='produtos', ripple='')
+                a(ui-sref='app.products', title='produtos', ripple='')
                   em.sidebar-item-icon.fa.fa-table
                   span Produtos
           li(ng-class="{active:$state.includes('management')}")
@@ -52,4 +48,14 @@
                 a(ui-sref='app.sales', title='frente de loja', ripple='')
                   em.sidebar-item-icon.fa.fa-desktop
                   span Frente de Caixa
+          li
+            a(href='', title='Segurança', ripple='')
+              em.sidebar-item-icon.fa.fa-lock
+              em.sidebar-item-caret.fa.pull-right
+                span Segurança
+            ul.nav.sidebar-subnav
+              li(ui-sref-active="active")
+                a(ui-sref='app.pos', title='pos', ripple='')
+                  em.sidebar-item-icon.fa.fa-sign-out
+                  span Sair do PDV
 // END Sidebar

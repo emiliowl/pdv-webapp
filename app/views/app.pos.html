@@ -1,0 +1,66 @@
+<div class="app-view-header">Ponto de Vendas</div>
+<div class="container-fluid">
+   <br/>
+   <div class="row">
+      <div class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="btn-offset-inner">
+               <button type="button" ripple="" ng-click="ctrl.new()" class="btn btn-primary btn-circle btn-lg shadow-z1">
+                  <em class="fa fa-plus"></em>
+               </button>
+            </div>
+            <div class="panel-heading">Selecione um Ponto de Vendas</div>
+            <div class="panel-body">
+               <div class="table-responsive">
+                  <table class="table table-hover">
+                     <thead>
+                        <tr>
+                           <th>nome</th>
+                           <th></th>
+                           <th></th>
+                           <th></th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-repeat="pos in ctrl.posList" ng-class="{active: (pos.id === ctrl.selectedPOS.id)}">
+                           <td>
+                              <span ng-bind="pos.name"></span>
+                           </td>
+                           <td>
+                              <a href="#" ng-click="ctrl.edit(pos)" class="fa fa-edit"></a>
+                           </td>
+                           <td>
+                              <a href="#" ng-click="ctrl.destroy(pos)" class="fa fa-trash-o"></a>
+                           </td>
+                           <td>
+                              <a href="#" ng-click="ctrl.select(pos)" class="fa fa-play"></a>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div ng-show="ctrl.selectedPOS" class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="panel-heading">Cadastro de Ponto de Vendas</div>
+            <div class="panel-body">
+               <fieldset>
+                  <div class="form-group">
+                     <label for="pos_name" class="col-md-2 control-label">Nome</label>
+                     <div class="col-md-10">
+                        <input id="pos_name" ng-model="ctrl.selectedPOS.name" type="text" class="form-control shadow-z1" />
+                     </div>
+                  </div>
+               </fieldset>
+               <hr/>
+               <div class="form-group">
+                  <button ripple="" ng-click="ctrl.save()" class="btn btn-xs btn-success btn-flat">Salvar</button>
+                  <button ripple="" ng-click="ctrl.cancel()" class="btn btn-xs btn-danger btn-flat">Cancelar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

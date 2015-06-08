@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - dac8ffbs7t8sja@ec2-184-73-251-115.compute-1.amazonaws.com" uuid="3182a6aa-bdec-4598-9174-d09941348a70">
+      <secret-storage>master_key</secret-storage>
+      <user-name>egmtfzmzuhpjid</user-name>
+      <schema-pattern>dac8ffbs7t8sja.pg_catalog dac8ffbs7t8sja.public</schema-pattern>
+      <default-schemas>dac8ffbs7t8sja.pg_catalog dac8ffbs7t8sja.public</default-schemas>
+    </data-source>
+  </component>
+</project>

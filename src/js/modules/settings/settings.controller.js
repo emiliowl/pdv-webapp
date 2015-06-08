@@ -11,6 +11,7 @@
         .controller('SettingsController', SettingsController);
     /* @ngInject */
     function SettingsController($scope, settings) {
+      var self = this;
 
       // Restore/Save layout settings
       settings.loadAndWatch();

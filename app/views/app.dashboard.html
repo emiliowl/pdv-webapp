@@ -1,0 +1,70 @@
+<div class="app-view-header">Dashboard</div>
+<div ng-controller="DashboardController as ctrl" class="container-fluid">
+   <div class="text-center">
+      <h1>{{ctrl.title}}</h1>
+      <p>{{ctrl.text}}</p>
+   </div>
+   <br/>
+   <div class="row">
+      <div class="col-lg-6">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <div class="panel-title">Itens mais vendidos</div>
+            </div>
+            <div class="panel-body">
+               <!-- START table-responsive-->
+               <div class="table-responsive">
+                  <table class="table">
+                     <thead>
+                        <tr show="ctrl.patients">
+                           <th>Nome</th>
+                           <th>Quantidade</th>
+                           <th>Valor</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Item 1</td>
+                           <td>25</td>
+                           <td>{{99 | currency}}</td>
+                        </tr>
+                        <tr>
+                           <td>Item 2</td>
+                           <td>12</td>
+                           <td>{{50 | currency}}</td>
+                        </tr>
+                        <tr>
+                           <td>Item 3</td>
+                           <td>50</td>
+                           <td>{{49 | currency}}</td>
+                        </tr>
+                        <tr>
+                           <td>Item 4</td>
+                           <td>1000</td>
+                           <td>{{20 | currency}}</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-6">
+         <div class="panel panel-default">
+            <div class="panel-heading"><a ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv" class="pull-right btn btn-sm btn-primary">Exportar para CSV</a>
+               <div class="panel-title">Histórico de Vendas</div>
+            </div>
+            <div class="table-responsive">
+               <table ng-table="ctrl.sales" export-csv="csv" class="table table-bordered table-striped">
+                  <tbody>
+                     <tr ng-repeat="sale in $data">
+                        <td data-title="'Data'">{{sale.date | date:shortDate}}</td>
+                        <td data-title="'Valor'">{{sale.value | currency}}</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

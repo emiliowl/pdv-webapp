@@ -1,0 +1,71 @@
+.app-view-header
+  | Produtos
+.container-fluid
+  br
+  .row
+    .col-md-6
+      .panel.panel-primary
+        .btn-offset-inner
+          button(type="button", ripple="" ng-click="ctrl.new()").btn.btn-primary.btn-circle.btn-lg.shadow-z1
+            em.fa.fa-plus
+        .panel-heading
+          | Para editar selecione um produto
+        .panel-body
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr
+                  th nome
+                  th descrição
+                  th preço
+                  th imagem
+                  th
+                  th
+              tbody
+                tr(ng-repeat="product in ctrl.products" ng-class='{active: (product.id === ctrl.selectedProduct.id)}')
+                  td
+                    span(ng-bind="product.name")
+                  td
+                    span(ng-bind="product.description")
+                  td
+                    span(ng-bind="product.price | currency")
+                  td
+                    span(ng-bind="product.image | currency")
+                  td
+                    a(href='#' class="fa fa-edit" ng-click="ctrl.edit(product)")
+                  td
+                    a(href='#' class="fa fa-trash-o" ng-click="ctrl.destroy(product)")
+
+    .col-md-6(ng-show="ctrl.selectedProduct")
+      .panel.panel-primary
+        .panel-heading
+          | Cadastro de Produto
+        .panel-body
+          form.form-validate.form-horizontal(action='#', name="product_form")
+            fieldset
+              .form-group
+                label(class='col-md-2 control-label' for='product_name')
+                  | Nome
+                .col-md-10
+                  input(id='product_name' ng-model='ctrl.selectedProduct.name' class='form-control shadow-z1' type='text')
+            fieldset
+              .form-group
+                label(class='col-md-2 control-label' for='product_description')
+                  | Descrição
+                .col-md-10
+                  input(id='product_description' ng-model='ctrl.selectedProduct.description' class='form-control shadow-z1' type='text')
+            fieldset
+              .form-group
+                label.col-sm-2.control-label Preço
+                .col-sm-10
+                  input.form-control(type='number', name='product_price', ng-model="ctrl.selectedProduct.price" class='form-control shadow-z1')
+            fieldset
+              .form-group
+                label(class='col-md-2 control-label' for='product_image')
+                  | Imagem
+                .col-md-10
+                  input(id='product_image' ng-model='ctrl.selectedProduct.image' class='form-control shadow-z1' type='text')
+          hr
+          .form-group
+            button.btn.btn-xs.btn-success.btn-flat(ripple="", ng-click="ctrl.save()")  Salvar
+            button.btn.btn-xs.btn-danger.btn-flat(ripple="", ng-click="ctrl.cancel()") Cancelar

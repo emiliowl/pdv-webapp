@@ -10,45 +10,24 @@
     function DashboardController(dashboardService, ngTableParams, $rootScope, $state) {
         var self = this;
         self.patients = dashboardService.patients;
-        self.title = 'MS PDV - Simplicidade e eficiencia para seu ponto de vendas';
-        self.text = 'This project is an application skeleton for a typical AngularJS web app. You can use it to quickly bootstrap your angular webapp projects and dev environment for these projects.' +
-            'The seed app doesnt do much, just shows how to wire some controllers and views together.';
+        self.title = 'MS PDV - Simplicidade e eficiência para seu ponto de vendas';
+        self.text = '';
 
-        self.loadPatients = function() {
-            dashboardService.getAll();
-        };
+        var salesData = [{date: new Date(2015,5,2), value: 101},
+                         {date: new Date(2015,5,3), value: 98},
+                         {date: new Date(2015,5,4), value: 120},
+                         {date: new Date(2015,5,5), value: 190},
+                         {date: new Date(2015,5,6), value: 10},
+                         {date: new Date(2015,5,7), value: 900},
+                         {date: new Date(2015,5,8), value: 1010}];
 
-        self.logout = function() {
-            $rootScope.logout(function() {
-                                $state.go('auth.login');
-                              });
-        };
-
-        var data4 = [{name: 'Moroni', age: 50},
-            {name: 'Tiancum', age: 43},
-            {name: 'Jacob', age: 27},
-            {name: 'Nephi', age: 29},
-            {name: 'Enos', age: 34},
-            {name: 'Tiancum', age: 43},
-            {name: 'Jacob', age: 27},
-            {name: 'Nephi', age: 29},
-            {name: 'Enos', age: 34},
-            {name: 'Tiancum', age: 43},
-            {name: 'Jacob', age: 27},
-            {name: 'Nephi', age: 29},
-            {name: 'Enos', age: 34},
-            {name: 'Tiancum', age: 43},
-            {name: 'Jacob', age: 27},
-            {name: 'Nephi', age: 29},
-            {name: 'Enos', age: 34}];
-
-        self.tableParams4 = new ngTableParams({
+        self.sales = new ngTableParams({
             page: 1,            // show first page
             count: 10           // count per page
         }, {
-            total: data4.length, // length of data4
+            total: salesData.length,
             getData: function($defer, params) {
-                $defer.resolve(data4.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+                $defer.resolve(salesData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
             }
         });
 

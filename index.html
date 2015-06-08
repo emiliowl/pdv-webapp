@@ -19,8 +19,6 @@
 <body ng-clok="" ng-class="{ 'layout-material': true, 'aside-offscreen' : app.sidebar.isOffscreen, 'footer-hidden': false, 'in-app': !$state.includes('security')}">
    <div data-ui-view="" data-autoscroll="false" ng-controller="CoreController" class="app-container"></div>
    <!-- Settings-->
-   <!--.settings-wrapper(ng-include="'templates/settings.html'", ng-class="{'visible': showSettings}", ng-init="showSettings = false")-->
-   <!-- End Settings-->
    <!-- Layer Morph-->
    <div class="layer-morph-overlay">
       <div class="layer-morph-inner bg-info"></div>
@@ -64,6 +62,8 @@
    <script src="src/js/custom/auth/auth.service.js"></script>
    <script src="src/js/custom/pos/app.pos.controller.js"></script>
    <script src="src/js/custom/pos/app.pos.service.js"></script>
+   <script src="src/js/custom/products/app.products.controller.js"></script>
+   <script src="src/js/custom/products/app.products.service.js"></script>
    <script src="src/js/custom/sales.controller.js"></script>
    <script src="src/js/modules/charts/flot-chart-options.services.js"></script>
    <script src="src/js/modules/charts/flot-chart.controller.js"></script>

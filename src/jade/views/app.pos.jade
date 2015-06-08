@@ -1,0 +1,47 @@
+.app-view-header
+  | Ponto de Vendas
+.container-fluid
+  br
+  .row
+    .col-md-6
+      .panel.panel-primary
+        .btn-offset-inner
+          button(type="button", ripple="" ng-click="ctrl.new()").btn.btn-primary.btn-circle.btn-lg.shadow-z1
+            em.fa.fa-plus
+        .panel-heading
+          | Selecione um Ponto de Vendas
+        .panel-body
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr
+                  th nome
+                  th
+                  th
+                  th
+              tbody
+                tr(ng-repeat="pos in ctrl.posList" ng-class='{active: (pos.id === ctrl.selectedPOS.id)}')
+                  td
+                    span(ng-bind="pos.name")
+                  td
+                    a(href='#' class="fa fa-edit" ng-click="ctrl.edit(pos)")
+                  td
+                    a(href='#' class="fa fa-trash-o" ng-click="ctrl.destroy(pos)")
+                  td
+                    a(href='#' class="fa fa-play" ng-click="ctrl.select(pos)")
+
+    .col-md-6(ng-show="ctrl.selectedPOS")
+      .panel.panel-primary
+        .panel-heading
+          | Cadastro de Ponto de Vendas
+        .panel-body
+          fieldset
+            .form-group
+              label(class='col-md-2 control-label' for='pos_name')
+                | Nome
+              .col-md-10
+                input(id='pos_name' ng-model='ctrl.selectedPOS.name' class='form-control shadow-z1' type='text')
+          hr
+          .form-group
+            button.btn.btn-xs.btn-success.btn-flat(ripple="", ng-click="ctrl.save()")  Salvar
+            button.btn.btn-xs.btn-danger.btn-flat(ripple="", ng-click="ctrl.cancel()") Cancelar

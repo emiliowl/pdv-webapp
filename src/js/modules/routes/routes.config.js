@@ -21,8 +21,11 @@
             resolve: {
                 _assets: Route.require('icons', 'toaster', 'animate', 'sparklines', 'slimscroll')
             },
-            onEnter: ['$state', 'Auth', 'authService', function($state, Auth, authService) {
+            onEnter: ['$state', 'Auth', 'authService', '$rootScope', function($state, Auth, authService, $rootScope) {
                 Auth.currentUser().then(function(user) {
+                    if (!$rootScope.pos) {
+                        $state.go('app.pos');
+                    }
                 }, function(error) {
                     $state.go('auth.login');
                 });
@@ -32,7 +35,7 @@
 
         $stateProvider.state('app.dashboard', {
             url: '/dashboard',
-            templateUrl: Route.base('dashboard.html'),
+            templateUrl: Route.base('app.dashboard.html'),
             resolve: {
                 assets: Route.require('ngTable', 'ngTableExport')
             }
@@ -40,12 +43,25 @@
 
         $stateProvider.state('app.pos', {
             url: '/pos',
-            templateUrl: Route.base('app.pos.index.html'),
+            templateUrl: Route.base('app.pos.html'),
             resolve: {
                 assets: Route.require('ngTable', 'ngTableExport')
             },
             controller: 'POSController as ctrl',
-            onEnter: ['posService', function(posService) {
+            onEnter: ['posService', '$rootScope', function(posService,$rootScope) {
+                posService.loadAll();
+                $rootScope.pos = null;
+            }]
+        });
+
+        $stateProvider.state('app.products', {
+            url: '/products',
+            templateUrl: Route.base('app.products.html'),
+            //resolve: {
+            //    assets: Route.require('ngTable')
+            //},
+            controller: 'ProductsCtrl as ctrl',
+            onEnter: ['productsService',function(posService) {
                 posService.loadAll();
             }]
         });

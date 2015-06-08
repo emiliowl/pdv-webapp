@@ -2,13 +2,15 @@
 header(ng-include="'templates/top-navbar.html'", ng-class="app.theme.topbar")
 
 // Sidebar
-aside(ng-include="'templates/sidebar.html'", ng-class="app.theme.sidebar")
+aside(ng-include="'templates/sidebar.html'", ng-class="app.theme.sidebar" ng-if='$root.pos')
 
 // Main
 section
   // Content
   toaster-container(toaster-options="{'position-class': 'toast-top-right', 'close-button':true}")
   .app(ui-view="", autoscroll="false", ng-class="app.views.animation")
+  .settings-wrapper(ng-include="'templates/settings.html'", ng-class="{'visible': showSettings}", ng-init="showSettings = false")
+  // End Settings
   
 // Page footer
 footer(ng-include="'templates/footer.html'")

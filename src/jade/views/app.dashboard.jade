@@ -1,0 +1,63 @@
+.app-view-header Dashboard
+.container-fluid(ng-controller="DashboardController as ctrl")
+  .text-center
+    h1 {{ctrl.title}}
+    p {{ctrl.text}}
+  br
+  .row
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title Itens mais vendidos
+        .panel-body
+          // START table-responsive
+          .table-responsive
+            table.table
+              thead
+                tr(show="ctrl.patients")
+                  th
+                    |Nome
+                  th
+                    |Quantidade
+                  th
+                    |Valor
+              tbody
+                tr
+                  td
+                    |Item 1
+                  td
+                    |25
+                  td
+                    |{{99 | currency}}
+                tr
+                  td
+                    |Item 2
+                  td
+                    |12
+                  td
+                    |{{50 | currency}}
+                tr
+                  td
+                    |Item 3
+                  td
+                    |50
+                  td
+                    |{{49 | currency}}
+                tr
+                  td
+                    |Item 4
+                  td
+                    |1000
+                  td
+                    |{{20 | currency}}
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          a.pull-right.btn.btn-sm.btn-primary(ng-mousedown='csv.generate()', ng-href='{{ csv.link() }}', download='test.csv') Exportar para CSV
+          .panel-title Histórico de Vendas
+        .table-responsive
+          table.table.table-bordered.table-striped(ng-table='ctrl.sales', export-csv='csv')
+            tbody
+              tr(ng-repeat='sale in $data')
+                td(data-title="'Data'") {{sale.date | date:shortDate}}
+                td(data-title="'Valor'") {{sale.value | currency}}

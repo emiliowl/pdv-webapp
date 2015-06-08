@@ -1,0 +1,100 @@
+<div class="app-view-header">Produtos</div>
+<div class="container-fluid">
+   <br/>
+   <div class="row">
+      <div class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="btn-offset-inner">
+               <button type="button" ripple="" ng-click="ctrl.new()" class="btn btn-primary btn-circle btn-lg shadow-z1">
+                  <em class="fa fa-plus"></em>
+               </button>
+            </div>
+            <div class="panel-heading">Para editar selecione um produto</div>
+            <div class="panel-body">
+               <div class="table-responsive">
+                  <table class="table table-hover">
+                     <thead>
+                        <tr>
+                           <th>nome</th>
+                           <th>descrição</th>
+                           <th>preço</th>
+                           <th>imagem</th>
+                           <th></th>
+                           <th></th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-repeat="product in ctrl.products" ng-class="{active: (product.id === ctrl.selectedProduct.id)}">
+                           <td>
+                              <span ng-bind="product.name"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="product.description"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="product.price | currency"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="product.image | currency"></span>
+                           </td>
+                           <td>
+                              <a href="#" ng-click="ctrl.edit(product)" class="fa fa-edit"></a>
+                           </td>
+                           <td>
+                              <a href="#" ng-click="ctrl.destroy(product)" class="fa fa-trash-o"></a>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div ng-show="ctrl.selectedProduct" class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="panel-heading">Cadastro de Produto</div>
+            <div class="panel-body">
+               <form action="#" name="product_form" class="form-validate form-horizontal">
+                  <fieldset>
+                     <div class="form-group">
+                        <label for="product_name" class="col-md-2 control-label">Nome</label>
+                        <div class="col-md-10">
+                           <input id="product_name" ng-model="ctrl.selectedProduct.name" type="text" class="form-control shadow-z1" />
+                        </div>
+                     </div>
+                  </fieldset>
+                  <fieldset>
+                     <div class="form-group">
+                        <label for="product_description" class="col-md-2 control-label">Descrição</label>
+                        <div class="col-md-10">
+                           <input id="product_description" ng-model="ctrl.selectedProduct.description" type="text" class="form-control shadow-z1" />
+                        </div>
+                     </div>
+                  </fieldset>
+                  <fieldset>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Preço</label>
+                        <div class="col-sm-10">
+                           <input type="number" name="product_price" ng-model="ctrl.selectedProduct.price" class="form-control form-control shadow-z1" />
+                        </div>
+                     </div>
+                  </fieldset>
+                  <fieldset>
+                     <div class="form-group">
+                        <label for="product_image" class="col-md-2 control-label">Imagem</label>
+                        <div class="col-md-10">
+                           <input id="product_image" ng-model="ctrl.selectedProduct.image" type="text" class="form-control shadow-z1" />
+                        </div>
+                     </div>
+                  </fieldset>
+               </form>
+               <hr/>
+               <div class="form-group">
+                  <button ripple="" ng-click="ctrl.save()" class="btn btn-xs btn-success btn-flat">Salvar</button>
+                  <button ripple="" ng-click="ctrl.cancel()" class="btn btn-xs btn-danger btn-flat">Cancelar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
