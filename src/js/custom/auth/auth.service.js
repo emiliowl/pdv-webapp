@@ -24,13 +24,7 @@
             return $http.post($rootScope.app.env.backend + '/users.json', {user: user}).success(function (data) {
                 toaster.success('Mensagem', 'Usuário criado com sucesso!');
                 onAfterCreateUser();
-            }).error(function (data) {
-                //TODO: show all errors, not only the first
-                var message = "";
-                message = message + Object.keys(data.errors)[0];
-                message = message + ' ' + data.errors[Object.keys(data.errors)[0]];
-                toaster.error('Erro', message);
-            });
+            }).error(self.handleError);
         };
 
         self.logout = function(onAfterLogout) {
@@ -42,6 +36,17 @@
             }, function() {
                 toaster.error('Erro', 'Erro ao sair');
             });
+        };
+
+        self.handleError = function(data) {
+            var message = "";
+            if (data && data.errors) {
+                message = message + Object.keys(data.errors)[0];
+                message = message + ' ' + data.errors[Object.keys(data.errors)[0]];
+            } else {
+                message = 'Erro ao comunicar com o servidor.'
+            }
+            toaster.error('Erro', message);
         };
 
         $rootScope.signedIn = Auth.isAuthenticated;

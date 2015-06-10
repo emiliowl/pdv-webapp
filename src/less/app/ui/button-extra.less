@@ -230,7 +230,7 @@
   position: absolute;
   right: 60px;
   height: 35px;
-  z-index: 99999;
+  z-index: 1049;
   top: @header-hg - 30;
   .translate3d(0,0,0);
   .layout-fixed,
@@ -241,13 +241,17 @@
 
 .btn-offset-inner {
   position: absolute;
-  right: 40px;
+  right: 5%;
   height: 35px;
-  z-index: 9002;
-  bottom: -2%;
+  z-index: 1049;
+  bottom: -1em;
   .translate3d(0,0,0);
   .layout-fixed,
   .layout-material {
     position: fixed;
   }
+}
+
+.btn-offset-only {
+  z-index: 1049;
 }
