@@ -22,5 +22,7 @@ angular
     'oc.lazyLoad',
     'cfp.loadingBar',
     'pascalprecht.translate',
-    'Devise'
+    'Devise',
+    'cloudinary',
+    'ngFileUpload'
 ]);

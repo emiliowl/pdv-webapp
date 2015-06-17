@@ -87,6 +87,38 @@
                         </div>
                      </div>
                   </fieldset>
+                  <fieldset>
+                     <div id="direct_upload" ngf-drop="ngf-drop" ngf-drag-over-class="{accept:'panel-success', reject:'panel-danger', delay:100}" ng-model="ctrl.images" ngf-multiple="true" ngf-accept="'image/png,image/jpg,image/jpeg'" class="panel panel-default">
+                        <div class="panel-heading">
+                           <h2>Imagens</h2>
+                        </div>
+                        <div class="panel-body">
+                           <div href="#" type="file" ngf-select="true" ngf-multiple="true" title="upload" ng-model="ctrl.images" ripple="ripple" class="btn btn-primary">Upload!!</div>
+                        </div>
+                        <div class="panel-footer">
+                           <span ng-if="ctrl.images">Carregando</span>
+                           <div ng-repeat="image in ctrl.images" class="file">
+                              <h3 ng-bind="image.name"></h3>
+                              <div ng-bind="image.status" class="status"></div>
+                              <div class="progress-bar">
+                                 <div style="width: {{image.progress}}%" ng-init="progress=0" class="progress"></div>
+                              </div>
+                              <div class="form_line">
+                                 <div class="form_controls">
+                                    <div class="preview"></div>
+                                 </div>
+                              </div>
+                              <div class="info">
+                                 <table>
+                                    <tr ng-repeat="(key, value) in image.result"></tr>
+                                    <td ng-bind="key"></td>
+                                    <td ng-bind="value"></td>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </fieldset>
                </form>
                <hr/>
                <div class="form-group">

@@ -62,6 +62,8 @@
           }
         };
         getEnvironmentVariables();
+        $.cloudinary.config().cloud_name = 'msitbrasil';
+        $.cloudinary.config().upload_preset = 'dypyp68b';
       }
 
       function initializeCorsCommunicationAndTokenAuthenticity() {

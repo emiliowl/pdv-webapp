@@ -7,11 +7,12 @@
     angular.module('naut').controller('ProductsCtrl', ProductsCtrl);
 
     /* @ngInject */
-    function ProductsCtrl(productsService) {
+    function ProductsCtrl(productsService, Upload) {
         var self = this;
 
         self.products = productsService.products;
         self.selectedProduct = null;
+        self.images = null;
 
         self.new = function() {
             self.selectedProduct = {};
@@ -44,6 +45,22 @@
             product.price = parseFloat(product.price);
             self.selectedProduct = product;
         };
-    };
 
+        /* Modify the look and fill of the dropzone when files are being dragged over it */
+        self.dragOverClass = function($event) {
+            var items = $event.dataTransfer.items;
+            var hasFile = false;
+            if (items != null) {
+                for (var i = 0 ; i < items.length; i++) {
+                    if (items[i].kind == 'file') {
+                        hasFile = true;
+                        break;
+                    }
+                }
+            } else {
+                hasFile = true;
+            }
+            return hasFile ? "dragover" : "dragover-err";
+        };
+    };
 })();

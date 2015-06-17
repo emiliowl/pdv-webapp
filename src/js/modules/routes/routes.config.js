@@ -57,11 +57,8 @@
         $stateProvider.state('app.products', {
             url: '/products',
             templateUrl: Route.base('app.products.html'),
-            //resolve: {
-            //    assets: Route.require('ngTable')
-            //},
             controller: 'ProductsCtrl as ctrl',
-            onEnter: ['productsService',function(posService) {
+            onEnter: ['productsService', function(posService) {
                 posService.loadAll();
             }]
         });

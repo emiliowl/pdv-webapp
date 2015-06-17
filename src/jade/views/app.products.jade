@@ -65,6 +65,33 @@
                   | Imagem
                 .col-md-10
                   input(id='product_image' ng-model='ctrl.selectedProduct.image' class='form-control shadow-z1' type='text')
+            fieldset
+              #direct_upload( ngf-drop
+                              ngf-drag-over-class="{accept:'panel-success', reject:'panel-danger', delay:100}"
+                              ng-model="ctrl.images"
+                              ngf-multiple="true"
+                              ngf-accept="'image/png,image/jpg,image/jpeg'"
+                              class="panel panel-default" )
+
+                .panel-heading
+                  h2 Imagens
+                .panel-body
+                  div.btn.btn-primary(href="#" type="file" ngf-select="true" ngf-multiple="true" title="upload" ng-model="ctrl.images" ripple) Upload!!
+                .panel-footer
+                  span(ng-if="ctrl.images") Carregando
+                  .file(ng-repeat="image in ctrl.images")
+                    h3(ng-bind="image.name")
+                    .status(ng-bind="image.status")
+                    .progress-bar
+                      .progress(style="width: {{image.progress}}%" ng-init="progress=0")
+                    .form_line
+                      .form_controls
+                        .preview
+                    .info
+                      table
+                        tr(ng-repeat="(key, value) in image.result")
+                        td(ng-bind="key")
+                        td(ng-bind="value")
           hr
           .form-group
             button.btn.btn-xs.btn-success.btn-flat(ripple="", ng-click="ctrl.save()")  Salvar

@@ -13,7 +13,6 @@ html(lang="en", ng-app="naut")
     meta(name='keywords', content='app, responsive, angular, bootstrap, dashboard, admin')
 
     title(data-ng-bind="pageTitle()") MS PDV - A solução para PDV mais simples e eficiente
-
     // build:css app/css/application.css
     link(rel='stylesheet', href="app/css/bootstrap.css")
     link(rel='stylesheet', href="app/css/styles.css")
@@ -56,6 +55,14 @@ html(lang="en", ng-app="naut")
     script(src="vendor/oclazyload/dist/ocLazyLoad.js")
     script(src="vendor/angular-loading-bar/build/loading-bar.js")
     script(src="vendor/angular-devise/lib/devise.js")
+    script(src="vendor/blueimp-file-upload/js/vendor/jquery.ui.widget.js")
+    script(src="vendor/blueimp-file-upload/js/jquery.iframe-transport.js")
+    script(src="vendor/blueimp-file-upload/js/jquery.fileupload.js")
+    script(src="vendor/cloudinary_js/js/jquery.cloudinary.js")
+    script(src="vendor/ng-file-upload/ng-file-upload-shim.min.js")
+    script(src="vendor/ng-file-upload/ng-file-upload.min.js")
+    script(src="vendor/ng-file-upload/ng-file-upload-all.min.js")
+    script(src="vendor/cloudinary_ng/js/angular.cloudinary.js")
     // endbuild
     // build:js app/js/application.js
     - each js in scripts
