@@ -67,6 +67,22 @@
                 });
         };
 
+        self.destroyImage = function(imageId) {
+            return $http.delete('/rest/image/?imageId='+ imageId)
+                .success(function (data) {
+                    toaster.success('Mensagem', 'Imagem removida com sucesso!');
+                }).error(function (data) {
+                    var message = "";
+                    if(data.errors) {
+                        message = message + Object.keys(data.errors)[0];
+                        message = message + ' ' + data.errors[Object.keys(data.errors)[0]];
+                    } else {
+                        message = 'Erro ao comunicar com servidor de imagens.'
+                    }
+                    toaster.error('Erro', message);
+                });
+        };
+
         return self;
     }
 })();

@@ -6,7 +6,7 @@
     .col-md-6
       .panel.panel-primary
         .btn-offset-inner
-          button(type="button", ripple="" ng-click="ctrl.new()").btn.btn-primary.btn-circle.btn-lg.shadow-z1
+          button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button", ripple="" ng-click="ctrl.new()")
             em.fa.fa-plus
         .panel-heading
           | Para editar selecione um produto
@@ -69,29 +69,35 @@
               #direct_upload( ngf-drop
                               ngf-drag-over-class="{accept:'panel-success', reject:'panel-danger', delay:100}"
                               ng-model="ctrl.images"
-                              ngf-multiple="true"
+                              ngf-multiple="false"
                               ngf-accept="'image/png,image/jpg,image/jpeg'"
                               class="panel panel-default" )
 
                 .panel-heading
                   h2 Imagens
                 .panel-body
-                  div.btn.btn-primary(href="#" type="file" ngf-select="true" ngf-multiple="true" title="upload" ng-model="ctrl.images" ripple) Upload!!
+                  .btn.btn-primary(href="#" type="file" ngf-select="true" ngf-capture="'other'" ngf-multiple="false" title="upload" ng-model="ctrl.images" ripple) Anexar Imagem
                 .panel-footer
-                  span(ng-if="ctrl.images") Carregando
+                  span(ng-if="ctrl.images") Detalhes do upload da imagem
                   .file(ng-repeat="image in ctrl.images")
-                    h3(ng-bind="image.name")
-                    .status(ng-bind="image.status")
-                    .progress-bar
-                      .progress(style="width: {{image.progress}}%" ng-init="progress=0")
+                    h3(ng-bind="image.name | limitTo : 30")
+                    .p
+                      | Progresso
+                      progressbar.progress-sm(value='image.progress' type='info')
+                        .text-xs.text-center.align-top {{image.progress}}%
                     .form_line
                       .form_controls
-                        .preview
-                    .info
-                      table
+                        .preview(ng-if='ctrl.selectedProduct.public_id')
+                          .btn-offset-right-top
+                            button.btn.btn-xs.btn-danger.btn-circle.shadow-z1(href="#" ng-click="ctrl.destroyImage(ctrl.selectedProduct.public_id)" ripple)
+                              em.fa.fa-times
+                          cl-image(public-id="{{ctrl.selectedProduct.public_id}}" class="thumbnail inline" format="jpg")
+                            cl-transformation(height="150" width="150" crop="fill" gravity="north")
+                    .info.table-responsive(style="display: none")
+                      table.table.table-condensed
                         tr(ng-repeat="(key, value) in image.result")
-                        td(ng-bind="key")
-                        td(ng-bind="value")
+                          td(ng-bind="key")
+                          td(ng-bind="value")
           hr
           .form-group
             button.btn.btn-xs.btn-success.btn-flat(ripple="", ng-click="ctrl.save()")  Salvar

@@ -45,7 +45,8 @@
       var XSRFInterceptor = {
         request: function(config) {
           var token = readCookie('XSRF-TOKEN');
-          if (token) {
+          var isCloudinary = (config.url.indexOf('api.cloudinary') >= 0);
+          if (token && !isCloudinary) {
             config.headers['X-XSRF-TOKEN'] = token;
           }
           return config;

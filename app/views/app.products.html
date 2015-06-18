@@ -88,31 +88,42 @@
                      </div>
                   </fieldset>
                   <fieldset>
-                     <div id="direct_upload" ngf-drop="ngf-drop" ngf-drag-over-class="{accept:'panel-success', reject:'panel-danger', delay:100}" ng-model="ctrl.images" ngf-multiple="true" ngf-accept="'image/png,image/jpg,image/jpeg'" class="panel panel-default">
+                     <div id="direct_upload" ngf-drop="ngf-drop" ngf-drag-over-class="{accept:'panel-success', reject:'panel-danger', delay:100}" ng-model="ctrl.images" ngf-multiple="false" ngf-accept="'image/png,image/jpg,image/jpeg'" class="panel panel-default">
                         <div class="panel-heading">
                            <h2>Imagens</h2>
                         </div>
                         <div class="panel-body">
-                           <div href="#" type="file" ngf-select="true" ngf-multiple="true" title="upload" ng-model="ctrl.images" ripple="ripple" class="btn btn-primary">Upload!!</div>
+                           <div href="#" type="file" ngf-select="true" ngf-capture="'other'" ngf-multiple="false" title="upload" ng-model="ctrl.images" ripple="ripple" class="btn btn-primary">Anexar Imagem</div>
                         </div>
                         <div class="panel-footer">
-                           <span ng-if="ctrl.images">Carregando</span>
+                           <span ng-if="ctrl.images">Detalhes do upload da imagem</span>
                            <div ng-repeat="image in ctrl.images" class="file">
-                              <h3 ng-bind="image.name"></h3>
-                              <div ng-bind="image.status" class="status"></div>
-                              <div class="progress-bar">
-                                 <div style="width: {{image.progress}}%" ng-init="progress=0" class="progress"></div>
+                              <h3 ng-bind="image.name | limitTo : 30"></h3>
+                              <div class="p">Progresso
+                                 <progressbar value="image.progress" type="info" class="progress-sm">
+                                    <div class="text-xs text-center align-top">{{image.progress}}%</div>
+                                 </progressbar>
                               </div>
                               <div class="form_line">
                                  <div class="form_controls">
-                                    <div class="preview"></div>
+                                    <div ng-if="ctrl.selectedProduct.public_id" class="preview">
+                                       <div class="btn-offset-right-top">
+                                          <button href="#" ng-click="ctrl.destroyImage(ctrl.selectedProduct.public_id)" ripple="ripple" class="btn btn-xs btn-danger btn-circle shadow-z1">
+                                             <em class="fa fa-times"></em>
+                                          </button>
+                                       </div>
+                                       <cl-image public-id="{{ctrl.selectedProduct.public_id}}" format="jpg" class="thumbnail inline">
+                                          <cl-transformation height="150" width="150" crop="fill" gravity="north"></cl-transformation>
+                                       </cl-image>
+                                    </div>
                                  </div>
                               </div>
-                              <div class="info">
-                                 <table>
-                                    <tr ng-repeat="(key, value) in image.result"></tr>
-                                    <td ng-bind="key"></td>
-                                    <td ng-bind="value"></td>
+                              <div style="display: none" class="info table-responsive">
+                                 <table class="table table-condensed">
+                                    <tr ng-repeat="(key, value) in image.result">
+                                       <td ng-bind="key"></td>
+                                       <td ng-bind="value"></td>
+                                    </tr>
                                  </table>
                               </div>
                            </div>

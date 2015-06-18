@@ -4087,6 +4087,19 @@ fieldset[disabled] .btn-orange.active {
 .btn-offset-only {
   z-index: 1049;
 }
+.btn-offset-right-top {
+  position: absolute;
+  right: 1%;
+  height: 35px;
+  z-index: 1049;
+  top: 1%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.btn-offset-right-top .layout-fixed,
+.btn-offset-right-top .layout-material {
+  position: fixed;
+}
 .btn-switch {
   position: relative;
   display: inline-block;
@@ -4659,6 +4672,10 @@ fieldset[disabled] .btn-orange.active {
 }
 .panel-card-map .panel-footer {
   background-color: transparent;
+}
+.preview {
+  display: inline-block;
+  position: relative;
 }
 /**
    Component: placeholder.less
