@@ -20,6 +20,7 @@
 
         self.cancel = function() {
             self.selectedProduct = null;
+            self.images = null;
             productsService.loadAll();
         };
 
@@ -30,6 +31,7 @@
                 productsService.create(self.selectedProduct);
             }
             self.selectedProduct = null;
+            self.images = null;
         };
 
         self.destroy = function(product) {
@@ -49,7 +51,7 @@
         self.destroyImage = function(imageId) {
             productsService.destroyImage(imageId);
             self.selectedProduct.public_id = null;
-            self.selectedProduct.secure_url = null;
+            self.selectedProduct.image = null;
             self.images = null;
         };
 
@@ -68,8 +70,11 @@
                     }
                 }).success(function(data, status, headers, config) {
                     image.result = data;
+                    if(self.selectedProduct.public_id) {
+                        self.destroyImage(self.selectedProduct.public_id);
+                    }
                     self.selectedProduct.public_id = data.public_id;
-                    self.selectedProduct.secure_url = data.secure_url;
+                    self.selectedProduct.image = data.secure_url;
                 }).error(function (data) {
                     image.status = "Erro";
                 });

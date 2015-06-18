@@ -30,7 +30,8 @@
                   td
                     span(ng-bind="product.price | currency")
                   td
-                    span(ng-bind="product.image | currency")
+                    cl-image(public-id="{{product.public_id}}" class="img-circle inline" format="jpg")
+                      cl-transformation(height="20" width="20" crop="fill")
                   td
                     a(href='#' class="fa fa-edit" ng-click="ctrl.edit(product)")
                   td
@@ -59,12 +60,19 @@
                 label.col-sm-2.control-label Preço
                 .col-sm-10
                   input.form-control(type='number', name='product_price', ng-model="ctrl.selectedProduct.price" class='form-control shadow-z1')
+            h2 Imagem
             fieldset
               .form-group
                 label(class='col-md-2 control-label' for='product_image')
-                  | Imagem
+                  | Caminho
                 .col-md-10
                   input(id='product_image' ng-model='ctrl.selectedProduct.image' class='form-control shadow-z1' type='text')
+            fieldset
+              .form-group
+                label(class='col-md-2 control-label' for='product_public_id')
+                  | Id
+                .col-md-10
+                  input(id='product_public_id' ng-model='ctrl.selectedProduct.public_id' class='form-control shadow-z1' type='text')
             fieldset
               #direct_upload( ngf-drop
                               ngf-drag-over-class="{accept:'panel-success', reject:'panel-danger', delay:100}"
@@ -74,9 +82,17 @@
                               class="panel panel-default" )
 
                 .panel-heading
-                  h2 Imagens
+                  h3 Upload
                 .panel-body
-                  .btn.btn-primary(href="#" type="file" ngf-select="true" ngf-capture="'other'" ngf-multiple="false" title="upload" ng-model="ctrl.images" ripple) Anexar Imagem
+                  .col-md-6
+                    .btn.btn-primary(href="#" type="file" ngf-select="true" ngf-capture="'other'" ngf-multiple="false" title="upload" ng-model="ctrl.images" ripple) Anexar Imagem
+                  .col-md-6
+                    .preview(ng-if='ctrl.selectedProduct.public_id')
+                      .btn-offset-right-top
+                        button.btn.btn-xs.btn-danger.btn-circle.shadow-z1(href="#" ng-click="ctrl.destroyImage(ctrl.selectedProduct.public_id)" ripple)
+                          em.fa.fa-times
+                      cl-image(public-id="{{ctrl.selectedProduct.public_id}}" class="thumbnail inline" format="jpg")
+                        cl-transformation(height="150" width="150" crop="fill" gravity="north")
                 .panel-footer
                   span(ng-if="ctrl.images") Detalhes do upload da imagem
                   .file(ng-repeat="image in ctrl.images")
@@ -85,14 +101,6 @@
                       | Progresso
                       progressbar.progress-sm(value='image.progress' type='info')
                         .text-xs.text-center.align-top {{image.progress}}%
-                    .form_line
-                      .form_controls
-                        .preview(ng-if='ctrl.selectedProduct.public_id')
-                          .btn-offset-right-top
-                            button.btn.btn-xs.btn-danger.btn-circle.shadow-z1(href="#" ng-click="ctrl.destroyImage(ctrl.selectedProduct.public_id)" ripple)
-                              em.fa.fa-times
-                          cl-image(public-id="{{ctrl.selectedProduct.public_id}}" class="thumbnail inline" format="jpg")
-                            cl-transformation(height="150" width="150" crop="fill" gravity="north")
                     .info.table-responsive(style="display: none")
                       table.table.table-condensed
                         tr(ng-repeat="(key, value) in image.result")

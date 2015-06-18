@@ -35,7 +35,9 @@
                               <span ng-bind="product.price | currency"></span>
                            </td>
                            <td>
-                              <span ng-bind="product.image | currency"></span>
+                              <cl-image public-id="{{product.public_id}}" format="jpg" class="img-circle inline">
+                                 <cl-transformation height="20" width="20" crop="fill"></cl-transformation>
+                              </cl-image>
                            </td>
                            <td>
                               <a href="#" ng-click="ctrl.edit(product)" class="fa fa-edit"></a>
@@ -79,21 +81,44 @@
                         </div>
                      </div>
                   </fieldset>
+                  <h2>Imagem</h2>
                   <fieldset>
                      <div class="form-group">
-                        <label for="product_image" class="col-md-2 control-label">Imagem</label>
+                        <label for="product_image" class="col-md-2 control-label">Caminho</label>
                         <div class="col-md-10">
                            <input id="product_image" ng-model="ctrl.selectedProduct.image" type="text" class="form-control shadow-z1" />
                         </div>
                      </div>
                   </fieldset>
                   <fieldset>
+                     <div class="form-group">
+                        <label for="product_public_id" class="col-md-2 control-label">Id</label>
+                        <div class="col-md-10">
+                           <input id="product_public_id" ng-model="ctrl.selectedProduct.public_id" type="text" class="form-control shadow-z1" />
+                        </div>
+                     </div>
+                  </fieldset>
+                  <fieldset>
                      <div id="direct_upload" ngf-drop="ngf-drop" ngf-drag-over-class="{accept:'panel-success', reject:'panel-danger', delay:100}" ng-model="ctrl.images" ngf-multiple="false" ngf-accept="'image/png,image/jpg,image/jpeg'" class="panel panel-default">
                         <div class="panel-heading">
-                           <h2>Imagens</h2>
+                           <h3>Upload</h3>
                         </div>
                         <div class="panel-body">
-                           <div href="#" type="file" ngf-select="true" ngf-capture="'other'" ngf-multiple="false" title="upload" ng-model="ctrl.images" ripple="ripple" class="btn btn-primary">Anexar Imagem</div>
+                           <div class="col-md-6">
+                              <div href="#" type="file" ngf-select="true" ngf-capture="'other'" ngf-multiple="false" title="upload" ng-model="ctrl.images" ripple="ripple" class="btn btn-primary">Anexar Imagem</div>
+                           </div>
+                           <div class="col-md-6">
+                              <div ng-if="ctrl.selectedProduct.public_id" class="preview">
+                                 <div class="btn-offset-right-top">
+                                    <button href="#" ng-click="ctrl.destroyImage(ctrl.selectedProduct.public_id)" ripple="ripple" class="btn btn-xs btn-danger btn-circle shadow-z1">
+                                       <em class="fa fa-times"></em>
+                                    </button>
+                                 </div>
+                                 <cl-image public-id="{{ctrl.selectedProduct.public_id}}" format="jpg" class="thumbnail inline">
+                                    <cl-transformation height="150" width="150" crop="fill" gravity="north"></cl-transformation>
+                                 </cl-image>
+                              </div>
+                           </div>
                         </div>
                         <div class="panel-footer">
                            <span ng-if="ctrl.images">Detalhes do upload da imagem</span>
@@ -103,20 +128,6 @@
                                  <progressbar value="image.progress" type="info" class="progress-sm">
                                     <div class="text-xs text-center align-top">{{image.progress}}%</div>
                                  </progressbar>
-                              </div>
-                              <div class="form_line">
-                                 <div class="form_controls">
-                                    <div ng-if="ctrl.selectedProduct.public_id" class="preview">
-                                       <div class="btn-offset-right-top">
-                                          <button href="#" ng-click="ctrl.destroyImage(ctrl.selectedProduct.public_id)" ripple="ripple" class="btn btn-xs btn-danger btn-circle shadow-z1">
-                                             <em class="fa fa-times"></em>
-                                          </button>
-                                       </div>
-                                       <cl-image public-id="{{ctrl.selectedProduct.public_id}}" format="jpg" class="thumbnail inline">
-                                          <cl-transformation height="150" width="150" crop="fill" gravity="north"></cl-transformation>
-                                       </cl-image>
-                                    </div>
-                                 </div>
                               </div>
                               <div style="display: none" class="info table-responsive">
                                  <table class="table table-condensed">
