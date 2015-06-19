@@ -57,8 +57,6 @@
     $httpProvider.interceptors.push('XSRFInterceptor');
   }
 
-
-
   // Lazy load configuration
   lazyLoadConfig.$inject = ['$ocLazyLoadProvider', 'VENDOR_ASSETS'];
   function lazyLoadConfig($ocLazyLoadProvider, VENDOR_ASSETS) {
@@ -74,7 +72,7 @@
   // helper methods
   var environmentBackend = function(){
     return {
-      'localhost' : 'http://localhost:5000',
+      '127.0.0.1' : 'http://localhost:5000',
       'lafavoritta-easypos-dev.herokuapp.com' : 'https://api-lafavoritta-easypos-dev.herokuapp.com',
       'lafavoritta-easypos.herokuapp.com' : 'https://api-lafavoritta-easypos.herokuapp.com'
     }[window.location.hostname];
