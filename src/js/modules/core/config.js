@@ -22,7 +22,6 @@
     app.value      = $provide.value;
 
     configDeviseAuthProvider($httpProvider,AuthProvider);
-    configCORSToken(app, $httpProvider);
   }
 
 
@@ -38,23 +37,6 @@
     AuthProvider.registerMethod('POST');
     AuthProvider.loginMethod('POST');
     AuthProvider.logoutMethod('DELETE');
-  }
-
-  function configCORSToken(app, $httpProvider) {
-    app.factory('XSRFInterceptor', function() {
-      var XSRFInterceptor = {
-        request: function(config) {
-          var token = readCookie('XSRF-TOKEN');
-          var isCloudinary = (config.url.indexOf('api.cloudinary') >= 0);
-          if (token && !isCloudinary) {
-            config.headers['X-XSRF-TOKEN'] = token;
-          }
-          return config;
-        }
-      };
-      return XSRFInterceptor;
-    });
-    $httpProvider.interceptors.push('XSRFInterceptor');
   }
 
   // Lazy load configuration
