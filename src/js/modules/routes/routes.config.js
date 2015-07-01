@@ -11,7 +11,7 @@
     function routesConfig($stateProvider, $urlRouterProvider, Route) {
 
         // Default route
-        $urlRouterProvider.otherwise('/app/pos');
+        $urlRouterProvider.otherwise('/auth/login');
 
         // Application Routes States
         $stateProvider.state('app', {

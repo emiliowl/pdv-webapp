@@ -1,12 +1,17 @@
-module.exports = function($) {
+module.exports = function($, usehtml) {
 
   // distribution folder
   var dist = 'app/'; 
   var source = 'src/'; // for abs path construction
+
+  var markupEngine = usehtml ? 'html' : 'jade';
+  var markupExt = '.' + markupEngine;
+
   // main source folders
   var srcLESS = source + 'less/';
-  var srcJADE = source + 'jade/';
+  var srcHTML = source + markupEngine + '/';
   var srcJS   = source + 'js/';
+
 
   // Shared config object
   var config = {
@@ -19,13 +24,13 @@ module.exports = function($) {
     distJS:  dist + 'js',
     source:  source,
     srcLESS: srcLESS,
-    srcJADE: srcJADE,
+    srcHTML: srcHTML,
     srcJS:   srcJS,
-    jade: {
-      index: [srcJADE + 'index.jade'],
-      views: [srcJADE + '**/*.jade', '!'+srcJADE + 'index.jade' ],
-      templates: [srcJADE + 'views/cached/*.jade'],
-      all: [srcJADE + '**/*.jade']
+    html: {
+      index: [srcHTML + 'index' + markupExt],
+      views: [srcHTML + '**/*' + markupExt, '!'+srcHTML + 'index' + markupExt ],
+      templates: [srcHTML + 'views/cached/*' + markupExt],
+      all: [srcHTML + '**/*' + markupExt]
     },
     less: {
       styles: [srcLESS + 'styles.less'],

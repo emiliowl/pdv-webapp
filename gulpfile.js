@@ -1,3 +1,8 @@
+
+var argv = require('yargs').argv;
+var usehtml = argv.usehtml;
+var usertl  = argv.usertl;
+
 var gulp        = require('gulp'),
     $           = require('gulp-load-plugins')(),
     gutil       = require('gulp-util'),
@@ -5,8 +10,9 @@ var gulp        = require('gulp'),
     path        = require('path'),
     glob        = require('glob'),
     del         = require('del'),
-    runSequence = require('run-sequence'),
-    config      = require('./gulp.config')($);
+    runSequence = require('run-sequence').use(gulp),
+    config      = require('./gulp.config')($, usehtml);
+
 
 // production mode
 var isProduction = false;
@@ -22,6 +28,7 @@ gulp.task('styles', function() {
         .pipe( isProduction ? gutil.noop() : $.sourcemaps.init())
         .pipe($.less())
         .on("error", handleError)
+        .pipe( $.if(usertl, $.rtlcss()) )
         .pipe( isProduction ? $.minifyCss() : gutil.noop() )
         .pipe( isProduction ? gutil.noop() : $.sourcemaps.write("./"))
         .pipe(gulp.dest( config.distCSS ));
@@ -34,6 +41,7 @@ gulp.task('bootstrap', function() {
         .pipe( isProduction ? gutil.noop() : $.sourcemaps.init())
         .pipe($.less())
         .on("error", handleError)
+        .pipe( $.if(usertl, $.rtlcss()) )
         .pipe( isProduction ? $.minifyCss() : gutil.noop() )
         .pipe( isProduction ? gutil.noop() : $.sourcemaps.write("./"))
         .pipe(gulp.dest( config.distCSS ));
@@ -42,11 +50,11 @@ gulp.task('bootstrap', function() {
 // HTML
 gulp.task('markup', ['index', 'views']);
   
-gulp.task('views', buildMarkup(config.jade.views, config.dist) );
+gulp.task('views', buildMarkup(config.html.views, config.dist) );
   
-gulp.task('index', ['templatecache'], buildMarkup(config.jade.index, '.', false, true) );
+gulp.task('index', ['templatecache'], buildMarkup(config.html.index, '.', false, true) );
 
-gulp.task('templatecache', ['clean-scripts'], buildMarkup(config.jade.templates, config.dist + 'js', true) );
+gulp.task('templatecache', ['clean-scripts'], buildMarkup(config.html.templates, config.dist + 'js', true) );
 
 
 // SERVER
@@ -71,11 +79,11 @@ gulp.task('watch', function() {
 
   gulp.watch([config.less.watch, config.less.styles], ['styles']);
   gulp.watch(config.bootstrap, ['bootstrap']);
-  gulp.watch(config.jade.all, ['markup']);
-  gulp.watch(config.jade.templates, ['templatecache'])
+  gulp.watch(config.html.all, ['markup']);
+  gulp.watch(config.html.templates, ['templatecache'])
 
   gulp
-    .watch([].concat(config.less.watch, config.jade.views, config.jade.templates, config.js))
+    .watch([].concat(config.less.watch, config.html.views, config.html.templates, config.js))
     .on('change', function(event) {
       setTimeout(function() {
         $.livereload.changed( event.path );
@@ -144,8 +152,8 @@ gulp.task('plato', function(done) {
 //---------------
 
 // build for production
-gulp.task('build', [], function(cb){
-  runSequence('clean', 'production', 'compile', 'clean-build', cb);
+gulp.task('build',[], function(callback){
+    runSequence('clean', 'production', 'compile', 'clean-build', callback);
 });
 
 gulp.task('production', function() { isProduction = true; });
@@ -166,12 +174,9 @@ gulp.task('serve-build', function(cb){
 });
 
 // run tasks without watch
-gulp.task('compile',[
-          'bootstrap',
-          'styles',
-          'templatecache',
-          'markup'
-        ]);
+gulp.task('compile', [], function(callback){
+    runSequence('bootstrap','styles','templatecache','markup',callback);
+});
 
 
 /////////////////
@@ -194,16 +199,18 @@ function handleError(err) {
 function buildMarkup(src, dst, useTplcache, useMin) {
 
   return  function() {
-    log('Compiling JADE into HTML...');
+    log('Compiling HTML...');
     if ( useTplcache ) log('Creating AngularJS templateCache..');
 
     return gulp.src( src )
         .pipe( isProduction ? gutil.noop() : $.changed(dst, { extension: '.html' }))
-        .pipe( $.jade({
-            locals: {
-              scripts: glob.sync(config.source  + 'js/**/*.js')
-            }
-          }) )
+        .pipe( $.if( !usehtml, $.jade({
+                  locals: {
+                    scripts: glob.sync(config.source  + 'js/**/*.js')
+                  }
+                }) 
+              )
+          )
         .on("error", handleError)
         .pipe($.htmlPrettify(config.prettify))
         // .pipe($.angularHtmlify())

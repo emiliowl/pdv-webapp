@@ -2,12 +2,170 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b60c09-4543-41e0-a0c7-bc2e2c469fd8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/modules/core/config.js" afterPath="$PROJECT_DIR$/src/js/modules/core/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/.bin/has-ansi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/.bin/strip-ansi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/.bin/supports-color" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/cli.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/cli.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/supports-color/cli.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/node_modules/.bin/user-home" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/node_modules/user-home/cli.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/node_modules/user-home/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/node_modules/user-home/license" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/node_modules/user-home/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/node_modules/user-home/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/bar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/foo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/.npmignore" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.browser.js.gz" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.browser.js.gz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.min.js.gz" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.min.js.gz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/.npmignore" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/.npmignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/gulp/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/interpret/CHANGELOG" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/interpret/CHANGELOG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/CHANGELOG" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/CHANGELOG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/LICENSE" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/LICENSE" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/LICENSE" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/sigmund/LICENSE" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/sigmund/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/LICENSE" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/interpret/README.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/interpret/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/v8flags/README.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/v8flags/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/README.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/sigmund/README.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/sigmund/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/custom/products/app.products.controller.js" afterPath="$PROJECT_DIR$/src/js/custom/products/app.products.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/app.products.html" afterPath="$PROJECT_DIR$/app/views/app.products.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jade/views/app.products.jade" afterPath="$PROJECT_DIR$/src/jade/views/app.products.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/custom/products/app.products.service.js" afterPath="$PROJECT_DIR$/src/js/custom/products/app.products.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/lib/build_config_name.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/lib/build_config_name.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/chmod.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/chmod.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/clobber.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/clobber.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/lib/completion.js" afterPath="$PROJECT_DIR$/node_modules/gulp/lib/completion.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/lib/file_search.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/lib/file_search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/lib/find_cwd.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/lib/find_cwd.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/test/foreach.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/test/foreach.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/graceful-fs.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/graceful-fs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp.config.js" afterPath="$PROJECT_DIR$/gulp.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/bin/gulp.js" afterPath="$PROJECT_DIR$/node_modules/gulp/bin/gulp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/ansi-styles/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/ansi-styles/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/supports-color/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/supports-color/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/interpret/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/interpret/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/test/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/test/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/v8flags/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/v8flags/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/test/ltr.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/test/ltr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/test/max-open.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/test/max-open.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/test/memory-leak.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/test/memory-leak.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/mkdirp.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/mkdirp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/opts_fs.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/opts_fs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/opts_fs_sync.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/opts_fs_sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/archy/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/archy/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/ansi-styles/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/ansi-styles/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/escape-string-regexp/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/escape-string-regexp/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/supports-color/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/supports-color/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/deprecated/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/deprecated/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/interpret/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/interpret/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/extend/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/extend/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/inflight/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/inflight/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/inherits/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/inherits/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/once/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/once/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/once/node_modules/wrappy/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/once/node_modules/wrappy/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/flagged-respawn/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/flagged-respawn/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/resolve/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/resolve/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/minimist/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/minimist/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/end-of-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/end-of-stream/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/end-of-stream/node_modules/once/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/end-of-stream/node_modules/once/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/end-of-stream/node_modules/once/node_modules/wrappy/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/end-of-stream/node_modules/once/node_modules/wrappy/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/sequencify/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/sequencify/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/stream-consume/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/stream-consume/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/pretty-hrtime/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/pretty-hrtime/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/v8flags/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/v8flags/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/v8flags/node_modules/user-home/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/v8flags/node_modules/user-home/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/defaults/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/defaults/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/defaults/node_modules/clone/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/defaults/node_modules/clone/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/inflight/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/inflight/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/inherits/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/inherits/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/once/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/once/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/once/node_modules/wrappy/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob/node_modules/once/node_modules/wrappy/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob2base/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob2base/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob2base/node_modules/find-index/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/glob2base/node_modules/find-index/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/ordered-read-streams/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/ordered-read-streams/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/unique-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/unique-stream/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/glob/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/glob/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/graceful-fs/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/graceful-fs/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/inherits/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/inherits/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/lodash/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/lodash/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/sigmund/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/sigmund/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/strip-bom/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/strip-bom/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/strip-bom/node_modules/first-chunk-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/strip-bom/node_modules/first-chunk-stream/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/strip-bom/node_modules/is-utf8/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/strip-bom/node_modules/is-utf8/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/vinyl/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/vinyl/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/vinyl/node_modules/clone/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/vinyl/node_modules/clone/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/vinyl/node_modules/clone-stats/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/vinyl/node_modules/clone-stats/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/lib/parse_options.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/lib/parse_options.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/perm.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/perm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/perm_sync.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/perm_sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/race.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/race.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/readme.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/ansi-styles/readme.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/ansi-styles/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/readme.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/readme.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/readme.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/readme.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/supports-color/readme.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/chalk/node_modules/supports-color/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/readme.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/tildify/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/rel.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/rel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/root.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/root.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/modules/routes/routes.config.js" afterPath="$PROJECT_DIR$/src/js/modules/routes/routes.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.browser.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.browser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.min.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/semver/semver.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/sync.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/sync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/lib/taskTree.js" afterPath="$PROJECT_DIR$/node_modules/gulp/lib/taskTree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/umask.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/umask.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/umask_sync.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/test/umask_sync.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/test/write-then-read.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/graceful-fs/test/write-then-read.js" />
     </list>
     <ignored path="pdv-webapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,18 +198,7 @@
     <favorites_list name="pdv-webapp" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9320755">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -66,10 +213,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/src/js/modules/core/core.run.js" />
         <option value="$PROJECT_DIR$/src/jade/views/cached/top-navbar-dock.jade" />
-        <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/src/jade/views/sales-main.jade" />
         <option value="$PROJECT_DIR$/src/jade/views/sales.jade" />
         <option value="$PROJECT_DIR$/src/js/custom/sales.controller.js" />
@@ -103,20 +247,23 @@
         <option value="$PROJECT_DIR$/src/less/app/common/font.less" />
         <option value="$PROJECT_DIR$/app/views/app.products.html" />
         <option value="$PROJECT_DIR$/src/js/modules/routes/vendor.constants.js" />
-        <option value="$PROJECT_DIR$/src/js/modules/routes/routes.config.js" />
         <option value="$PROJECT_DIR$/src/js/app.module.js" />
         <option value="$PROJECT_DIR$/src/jade/index.jade" />
         <option value="$PROJECT_DIR$/src/js/modules/settings/settings.service.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/src/less/app/ui/panels-extra.less" />
         <option value="$PROJECT_DIR$/src/less/app/ui/button-extra.less" />
         <option value="$PROJECT_DIR$/src/less/app/utils/utils.less" />
-        <option value="$PROJECT_DIR$/src/jade/views/app.products.jade" />
-        <option value="$PROJECT_DIR$/src/js/custom/products/app.products.controller.js" />
-        <option value="$PROJECT_DIR$/src/js/custom/products/app.products.service.js" />
         <option value="$PROJECT_DIR$/src/js/modules/core/config.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/js/custom/products/app.products.service.js" />
+        <option value="$PROJECT_DIR$/src/js/custom/images/app.products.service.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/src/js/modules/routes/routes.config.js" />
+        <option value="$PROJECT_DIR$/src/jade/views/app.products.jade" />
+        <option value="$PROJECT_DIR$/src/js/custom/products/app.products.controller.js" />
+        <option value="$PROJECT_DIR$/src/js/custom/images/app.images.service.js" />
       </list>
     </option>
   </component>
@@ -206,12 +353,6 @@
             <task-name>serve-build</task-name>
           </GulpTaskState>
           <GulpTaskState>
-            <dependencies>
-              <dependency value="bootstrap" />
-              <dependency value="styles" />
-              <dependency value="templatecache" />
-              <dependency value="markup" />
-            </dependencies>
             <task-name>compile</task-name>
           </GulpTaskState>
         </tasks>
@@ -223,9 +364,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="1366" />
-    <option name="y" value="24" />
+    <option name="y" value="-1084" />
     <option name="width" value="1920" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -251,7 +392,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -270,8 +410,63 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pdv-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pdv-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pdv-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pdv-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pdv-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pdv-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="custom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,11 +484,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/js/custom/images" />
       <recent name="$PROJECT_DIR$/src/jade/views" />
       <recent name="$PROJECT_DIR$/src/js/custom" />
       <recent name="$PROJECT_DIR$/src/js/custom/pos" />
       <recent name="$PROJECT_DIR$/src/js/custom/auth" />
-      <recent name="$PROJECT_DIR$/src/js/modules" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/js/custom/auth" />
@@ -379,11 +574,15 @@
       <method />
     </configuration>
     <configuration default="false" name="NodeJS" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/bin/node" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
-      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" start="true" with-js-debugger="true" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" start="true" with-js-debugger="true" url="http://127.0.0.1:3000" />
       <method />
     </configuration>
-    <list size="1">
+    <configuration default="false" name="NodeJS JavaScript" type="JavascriptDebugType" factoryName="JavaScript Debug" engineId="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" uri="http://127.0.0.1:3000">
+      <method />
+    </configuration>
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Node.js.NodeJS" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.NodeJS JavaScript" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -409,20 +608,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="24" width="1920" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1366" y="-1084" width="1920" height="1084" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16862327" sideWeight="0.6362468" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16862327" sideWeight="0.3637532" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17022412" sideWeight="0.6402985" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17022412" sideWeight="0.35970148" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299285" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10757576" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20531154" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3156282" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42798775" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42798775" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17022412" sideWeight="0.63942796" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4637385" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -474,20 +673,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/custom/auth/auth.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0123023">
-          <caret line="35" column="44" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jade/views/app.dashboard.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15869565">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/modules/dashboard/dashboard.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.170706">
@@ -635,13 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/modules/routes/routes.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5658588">
-          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="32" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/ng-file-upload/ng-file-upload.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.164557">
@@ -681,20 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20162602">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -782,40 +946,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3956044">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7912087">
-          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jade/views/app.products.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32182103">
-          <caret line="93" column="95" selection-start-line="93" selection-start-column="95" selection-end-line="93" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4362487">
           <caret line="23" column="91" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="91" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -823,14 +957,76 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.8275383">
           <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9320755">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.56902003">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.097613886">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4814816">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/modules/routes/routes.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7875">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/custom/images/app.images.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/custom/products/app.products.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26875">
+          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jade/views/app.products.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49918166">
+          <caret line="79" column="126" selection-start-line="79" selection-start-column="117" selection-end-line="79" selection-end-column="126" />
           <folding />
         </state>
       </provider>

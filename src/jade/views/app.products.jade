@@ -6,7 +6,7 @@
     .col-md-6
       .panel.panel-primary
         .btn-offset-inner
-          button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button", ripple="" ng-click="ctrl.new()")
+          button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.new()")
             em.fa.fa-plus
         .panel-heading
           | Para editar selecione um produto
@@ -30,8 +30,9 @@
                   td
                     span(ng-bind="product.price | currency")
                   td
-                    cl-image(public-id="{{product.public_id}}" class="img-circle inline" format="jpg")
-                      cl-transformation(height="20" width="20" crop="fill")
+                    .img-thumbnail(ng-repeat="image in [product.images[0]]")
+                      cl-image(public-id="{{image.public_id}}" class="img-circle inline" format="jpg")
+                        cl-transformation(height="20" width="20" crop="fill")
                   td
                     a(href='#' class="fa fa-edit" ng-click="ctrl.edit(product)")
                   td
@@ -59,20 +60,7 @@
               .form-group
                 label.col-sm-2.control-label Preço
                 .col-sm-10
-                  input.form-control(type='number', name='product_price', ng-model="ctrl.selectedProduct.price" class='form-control shadow-z1')
-            h2 Imagem
-            fieldset
-              .form-group
-                label(class='col-md-2 control-label' for='product_image')
-                  | Caminho
-                .col-md-10
-                  input(id='product_image' ng-model='ctrl.selectedProduct.image' class='form-control shadow-z1' type='text')
-            fieldset
-              .form-group
-                label(class='col-md-2 control-label' for='product_public_id')
-                  | Id
-                .col-md-10
-                  input(id='product_public_id' ng-model='ctrl.selectedProduct.public_id' class='form-control shadow-z1' type='text')
+                  input.form-control(type='number' name='product_price' ng-model="ctrl.selectedProduct.price" class='form-control shadow-z1')
             fieldset
               #direct_upload( ngf-drop
                               ngf-drag-over-class="{accept:'panel-success', reject:'panel-danger', delay:100}"
@@ -87,11 +75,11 @@
                   .col-md-6
                     .btn.btn-primary(href="#" type="file" ngf-select="true" ngf-capture="'other'" ngf-multiple="false" title="upload" ng-model="ctrl.images" ripple) Anexar Imagem
                   .col-md-6
-                    .preview(ng-if='ctrl.selectedProduct.public_id')
+                    .preview(ng-repeat='image in ctrl.selectedProduct.images')
                       .btn-offset-right-top
-                        button.btn.btn-xs.btn-danger.btn-circle.shadow-z1(href="#" ng-click="ctrl.destroyImage(ctrl.selectedProduct.public_id)" ripple)
+                        button.btn.btn-xs.btn-danger.btn-circle.shadow-z1(href="#" ng-click="ctrl.destroyImage(image.public_id)" ripple)
                           em.fa.fa-times
-                      cl-image(public-id="{{ctrl.selectedProduct.public_id}}" class="thumbnail inline" format="jpg")
+                      cl-image(public-id="{{image.public_id}}" class="thumbnail inline" format="jpg")
                         cl-transformation(height="150" width="150" crop="fill" gravity="north")
                 .panel-footer
                   span(ng-if="ctrl.images") Detalhes do upload da imagem
@@ -108,5 +96,5 @@
                           td(ng-bind="value")
           hr
           .form-group
-            button.btn.btn-xs.btn-success.btn-flat(ripple="", ng-click="ctrl.save()")  Salvar
-            button.btn.btn-xs.btn-danger.btn-flat(ripple="", ng-click="ctrl.cancel()") Cancelar
+            button.btn.btn-xs.btn-success.btn-flat(ripple="" ng-click="ctrl.save()")  Salvar
+            button.btn.btn-xs.btn-danger.btn-flat(ripple="" ng-click="ctrl.cancel()") Cancelar

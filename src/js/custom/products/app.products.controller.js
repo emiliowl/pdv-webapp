@@ -7,15 +7,16 @@
     angular.module('naut').controller('ProductsCtrl', ProductsCtrl);
 
     /* @ngInject */
-    function ProductsCtrl(productsService, Upload, $scope) {
+    function ProductsCtrl(imagesService, productsService, Upload, $scope) {
         var self = this;
 
         self.products = productsService.products;
         self.selectedProduct = null;
         self.images = null;
+        self.uploading = {status: false};
 
         self.new = function() {
-            self.selectedProduct = {};
+            self.selectedProduct = {images: []};
         };
 
         self.cancel = function() {
@@ -25,6 +26,10 @@
         };
 
         self.save = function() {
+            if (self.uploading.status) {
+                alert('upload em andamento, aguarde...');
+                return false;
+            }
             if(self.selectedProduct.id && self.selectedProduct.id !== '') {
                 productsService.update(self.selectedProduct);
             } else {
@@ -44,18 +49,17 @@
 
         self.edit = function(product) {
             productsService.loadAll();
-            product.price = parseFloat(product.price);
+            //product.price = parseFloat(product.price);
             self.selectedProduct = product;
         };
 
         self.destroyImage = function(imageId) {
-            productsService.destroyImage(imageId);
-            self.selectedProduct.public_id = null;
-            self.selectedProduct.image = null;
-            self.images = null;
+            imagesService.destroy(imageId);
+            productsService.loadAll();
         };
 
         $scope.$watch(function(){return self.images}, function() {
+            self.uploading.status = true;
             if (!self.images) return;
             self.images.forEach(function(image) {
                 self.upload = Upload.upload({
@@ -70,15 +74,12 @@
                     }
                 }).success(function(data, status, headers, config) {
                     image.result = data;
-                    if(self.selectedProduct.public_id) {
-                        self.destroyImage(self.selectedProduct.public_id);
-                    }
-                    self.selectedProduct.public_id = data.public_id;
-                    self.selectedProduct.image = data.secure_url;
+                    imagesService.create('Product', self.selectedProduct.id, data, self.selectedProduct.images, self.uploading);
                 }).error(function (data) {
                     image.status = "Erro";
+                    self.uploading.status = false;
                 });
             });
         });
-    };
+    }
 })();
