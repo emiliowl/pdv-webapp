@@ -3,11 +3,14 @@
 .container-fluid
   br
   .row
-    .col-md-6
+    .col-md-6(ng-if='!ctrl.status.fullscreen || !ctrl.selectedPOS')
       .panel.panel-primary
-        .btn-offset-inner
+        .btn-offset-inner(ng-if="ctrl.selectedPOS == null || ctrl.selectedPOS.id == null || ctrl.selectedPOS.id == ''")
           button(type="button", ripple="" ng-click="ctrl.new()").btn.btn-primary.btn-circle.btn-lg.shadow-z1
             em.fa.fa-plus
+        .btn-offset-inner(ng-if="ctrl.selectedPOS && ctrl.selectedPOS.id != null && ctrl.selectedPOS.id != ''")
+          button(type="button", ripple="" ng-click="ctrl.select(ctrl.selectedPOS)").btn.btn-primary.btn-circle.btn-lg.shadow-z1
+            em.fa.fa-play
         .panel-heading
           | Selecione um Ponto de Vendas
         .panel-body
@@ -16,24 +19,30 @@
               thead
                 tr
                   th nome
-                  th
-                  th
-                  th
               tbody
-                tr(ng-repeat="pos in ctrl.posList" ng-class='{active: (pos.id === ctrl.selectedPOS.id)}')
+                tr(ng-repeat="pos in ctrl.posList" ng-class='{active: (pos.id === ctrl.selectedPOS.id)}' ng-click="ctrl.edit(pos)")
                   td
                     span(ng-bind="pos.name")
-                  td
-                    a(href='#' class="fa fa-edit" ng-click="ctrl.edit(pos)")
-                  td
-                    a(href='#' class="fa fa-trash-o" ng-click="ctrl.destroy(pos)")
-                  td
-                    a(href='#' class="fa fa-play" ng-click="ctrl.select(pos)")
 
-    .col-md-6(ng-show="ctrl.selectedPOS")
+    .col-md-6(ng-show="ctrl.selectedPOS" ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}")
       .panel.panel-primary
         .panel-heading
           | Cadastro de Ponto de Vendas
+          // START button group
+          .btn-group.pull-right(dropdown='dropdown' ripple="")
+            button.btn.btn-xs.btn-primary.btn-flat.btn-offset-only.shadow-z1.dropdown-toggle( type='button'
+            ng-disabled='disabled'
+            dropdown-toggle="" )
+              em.fa.fa-ellipsis-v
+            ul.dropdown-menu(role='menu')
+              li
+                a( href='#' ng-click="ctrl.destroy(ctrl.selectedPOS)")
+                  | Remover
+              li.divider
+              li
+                a( href='#' ng-click="ctrl.toggleFullScreen()")
+                  | Tela Cheia
+          // END button group
         .panel-body
           fieldset
             .form-group

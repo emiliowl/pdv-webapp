@@ -19,7 +19,7 @@
             abstract: true,
             templateUrl: Route.base('app.html'),
             resolve: {
-                _assets: Route.require('icons', 'toaster', 'animate', 'sparklines', 'slimscroll')
+                _assets: Route.require('icons', 'toaster', 'animate', 'sparklines', 'slimscroll', 'oitozero.ngSweetAlert')
             },
             onEnter: ['$state', 'Auth', 'authService', '$rootScope', function($state, Auth, authService, $rootScope) {
                 Auth.currentUser().then(function(user) {

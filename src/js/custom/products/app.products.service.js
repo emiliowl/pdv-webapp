@@ -16,6 +16,12 @@
             }).error(self.handleError);
         };
 
+        self.reload = function(product) {
+            return $http.get($rootScope.app.env.backend + '/products/' + product.id + '.json').success(function (data) {
+                angular.copy(data, product);
+            }).error(self.handleError);
+        };
+
         self.create = function(product) {
             return $http.post($rootScope.app.env.backend + '/products.json', product).success(function (data) {
                 toaster.success('Mensagem', 'Produto criado com sucesso!');
@@ -31,20 +37,22 @@
                 }).error(self.handleError);
         };
 
-        self.destroy = function(product) {
+        self.destroy = function(product, onAfterDestroy) {
             return $http.delete($rootScope.app.env.backend + '/products/' + product.id + '.json')
                 .success(function (data) {
-                    toaster.success('Mensagem', 'Produto removido com sucesso!');
-                    self.loadAll();
+                    onAfterDestroy();
                 }).error(self.handleError);
         };
 
         self.handleError = function (data) {
             var message = "";
-            message = message + Object.keys(data.errors)[0];
-            message = message + ' ' + data.errors[Object.keys(data.errors)[0]];
+            if (data && data.errors) {
+                message = message + Object.keys(data.errors)[0];
+                message = message + ' ' + data.errors[Object.keys(data.errors)[0]];
+            } else {
+                message = "Erro ao comunicar com servidor.";
+            }
             toaster.error('Erro', message);
-            self.loadAll();
         };
 
         return self;

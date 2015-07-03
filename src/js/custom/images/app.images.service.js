@@ -19,15 +19,16 @@
             }
             return $http.post($rootScope.app.env.backend + '/images.json', image).success(function (data) {
                 arrayToPushResult.push(data);
-                statusObject.status = false;
+                statusObject.uploading = false;
                 toaster.success('Mensagem', 'Imagem criada com sucesso!');
             }).error(self.handleError);
         };
 
-        self.destroy = function(imageId) {
-            return $http.delete('/rest/image/?imageId='+ imageId)
+        self.destroy = function(imageId, callback) {
+            return $http.delete($rootScope.app.env.backend + '/images/' + imageId + '.json')
                 .success(function (data) {
                     toaster.success('Mensagem', 'Imagem removida com sucesso!');
+                    callback();
                 }).error(self.handleError);
         };
 

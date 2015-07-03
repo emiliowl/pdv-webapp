@@ -7,13 +7,13 @@
     angular.module('naut').controller('ProductsCtrl', ProductsCtrl);
 
     /* @ngInject */
-    function ProductsCtrl(imagesService, productsService, Upload, $scope) {
+    function ProductsCtrl(SweetAlert, imagesService, productsService, Upload, $scope) {
         var self = this;
 
         self.products = productsService.products;
         self.selectedProduct = null;
         self.images = null;
-        self.uploading = {status: false};
+        self.status = {uploading: false, fullscreen: false};
 
         self.new = function() {
             self.selectedProduct = {images: []};
@@ -26,7 +26,7 @@
         };
 
         self.save = function() {
-            if (self.uploading.status) {
+            if (self.status.uploading) {
                 alert('upload em andamento, aguarde...');
                 return false;
             }
@@ -40,27 +40,48 @@
         };
 
         self.destroy = function(product) {
-            if (window.confirm('Tem Certeza?')) {
-                if(product.id && product.id !== '') {
-                    productsService.destroy(product);
+            SweetAlert.swal({
+                title: "Tem certeza?",
+                text: "Seu registro será removido, sem possibilidade de retorno",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Sim, remover registro",
+                cancelButtonText: "Não, me tire daqui!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function(isConfirm){
+                if (isConfirm) {
+                    if(product.id && product.id !== '') {
+                        productsService.destroy(product, function() {
+                            SweetAlert.swal("Sucesso", "Seu registro foi removido", "success");
+                            self.cancel();
+                        });
+                    }
+                } else {
+                    SweetAlert.swal("Cancelado", "Seu registro não foi removido", "warning");
                 }
-            }
+            });
         };
 
         self.edit = function(product) {
             productsService.loadAll();
-            //product.price = parseFloat(product.price);
             self.selectedProduct = product;
         };
 
-        self.destroyImage = function(imageId) {
-            imagesService.destroy(imageId);
-            productsService.loadAll();
+        self.toggleFullScreen = function() {
+            self.status.fullscreen = !self.status.fullscreen;
+        };
+
+        self.destroyImage = function(image) {
+            imagesService.destroy(image.id, function() {
+                productsService.reload(self.selectedProduct);
+            });
         };
 
         $scope.$watch(function(){return self.images}, function() {
-            self.uploading.status = true;
             if (!self.images) return;
+            self.status.uploading = true;
             self.images.forEach(function(image) {
                 self.upload = Upload.upload({
                     url: "https://api.cloudinary.com/v1_1/" + $.cloudinary.config().cloud_name + "/upload",
@@ -74,10 +95,10 @@
                     }
                 }).success(function(data, status, headers, config) {
                     image.result = data;
-                    imagesService.create('Product', self.selectedProduct.id, data, self.selectedProduct.images, self.uploading);
+                    imagesService.create('Product', self.selectedProduct.id, data, self.selectedProduct.images, self.status);
                 }).error(function (data) {
                     image.status = "Erro";
-                    self.uploading.status = false;
+                    self.status.uploading = false;
                 });
             });
         });

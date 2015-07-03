@@ -2,11 +2,16 @@
 <div class="container-fluid">
    <br/>
    <div class="row">
-      <div class="col-md-6">
+      <div ng-if="!ctrl.status.fullscreen || !ctrl.selectedPOS" class="col-md-6">
          <div class="panel panel-primary">
-            <div class="btn-offset-inner">
+            <div ng-if="ctrl.selectedPOS == null || ctrl.selectedPOS.id == null || ctrl.selectedPOS.id == ''" class="btn-offset-inner">
                <button type="button" ripple="" ng-click="ctrl.new()" class="btn btn-primary btn-circle btn-lg shadow-z1">
                   <em class="fa fa-plus"></em>
+               </button>
+            </div>
+            <div ng-if="ctrl.selectedPOS &amp;&amp; ctrl.selectedPOS.id != null &amp;&amp; ctrl.selectedPOS.id != ''" class="btn-offset-inner">
+               <button type="button" ripple="" ng-click="ctrl.select(ctrl.selectedPOS)" class="btn btn-primary btn-circle btn-lg shadow-z1">
+                  <em class="fa fa-play"></em>
                </button>
             </div>
             <div class="panel-heading">Selecione um Ponto de Vendas</div>
@@ -16,24 +21,12 @@
                      <thead>
                         <tr>
                            <th>nome</th>
-                           <th></th>
-                           <th></th>
-                           <th></th>
                         </tr>
                      </thead>
                      <tbody>
-                        <tr ng-repeat="pos in ctrl.posList" ng-class="{active: (pos.id === ctrl.selectedPOS.id)}">
+                        <tr ng-repeat="pos in ctrl.posList" ng-class="{active: (pos.id === ctrl.selectedPOS.id)}" ng-click="ctrl.edit(pos)">
                            <td>
                               <span ng-bind="pos.name"></span>
-                           </td>
-                           <td>
-                              <a href="#" ng-click="ctrl.edit(pos)" class="fa fa-edit"></a>
-                           </td>
-                           <td>
-                              <a href="#" ng-click="ctrl.destroy(pos)" class="fa fa-trash-o"></a>
-                           </td>
-                           <td>
-                              <a href="#" ng-click="ctrl.select(pos)" class="fa fa-play"></a>
                            </td>
                         </tr>
                      </tbody>
@@ -42,9 +35,24 @@
             </div>
          </div>
       </div>
-      <div ng-show="ctrl.selectedPOS" class="col-md-6">
+      <div ng-show="ctrl.selectedPOS" ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}" class="col-md-6">
          <div class="panel panel-primary">
-            <div class="panel-heading">Cadastro de Ponto de Vendas</div>
+            <div class="panel-heading">Cadastro de Ponto de Vendas
+               <!-- START button group-->
+               <div dropdown="dropdown" ripple="" class="btn-group pull-right">
+                  <button type="button" ng-disabled="disabled" dropdown-toggle="" class="btn btn-xs btn-primary btn-flat btn-offset-only shadow-z1 dropdown-toggle">
+                     <em class="fa fa-ellipsis-v"></em>
+                  </button>
+                  <ul role="menu" class="dropdown-menu">
+                     <li><a href="#" ng-click="ctrl.destroy(ctrl.selectedPOS)">Remover</a>
+                     </li>
+                     <li class="divider"></li>
+                     <li><a href="#" ng-click="ctrl.toggleFullScreen()">Tela Cheia</a>
+                     </li>
+                  </ul>
+               </div>
+               <!-- END button group-->
+            </div>
             <div class="panel-body">
                <fieldset>
                   <div class="form-group">

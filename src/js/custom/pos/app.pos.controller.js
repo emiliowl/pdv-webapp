@@ -7,11 +7,16 @@
     angular.module('naut').controller('POSController', POSController);
 
     /* @ngInject */
-    function POSController(posService, $rootScope, $state) {
+    function POSController(SweetAlert, posService, $rootScope, $state) {
         var self = this;
 
         self.posList = posService.posList;
         self.selectedPOS = null;
+        self.status = {fullscreen: false};
+
+        self.toggleFullScreen = function() {
+            self.status.fullscreen = !self.status.fullscreen;
+        };
 
         self.new = function() {
             self.selectedPOS = {};
@@ -32,11 +37,28 @@
         };
 
         self.destroy = function(pos) {
-            if (window.confirm('Tem Certeza?')) {
-                if(pos.id && pos.id !== '') {
-                    posService.destroy(pos);
+            SweetAlert.swal({
+                title: "Tem certeza?",
+                text: "Seu registro será removido, sem possibilidade de retorno",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Sim, remover registro",
+                cancelButtonText: "Não, me tire daqui!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function(isConfirm){
+                if (isConfirm) {
+                    if(pos.id && pos.id !== '') {
+                        posService.destroy(pos, function() {
+                            SweetAlert.swal("Sucesso", "Seu registro foi removido", "success");
+                            self.cancel();
+                        });
+                    }
+                } else {
+                    SweetAlert.swal("Cancelado", "Seu registro não foi removido", "warning");
                 }
-            }
+            });
         };
 
         self.edit = function(pos) {

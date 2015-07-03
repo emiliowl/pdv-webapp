@@ -34,17 +34,21 @@
             },
             // Angular modules scripts (name is module name to be injected)
             modules: [
-                {name: 'toaster',           files: ['vendor/angularjs-toaster/toaster.js',
-                                                    'vendor/angularjs-toaster/toaster.css']},
+                {name: 'toaster',                   files: ['vendor/angularjs-toaster/toaster.js',
+                                                            'vendor/angularjs-toaster/toaster.css']},
 
-                {name: 'ui.knob',           files: ['vendor/angular-knob/src/angular-knob.js',
-                                                    'vendor/jquery-knob/dist/jquery.knob.min.js']},
+                {name: 'ui.knob',                   files: ['vendor/angular-knob/src/angular-knob.js',
+                                                            'vendor/jquery-knob/dist/jquery.knob.min.js']},
 
-                {name: 'ngTable',           files: ['vendor/ng-table/dist/ng-table.min.js',
-                                                    'vendor/ng-table/dist/ng-table.min.css']},
+                {name: 'ngTable',                   files: ['vendor/ng-table/dist/ng-table.min.js',
+                                                            'vendor/ng-table/dist/ng-table.min.css']},
 
-                {name: 'ngTableExport',     files: ['vendor/ng-table-export/ng-table-export.js']},
-                {name: 'ui.map',            files: ['vendor/angular-ui-map/ui-map.min.js']}
+                {name: 'ngTableExport',             files: ['vendor/ng-table-export/ng-table-export.js']},
+                {name: 'ui.map',                    files: ['vendor/angular-ui-map/ui-map.min.js']},
+
+                {name: 'oitozero.ngSweetAlert',     files: ['vendor/sweetalert/dist/sweetalert.css',
+                                                            'vendor/sweetalert/dist/sweetalert.min.js',
+                                                            'vendor/angular-sweetalert/SweetAlert.min.js']}
             ]
 
         });
