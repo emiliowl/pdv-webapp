@@ -1,0 +1,89 @@
+.app-view-header
+  | Gestão do Estoque
+.container-fluid
+  br
+  .row
+    .col-md-6(ng-if='!ctrl.status.fullscreen || !ctrl.selectedStockEntry')
+      .panel.panel-primary
+        .btn-offset-inner(ng-if="ctrl.selectedStockEntry == null || ctrl.selectedStockEntry.id == null || ctrl.selectedStockEntry.id == ''")
+          button(type="button", ripple="" ng-click="ctrl.new()").btn.btn-primary.btn-circle.btn-lg.shadow-z1
+            em.fa.fa-plus
+        .panel-heading
+          | Movimentações de Estoque
+        .panel-body
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr
+                  th data
+                  th motivo
+                  th produto
+                  th quantidade
+              tbody
+                tr(ng-repeat="stock_entry in ctrl.stock_entries" ng-class='{active: (stock_entry.id === ctrl.selectedStockEntry.id)}' ng-click="ctrl.edit(stock_entry)")
+                  td
+                    span(ng-bind="stock_entry.movement_date | date:'shortDate'")
+                  td
+                    span(ng-bind="stock_entry.reason")
+                  td
+                    span(ng-bind="stock_entry.product.name")
+                  td
+                    span(ng-bind="stock_entry.quantity")
+
+    .col-md-6(ng-show="ctrl.selectedStockEntry" ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}")
+      .panel.panel-primary
+        .panel-heading
+          | Detalhes de Movimentação de Estoque
+          // START button group
+          .btn-group.pull-right(dropdown='dropdown' ripple="")
+            button.btn.btn-xs.btn-primary.btn-flat.btn-offset-only.shadow-z1.dropdown-toggle( type='button'
+            ng-disabled='disabled'
+            dropdown-toggle="" )
+              em.fa.fa-ellipsis-v
+            ul.dropdown-menu(role='menu')
+              li
+                a( href='#' ng-click="ctrl.destroy(ctrl.selectedStockEntry)")
+                  | Remover
+              li.divider
+              li
+                a( href='#' ng-click="ctrl.toggleFullScreen()")
+                  | Tela Cheia
+          // END button group
+        .panel-body
+          fieldset
+            .form-group
+              label(class='col-md-2 control-label' for='stock_entry_date')
+                | Data
+              .col-md-10
+                p.input-group
+                  input.form-control( type='text',
+                                      datepicker-popup='dd/MM/yyyy',
+                                      ng-model='ctrl.selectedStockEntry.movement_date',
+                                      is-open='ctrl.status.datepicker_opened',
+                                      ng-required='true',
+                                      close-text='Fechar')
+                  span.input-group-btn
+                    button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event)')
+                      em.fa.fa-calendar
+            .form-group
+              label(class='col-md-2 control-label' for='stock_entry_reason')
+                | Motivo
+              .col-md-10
+                input(id='stock_entry_reason' ng-model='ctrl.selectedStockEntry.reason' class='form-control shadow-z1' type='text')
+            .form-group
+              script(type="text/ng-template", id="typeahead.html")
+                a
+                  span(bind-html-unsafe='match.label | typeaheadHighlight:query')
+              label(class='col-md-2 control-label' for='stock_entry_product_name')
+                | Produto
+              .col-md-10
+                .controls
+                  input.form-control(type='text', ng-model='ctrl.selectedStockEntry.product', typeahead='product as product.name for product in ctrl.products | filter:{name:$viewValue} | limitTo:10' typeahead-template-url='typeahead.html')
+            .form-group
+              label(class='col-md-2 control-label' for='stock_entry_quantity')
+                | Quantidade
+              .col-md-10
+                input(id='stock_entry_quantity' ng-model='ctrl.selectedStockEntry.quantity' class='form-control shadow-z1' type='text')
+          .form-group
+            button.btn.btn-xs.btn-success.btn-flat(ripple="", ng-click="ctrl.save()")  Salvar
+            button.btn.btn-xs.btn-danger.btn-flat(ripple="", ng-click="ctrl.cancel()") Cancelar

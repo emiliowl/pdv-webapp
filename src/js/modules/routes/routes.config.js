@@ -92,6 +92,39 @@
             url: '/register',
             templateUrl: Route.base('auth.register.html')
         });
+
+        // Application Management Routes States
+        $stateProvider.state('management', {
+            url: '/management',
+            abstract: true,
+            templateUrl: Route.base('app.html'),
+            resolve: {
+                _assets: Route.require('icons', 'toaster', 'animate', 'sparklines', 'slimscroll', 'oitozero.ngSweetAlert')
+            },
+            onEnter: ['$state', 'Auth', 'authService', '$rootScope', function($state, Auth, authService, $rootScope) {
+                Auth.currentUser().then(function(user) {
+                    if (!$rootScope.pos) {
+                        $state.go('app.pos');
+                    }
+                }, function(error) {
+                    $state.go('auth.login');
+                });
+            }],
+            controller: 'AuthController as authCtrl'
+        });
+
+        $stateProvider.state('management.stock', {
+            url: '/stock',
+            templateUrl: Route.base('management.stock.html'),
+            controller: 'StockEntriesCtrl as ctrl',
+            onEnter: ['stockEntriesService', 'productsService', function(stockEntriesService, productsService) {
+                stockEntriesService.loadAll();
+                productsService.loadAll();
+            }],
+            resolve: {
+                assets: Route.require('ngTable', 'ngTableExport')
+            }
+        });
     }
 
 })();

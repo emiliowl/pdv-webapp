@@ -1,0 +1,111 @@
+<div class="app-view-header">Gestão do Estoque</div>
+<div class="container-fluid">
+   <br/>
+   <div class="row">
+      <div ng-if="!ctrl.status.fullscreen || !ctrl.selectedStockEntry" class="col-md-6">
+         <div class="panel panel-primary">
+            <div ng-if="ctrl.selectedStockEntry == null || ctrl.selectedStockEntry.id == null || ctrl.selectedStockEntry.id == ''" class="btn-offset-inner">
+               <button type="button" ripple="" ng-click="ctrl.new()" class="btn btn-primary btn-circle btn-lg shadow-z1">
+                  <em class="fa fa-plus"></em>
+               </button>
+            </div>
+            <div class="panel-heading">Movimentações de Estoque</div>
+            <div class="panel-body">
+               <div class="table-responsive">
+                  <table class="table table-hover">
+                     <thead>
+                        <tr>
+                           <th>data</th>
+                           <th>motivo</th>
+                           <th>produto</th>
+                           <th>quantidade</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-repeat="stock_entry in ctrl.stock_entries" ng-class="{active: (stock_entry.id === ctrl.selectedStockEntry.id)}" ng-click="ctrl.edit(stock_entry)">
+                           <td>
+                              <span ng-bind="stock_entry.movement_date | date:'shortDate'"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="stock_entry.reason"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="stock_entry.product.name"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="stock_entry.quantity"></span>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div ng-show="ctrl.selectedStockEntry" ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}" class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="panel-heading">Detalhes de Movimentação de Estoque
+               <!-- START button group-->
+               <div dropdown="dropdown" ripple="" class="btn-group pull-right">
+                  <button type="button" ng-disabled="disabled" dropdown-toggle="" class="btn btn-xs btn-primary btn-flat btn-offset-only shadow-z1 dropdown-toggle">
+                     <em class="fa fa-ellipsis-v"></em>
+                  </button>
+                  <ul role="menu" class="dropdown-menu">
+                     <li><a href="#" ng-click="ctrl.destroy(ctrl.selectedStockEntry)">Remover</a>
+                     </li>
+                     <li class="divider"></li>
+                     <li><a href="#" ng-click="ctrl.toggleFullScreen()">Tela Cheia</a>
+                     </li>
+                  </ul>
+               </div>
+               <!-- END button group-->
+            </div>
+            <div class="panel-body">
+               <fieldset>
+                  <div class="form-group">
+                     <label for="stock_entry_date" class="col-md-2 control-label">Data</label>
+                     <div class="col-md-10">
+                        <p class="input-group">
+                           <input type="text" datepicker-popup="dd/MM/yyyy" ng-model="ctrl.selectedStockEntry.movement_date" is-open="ctrl.status.datepicker_opened" ng-required="true" close-text="Fechar" class="form-control" />
+                           <span class="input-group-btn">
+                              <button type="button" ng-click="ctrl.openDatepicker($event)" class="btn btn-default">
+                                 <em class="fa fa-calendar"></em>
+                              </button>
+                           </span>
+                        </p>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="stock_entry_reason" class="col-md-2 control-label">Motivo</label>
+                     <div class="col-md-10">
+                        <input id="stock_entry_reason" ng-model="ctrl.selectedStockEntry.reason" type="text" class="form-control shadow-z1" />
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <script type="text/ng-template" id="typeahead.html">
+                        <a><span bind-html-unsafe="match.label | typeaheadHighlight:query"></span></a>
+                     </script>
+                     <label for="stock_entry_product_name" class="col-md-2 control-label">Produto</label>
+                     <div class="col-md-10">
+                        <div class="controls">
+                           <input type="text" ng-model="ctrl.selectedStockEntry.product" typeahead="product as product.name for product in ctrl.products | filter:{name:$viewValue} | limitTo:10" typeahead-template-url="typeahead.html" class="form-control"
+                           />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="stock_entry_quantity" class="col-md-2 control-label">Quantidade</label>
+                     <div class="col-md-10">
+                        <input id="stock_entry_quantity" ng-model="ctrl.selectedStockEntry.quantity" type="text" class="form-control shadow-z1" />
+                     </div>
+                  </div>
+               </fieldset>
+               <div class="form-group">
+                  <button ripple="" ng-click="ctrl.save()" class="btn btn-xs btn-success btn-flat">Salvar</button>
+                  <button ripple="" ng-click="ctrl.cancel()" class="btn btn-xs btn-danger btn-flat">Cancelar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
