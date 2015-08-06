@@ -58,19 +58,18 @@
             url: '/products',
             templateUrl: Route.base('app.products.html'),
             controller: 'ProductsCtrl as ctrl',
-            onEnter: ['productsService', function(posService) {
-                posService.loadAll();
+            onEnter: ['productsService', function(productsService) {
+                productsService.loadAll();
             }]
         });
 
         $stateProvider.state('app.sales', {
             url: '/sales',
             templateUrl: Route.base('app.sales.html'),
-            resolve: {
-                assets: Route.require('flot-chart', 'flot-chart-plugins', 'ui.knob', 'loadGoogleMapsJS', function() {
-                    return loadGoogleMaps();
-                }, 'ui.map')
-            }
+            controller: 'SalesCtrl as ctrl',
+            onEnter: ['productsService', function(productsService) {
+                productsService.loadAll();
+            }]
         });
 
         // Single Page Routes
