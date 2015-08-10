@@ -65,6 +65,12 @@
                   input(id='product_description' ng-model='ctrl.selectedProduct.description' class='form-control shadow-z1' type='text')
             fieldset
               .form-group
+                label(class='col-md-2 control-label' for='product_barcode')
+                  | Código de Barras
+                .col-md-10
+                  input(id='product_barcode' ng-model='ctrl.selectedProduct.barcode' class='form-control shadow-z1' type='text')
+            fieldset
+              .form-group
                 label.col-sm-2.control-label Preço
                 .col-sm-10
                   input.form-control(type='number' name='product_price' ng-model="ctrl.selectedProduct.price" class='form-control shadow-z1')

@@ -22,26 +22,10 @@
             }).error(self.handleError);
         };
 
-        self.create = function(product) {
-            return $http.post($rootScope.app.env.backend + '/products.json', product).success(function (data) {
-                toaster.success('Mensagem', 'Produto criado com sucesso!');
-                self.loadAll();
+        self.create = function(sale) {
+            return $http.post($rootScope.app.env.backend + '/point_of_sales/' + $rootScope.pos.id + '/sales.json', sale).success(function (data) {
+                toaster.success('Mensagem', 'Venda realizada com sucesso!');
             }).error(self.handleError);
-        };
-
-        self.update = function(product) {
-            return $http.put($rootScope.app.env.backend + '/products/' + product.id + '.json', product)
-                .success(function (data) {
-                    toaster.success('Mensagem', 'Produto atualizado com sucesso!');
-                    self.loadAll();
-                }).error(self.handleError);
-        };
-
-        self.destroy = function(product, onAfterDestroy) {
-            return $http.delete($rootScope.app.env.backend + '/products/' + product.id + '.json')
-                .success(function (data) {
-                    onAfterDestroy();
-                }).error(self.handleError);
         };
 
         self.handleError = function (data) {

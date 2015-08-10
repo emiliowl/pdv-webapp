@@ -40,16 +40,25 @@
         .col-md-10
           input(id='barcode' ng-model='ctrl.search.barcode' class='form-control shadow-z1' type='text' autofocus)
   .row
+    .btn-offset-inner
+      button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.create()")
+        em.fa.fa-shopping-cart
     .col-lg-4.col-md-4.col-xs-6(ng-repeat="product in ctrl.products | filter:ctrl.search.barcode")
       .row(ng-click='ctrl.sell(product)')
         .col-md-12.col-xs-12
           // START Panel
           .panel.panel-card-xs.panel-card-image(chained-animation="fadeInUp" ng-style="{'background-image':'url({{product.images[0].secure_url}})'}")
+            .panel-body-xs.text-center
             .panel-footer.text-center
               .row
                 .col-md-12.col-xs-12
                   h2.text-lg.text-white {{ product.price | currency : 'R$' : 2 }}
-                  small.text-white(ng-bind="product.name") - small.text-white(ng-bind="product.description")
+                  small.text-white(ng-bind="product.name")
+                  br
+                  small.text-white(ng-bind="product.description")
+                  br
+                  label Código de barras:
+                  small.text-white(ng-bind="product.barcode")
 script(type="text/ng-template" id="sellDetails.html")
   .modal-content
     .modal-header

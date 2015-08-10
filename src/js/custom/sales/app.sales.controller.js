@@ -20,11 +20,10 @@
         };
 
         self.cancel = function() {
-            self.selectedSale = null;
-            salesService.loadAll();
+            self.selectedSale = {items: []};
         };
 
-        self.save = function() {
+        self.create = function() {
             if(self.selectedSale != null) {
                 salesService.create(self.selectedSale);
             }
@@ -70,7 +69,7 @@
                         return product;
                     }
                 }
-            }).then(function(){$('input#quantity').focus();});
+            });
         };
 
         self.calculateSellValue = function() {
@@ -87,7 +86,7 @@
         self.product = product;
 
         self.save = function() {
-            items_list.push({quantity: self.quantity, product: self.product});
+            items_list.push({quantity: self.quantity, product: self.product, product_id: self.product.id});
             $modalInstance.dismiss('cancel');
             $('input#barcode').focus();
         };

@@ -58,16 +58,27 @@
       </fieldset>
    </div>
    <div class="row">
+      <div class="btn-offset-inner">
+         <button type="button" ripple="" ng-click="ctrl.create()" class="btn btn-primary btn-circle btn-lg shadow-z1">
+            <em class="fa fa-shopping-cart"></em>
+         </button>
+      </div>
       <div ng-repeat="product in ctrl.products | filter:ctrl.search.barcode" class="col-lg-4 col-md-4 col-xs-6">
          <div ng-click="ctrl.sell(product)" class="row">
             <div class="col-md-12 col-xs-12">
                <!-- START Panel-->
                <div chained-animation="fadeInUp" ng-style="{'background-image':'url({{product.images[0].secure_url}})'}" class="panel panel-card-xs panel-card-image">
+                  <div class="panel-body-xs text-center"></div>
                   <div class="panel-footer text-center">
                      <div class="row">
                         <div class="col-md-12 col-xs-12">
                            <h2 class="text-lg text-white">{{ product.price | currency : 'R$' : 2 }}</h2>
-                           <small ng-bind="product.name" class="text-white">- small.text-white(ng-bind="product.description")</small>
+                           <small ng-bind="product.name" class="text-white"></small>
+                           <br/>
+                           <small ng-bind="product.description" class="text-white"></small>
+                           <br/>
+                           <label>Código de barras:</label>
+                           <small ng-bind="product.barcode" class="text-white"></small>
                         </div>
                      </div>
                   </div>
