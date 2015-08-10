@@ -52,23 +52,24 @@
          <div class="form-group">
             <label for="barcode" class="col-md-2 control-label">Código de Barras</label>
             <div class="col-md-10">
-               <input id="barcode" ng-model="ctrl.search.barcode" type="text" class="form-control shadow-z1" />
+               <input id="barcode" ng-model="ctrl.search.barcode" type="text" autofocus="autofocus" class="form-control shadow-z1" />
             </div>
          </div>
       </fieldset>
    </div>
    <div class="row">
-      <div ng-repeat="product in ctrl.products | filter:ctrl.search.barcode" class="col-lg-4 col-md-4 col-xs-12">
+      <div ng-repeat="product in ctrl.products | filter:ctrl.search.barcode" class="col-lg-4 col-md-4 col-xs-6">
          <div ng-click="ctrl.sell(product)" class="row">
             <div class="col-md-12 col-xs-12">
                <!-- START Panel-->
-               <div chained-animation="fadeInUp" class="panel panel-card panel-card-image bg-pic4">
-                  <div class="panel-body">
-                     <small ng-bind="product.description" class="text-white"></small>
-                     <h2 class="text-lg text-white">{{ product.price | currency : 'R$' : 2 }}
-                        <br/>
-                        <small ng-bind="product.name" class="text-white"></small>
-                     </h2>
+               <div chained-animation="fadeInUp" ng-style="{'background-image':'url({{product.images[0].secure_url}})'}" class="panel panel-card-xs panel-card-image">
+                  <div class="panel-footer text-center">
+                     <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                           <h2 class="text-lg text-white">{{ product.price | currency : 'R$' : 2 }}</h2>
+                           <small ng-bind="product.name" class="text-white">- small.text-white(ng-bind="product.description")</small>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
