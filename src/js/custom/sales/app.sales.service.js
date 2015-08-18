@@ -6,7 +6,7 @@
     angular.module('naut').factory('salesService', salesService);
 
     /* @ngInject */
-    function salesService($rootScope, toaster, $http) {
+    function salesService($rootScope, toaster, $http, SweetAlert) {
         var self = this;
         self.products = [];
 
@@ -24,7 +24,7 @@
 
         self.create = function(sale) {
             return $http.post($rootScope.app.env.backend + '/point_of_sales/' + $rootScope.pos.id + '/sales.json', sale).success(function (data) {
-                toaster.success('Mensagem', 'Venda realizada com sucesso!');
+                SweetAlert.swal("Sucesso", "Venda realizada com sucesso!", "success");
             }).error(self.handleError);
         };
 
@@ -36,7 +36,7 @@
             } else {
                 message = "Erro ao comunicar com servidor.";
             }
-            toaster.error('Erro', message);
+            SweetAlert.swal("Erro", message, "warning");
         };
 
         return self;

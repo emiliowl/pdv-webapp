@@ -3,8 +3,8 @@
   small Frente de Caixa
 .container-fluid.container-flush
   .row
-    .col-lg-4.col-md-4.col-xs-12
-      h2 Nova venda sendo realizada:
+    .col-lg-12.col-md-12.col-xs-12
+
       .table-responsive
         table.table.table-striped
           thead
@@ -34,22 +34,40 @@
   hr
   .row
     fieldset
-      .form-group
-        label(class='col-md-2 control-label' for='barcode')
-          | Código de Barras
-        .col-md-10
-          input(id='barcode' ng-model='ctrl.search.barcode' class='form-control shadow-z1' type='text' autofocus)
+      .col-lg-5.col-md-5
+        .form-group
+          label(class='control-label' for='barcode')
+            | Produto
+          input(id='barcode'
+                ng-model='ctrl.search.barcode'
+                class='form-control shadow-z1'
+                type='text'
+                ng-keyup="ctrl.tryProductSelection($event)"
+                ng-blur="ctrl.tryProductSelection()")
+      .col-lg-5.col-md-5
+        .form-group
+          label(class='control-label' for='quantity')
+            | Quantidade
+          input(id='quantity' ng-model='ctrl.search.quantity' class='form-control shadow-z1' type='text')
+      .col-lg-1.col-md-1
+        .form-group
+          button.btn.btn-success.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.sell()")
+            em.fa.fa-plus
+      .col-lg-1.col-md-1
+        .form-group
+          button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.finalizeSell()")
+            em.fa.fa-shopping-cart
   .row
-    .btn-offset-inner
-      button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.create()")
-        em.fa.fa-shopping-cart
     .col-lg-4.col-md-4.col-xs-6(ng-repeat="product in ctrl.products | filter:ctrl.search.barcode")
-      .row(ng-click='ctrl.sell(product)')
+      .row(ng-click='ctrl.selectProduct(product)')
         .col-md-12.col-xs-12
           // START Panel
           .panel.panel-card-xs.panel-card-image(chained-animation="fadeInUp" ng-style="{'background-image':'url({{product.images[0].secure_url}})'}")
             .panel-body-xs.text-center
             .panel-footer.text-center
+              .btn-offset-inner(ng-if="ctrl.selectedProduct && ctrl.selectedProduct.id == product.id")
+                button.btn.btn-success.btn-circle.btn-md.shadow-z1(type="button" ripple="" ng-click="ctrl.cancelProductSelection()")
+                  em.fa.fa-check
               .row
                 .col-md-12.col-xs-12
                   h2.text-lg.text-white {{ product.price | currency : 'R$' : 2 }}
@@ -59,19 +77,3 @@
                   br
                   label Código de barras:
                   small.text-white(ng-bind="product.barcode")
-script(type="text/ng-template" id="sellDetails.html")
-  .modal-content
-    .modal-header
-      h4.modal-title#myModalLabel Realizando venda do produto {{control.product.name}}
-    .modal-body
-      fieldset
-        .form-group
-          label(class='col-md-2 control-label' for='quantity')
-            | Quantidade
-          .col-md-10
-            input(id='quantity' ng-model='control.quantity' class='form-control shadow-z1' type='number')
-    .modal-footer
-      .form-group
-        a.btn.btn-md.btn-success.btn-flat(href="#" ripple="" ng-click="control.save()")  Salvar
-        |&nbsp;
-        a.btn.btn-md.btn-danger.btn-flat(href="#" ripple="" ng-click="control.close()") Cancelar

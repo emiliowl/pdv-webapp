@@ -5,15 +5,15 @@
     'use strict';
 
     angular.module('naut').controller('SalesCtrl', SalesCtrl);
-    angular.module('naut').controller('SellModalCtrl', SellModalCtrl);
 
     /* @ngInject */
-    function SalesCtrl(SweetAlert, salesService, productsService, $modal) {
+    function SalesCtrl(SweetAlert, salesService, productsService, $filter) {
         var self = this;
 
         self.products = productsService.products;
+        self.selectedProduct = null;
         self.selectedSale = {items: []};
-        self.search = {barcode: ''};
+        self.search = {barcode: '', quantity: 1};
 
         self.new = function() {
             self.selectedSale = {items: []};
@@ -21,9 +21,13 @@
 
         self.cancel = function() {
             self.selectedSale = {items: []};
+            self.search.quantity = 1;
+            self.search.barcode = '';
+            self.selectedProduct = null;
+            $('input#barcode').focus();
         };
 
-        self.create = function() {
+        self.finalizeSell = function() {
             if(self.selectedSale != null) {
                 salesService.create(self.selectedSale);
             }
@@ -55,21 +59,58 @@
             });
         };
 
-        self.sell = function(product) {
-            var modalInstance = $modal.open({
-                animation: true,
-                templateUrl: 'sellDetails.html',
-                controller: 'SellModalCtrl as control',
-                size: 'md',
-                resolve: {
-                    items_list: function() {
-                        return self.selectedSale.items;
-                    },
-                    product: function() {
-                        return product;
-                    }
+        self.sell = function() {
+            if (!self.search.quantity || self.search.quantity === "" || self.search.quantity < 1 ) {
+                self.search.quantity = 1;
+            }
+            if (!self.selectedProduct || self.selectedProduct === "") {
+                SweetAlert.swal("Erro", "Selecione um produto antes de adicionar a venda!", "warning");
+                $('input#barcode').focus();
+                return false;
+            }
+
+            self.selectedSale.items.push({ quantity: self.search.quantity,
+                                           product: self.selectedProduct,
+                                           product_id: self.selectedProduct.id });
+            self.search.quantity = 1;
+            self.search.barcode = '';
+            self.selectedProduct = null;
+            $('input#barcode').focus();
+        };
+
+        self.selectProduct = function(product) {
+            self.selectedProduct = product;
+            $('input#quantity').focus();
+        };
+
+        self.tryProductSelection = function(event) {
+            if(event) {
+                if(event.keyCode == 13) {
+                    self.doInferProductSelection();
+                } else {
+                    self.cancelProductSelection();
                 }
-            });
+            } else {
+                self.doInferProductSelection();
+            }
+        };
+
+        self.doInferProductSelection = function() {
+            if((!self.selectedProduct || self.selectedProduct === "")
+                && self.search.barcode && self.search.barcode !== "") {
+                var filteredProducts = $filter('filter')(self.products, self.search.barcode);
+                if (filteredProducts) {
+                    self.selectProduct(filteredProducts[0]);
+                } else {
+                    SweetAlert.swal("Erro", "Selecione um produto!", "warning");
+                    $('input#barcode').focus();
+                }
+            }
+        };
+
+        self.cancelProductSelection = function() {
+            self.selectedProduct = null;
+            $('input#barcode').focus();
         };
 
         self.calculateSellValue = function() {
@@ -77,23 +118,5 @@
                 return previousValue += (current.product.price * current.quantity);
             }, 0);
         }
-    }
-
-    /* @ngInject */
-    function SellModalCtrl($modalInstance, items_list, product) {
-        var self = this;
-        self.quantity = 1;
-        self.product = product;
-
-        self.save = function() {
-            items_list.push({quantity: self.quantity, product: self.product, product_id: self.product.id});
-            $modalInstance.dismiss('cancel');
-            $('input#barcode').focus();
-        };
-
-        self.close = function () {
-            $modalInstance.dismiss('cancel');
-            $('input#barcode').focus();
-        };
     }
 })();
