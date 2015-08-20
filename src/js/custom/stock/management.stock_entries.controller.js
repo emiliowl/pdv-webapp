@@ -14,6 +14,7 @@
         self.products = productsService.products;
         self.selectedStockEntry = null;
         self.status = {fullscreen: false, datepicker_opened: false};
+        self.reasons = ['Produto(s) vencido(s)', 'Compra de mercadorias'];
 
         self.openDatepicker = function($event) {
             $event.preventDefault();

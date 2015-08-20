@@ -78,7 +78,10 @@
                   <div class="form-group">
                      <label for="stock_entry_reason" class="col-md-2 control-label">Motivo</label>
                      <div class="col-md-10">
-                        <input id="stock_entry_reason" ng-model="ctrl.selectedStockEntry.reason" type="text" class="form-control shadow-z1" />
+                        <select id="stock_entry_reason" ng-model="ctrl.selectedStockEntry.reason" name="reasons" class="form-control shadow-z1">
+                           <option selected="selected" value="">Selecione um motivo na lista</option>
+                           <option ng-repeat="reason in ctrl.reasons" value="{{reason}}">{{reason}}</option>
+                        </select>
                      </div>
                   </div>
                   <div class="form-group">
@@ -88,8 +91,8 @@
                      <label for="stock_entry_product_name" class="col-md-2 control-label">Produto</label>
                      <div class="col-md-10">
                         <div class="controls">
-                           <input type="text" ng-model="ctrl.selectedStockEntry.product" typeahead="product as product.name for product in ctrl.products | filter:{name:$viewValue} | limitTo:10" typeahead-template-url="typeahead.html" class="form-control"
-                           />
+                           <input type="text" ng-model="ctrl.selectedStockEntry.product" typeahead="product as product.name for product in ctrl.products | filter:{name:$viewValue} | limitTo:10" typeahead-template-url="typeahead.html" placeholder="Digite o produto que está procurando"
+                           class="form-control form-control shadow-z1" />
                         </div>
                      </div>
                   </div>
