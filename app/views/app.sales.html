@@ -81,26 +81,26 @@
          <div ng-click="ctrl.selectProduct(item.product)" class="row">
             <div class="col-md-12 col-xs-12">
                <!-- START Panel-->
-               <div chained-animation="fadeInUp" ng-style="{'background-image':'url({{product.images[0].secure_url}})'}" class="panel panel-card-xs panel-card-image">
+               <div chained-animation="fadeInUp" ng-style="{'background-image':'url({{item.product.images[0].secure_url}})'}" class="panel panel-card-xs panel-card-image">
                   <div class="panel-body-xs text-center"></div>
                   <div class="panel-footer text-center">
-                     <div ng-if="ctrl.selectedProduct &amp;&amp; ctrl.selectedProduct.id == product.id" class="btn-offset-inner">
+                     <div ng-if="ctrl.selectedProduct &amp;&amp; ctrl.selectedProduct.id == item.product.id" class="btn-offset-inner">
                         <button type="button" ripple="" ng-click="ctrl.cancelProductSelection()" class="btn btn-success btn-circle btn-md shadow-z1">
                            <em class="fa fa-check"></em>
                         </button>
                      </div>
                      <div class="row">
                         <div class="col-md-12 col-xs-12">
-                           <h2 class="text-lg text-white">{{ product.price | currency : 'R$' : 2 }}</h2>
-                           <small ng-bind="product.name" class="text-white"></small>
+                           <h2 class="text-lg text-white">{{ item.product.price | currency : 'R$' : 2 }}</h2>
+                           <small ng-bind="item.product.name" class="text-white"></small>
                            <br/>
-                           <small ng-bind="product.description" class="text-white"></small>
+                           <small ng-bind="item.product.description" class="text-white"></small>
                            <br/>
                            <label>Código de barras:</label>
-                           <small ng-bind="product.barcode" class="text-white"></small>
+                           <small ng-bind="item.product.barcode" class="text-white"></small>
                            <br/>
                            <label>Quantidade no Estoque:</label>
-                           <small ng-bind="product.quantity" class="text-white"></small>
+                           <small ng-bind="item.quantity" class="text-white"></small>
                         </div>
                      </div>
                   </div>

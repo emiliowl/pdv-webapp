@@ -62,21 +62,21 @@
       .row(ng-click='ctrl.selectProduct(item.product)')
         .col-md-12.col-xs-12
           // START Panel
-          .panel.panel-card-xs.panel-card-image(chained-animation="fadeInUp" ng-style="{'background-image':'url({{product.images[0].secure_url}})'}")
+          .panel.panel-card-xs.panel-card-image(chained-animation="fadeInUp" ng-style="{'background-image':'url({{item.product.images[0].secure_url}})'}")
             .panel-body-xs.text-center
             .panel-footer.text-center
-              .btn-offset-inner(ng-if="ctrl.selectedProduct && ctrl.selectedProduct.id == product.id")
+              .btn-offset-inner(ng-if="ctrl.selectedProduct && ctrl.selectedProduct.id == item.product.id")
                 button.btn.btn-success.btn-circle.btn-md.shadow-z1(type="button" ripple="" ng-click="ctrl.cancelProductSelection()")
                   em.fa.fa-check
               .row
                 .col-md-12.col-xs-12
-                  h2.text-lg.text-white {{ product.price | currency : 'R$' : 2 }}
-                  small.text-white(ng-bind="product.name")
+                  h2.text-lg.text-white {{ item.product.price | currency : 'R$' : 2 }}
+                  small.text-white(ng-bind="item.product.name")
                   br
-                  small.text-white(ng-bind="product.description")
+                  small.text-white(ng-bind="item.product.description")
                   br
                   label Código de barras:
-                  small.text-white(ng-bind="product.barcode")
+                  small.text-white(ng-bind="item.product.barcode")
                   br
                   label Quantidade no Estoque:
-                  small.text-white(ng-bind="product.quantity")
+                  small.text-white(ng-bind="item.quantity")

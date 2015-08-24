@@ -104,9 +104,9 @@
         self.doInferProductSelection = function() {
             if((!self.selectedProduct || self.selectedProduct === "")
                 && self.search.barcode && self.search.barcode !== "") {
-                var filteredProducts = $filter('filter')(self.products, self.search.barcode);
+                var filteredProducts = $filter('filter')(self.storage, self.search.barcode);
                 if (filteredProducts) {
-                    self.selectProduct(filteredProducts[0]);
+                    self.selectProduct(filteredProducts[0].product);
                 } else {
                     SweetAlert.swal("Erro", "Selecione um produto!", "warning");
                     $('input#barcode').focus();
