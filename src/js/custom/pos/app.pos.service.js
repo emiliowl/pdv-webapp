@@ -9,6 +9,7 @@
     function posService($rootScope, toaster, $http) {
         var self = this;
         self.posList = [];
+        self.storageList = [];
 
         self.loadAll = function() {
             return $http.get($rootScope.app.env.backend + '/point_of_sales.json').success(function (data) {
@@ -39,6 +40,17 @@
                 .success(function (data) {
                     onAfterDestroy();
                 }).error(self.handleError);
+        };
+
+        self.storage = function() {
+            if(!$rootScope.pos || $rootScope.pos.id === '') {
+                toaster.error('Erro', 'Ponto de venda não selecionado');
+                return false;
+            }
+
+            return $http.get($rootScope.app.env.backend + '/point_of_sales/' + $rootScope.pos.id + '/storage.json').success(function (data) {
+                angular.copy(data, self.storageList);
+            }).error(self.handleError);
         };
 
         self.handleError = function (data) {

@@ -67,8 +67,8 @@
             url: '/sales',
             templateUrl: Route.base('app.sales.html'),
             controller: 'SalesCtrl as ctrl',
-            onEnter: ['productsService', function(productsService) {
-                productsService.loadAll();
+            onEnter: ['posService', function(posService) {
+                posService.storage();
             }]
         });
 

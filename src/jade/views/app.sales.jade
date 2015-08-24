@@ -58,8 +58,8 @@
           button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.finalizeSell()")
             em.fa.fa-shopping-cart
   .row
-    .col-lg-4.col-md-4.col-xs-6(ng-repeat="product in ctrl.products | filter:ctrl.search.barcode")
-      .row(ng-click='ctrl.selectProduct(product)')
+    .col-lg-4.col-md-4.col-xs-6(ng-repeat="item in ctrl.storage | filter:ctrl.search.barcode")
+      .row(ng-click='ctrl.selectProduct(item.product)')
         .col-md-12.col-xs-12
           // START Panel
           .panel.panel-card-xs.panel-card-image(chained-animation="fadeInUp" ng-style="{'background-image':'url({{product.images[0].secure_url}})'}")
@@ -77,3 +77,6 @@
                   br
                   label Código de barras:
                   small.text-white(ng-bind="product.barcode")
+                  br
+                  label Quantidade no Estoque:
+                  small.text-white(ng-bind="product.quantity")

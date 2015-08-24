@@ -77,8 +77,8 @@
       </fieldset>
    </div>
    <div class="row">
-      <div ng-repeat="product in ctrl.products | filter:ctrl.search.barcode" class="col-lg-4 col-md-4 col-xs-6">
-         <div ng-click="ctrl.selectProduct(product)" class="row">
+      <div ng-repeat="item in ctrl.storage | filter:ctrl.search.barcode" class="col-lg-4 col-md-4 col-xs-6">
+         <div ng-click="ctrl.selectProduct(item.product)" class="row">
             <div class="col-md-12 col-xs-12">
                <!-- START Panel-->
                <div chained-animation="fadeInUp" ng-style="{'background-image':'url({{product.images[0].secure_url}})'}" class="panel panel-card-xs panel-card-image">
@@ -98,6 +98,9 @@
                            <br/>
                            <label>Código de barras:</label>
                            <small ng-bind="product.barcode" class="text-white"></small>
+                           <br/>
+                           <label>Quantidade no Estoque:</label>
+                           <small ng-bind="product.quantity" class="text-white"></small>
                         </div>
                      </div>
                   </div>

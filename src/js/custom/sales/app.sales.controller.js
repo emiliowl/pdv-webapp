@@ -7,10 +7,10 @@
     angular.module('naut').controller('SalesCtrl', SalesCtrl);
 
     /* @ngInject */
-    function SalesCtrl(SweetAlert, salesService, productsService, $filter) {
+    function SalesCtrl(SweetAlert, salesService, posService, $filter) {
         var self = this;
 
-        self.products = productsService.products;
+        self.storage = posService.storageList;
         self.selectedProduct = null;
         self.selectedSale = {items: []};
         self.search = {barcode: '', quantity: 1};
@@ -65,6 +65,12 @@
             }
             if (!self.selectedProduct || self.selectedProduct === "") {
                 SweetAlert.swal("Erro", "Selecione um produto antes de adicionar a venda!", "warning");
+                $('input#barcode').focus();
+                return false;
+            }
+
+            if (self.selectedProduct.quantity < self.search.quantity) {
+                SweetAlert.swal("Erro", "Quantidade insuficiente para adicionar a venda.", "warning");
                 $('input#barcode').focus();
                 return false;
             }
