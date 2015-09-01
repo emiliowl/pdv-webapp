@@ -24,7 +24,7 @@
                   td
                     span(ng-bind="stock_entry.movement_date | date:'shortDate'")
                   td
-                    span(ng-bind="stock_entry.reason")
+                    span(ng-bind="stock_entry.storage_entry_type.reason")
                   td
                     span(ng-bind="stock_entry.product.name")
                   td
@@ -69,9 +69,8 @@
               label(class='col-md-2 control-label' for='stock_entry_reason')
                 | Motivo
               .col-md-10
-                select(id='stock_entry_reason' ng-model='ctrl.selectedStockEntry.reason' class='form-control shadow-z1' name='reasons')
+                select(id='storage_entry_type' ng-model='ctrl.selectedStockEntry.storageEntryType' class='form-control shadow-z1' name='storage_entry_type' ng-options="storageEntryType.reason for storageEntryType in ctrl.storageEntryTypes | filter: {sell_marker: false}")
                   option(selected="selected" value="") Selecione um motivo na lista
-                  option(ng-repeat="reason in ctrl.reasons" value="{{reason}}") {{reason}}
             .form-group
               script(type="text/ng-template", id="typeahead.html")
                 a
@@ -89,3 +88,5 @@
           .form-group
             button.btn.btn-xs.btn-success.btn-flat(ripple="", ng-click="ctrl.save()")  Salvar
             button.btn.btn-xs.btn-danger.btn-flat(ripple="", ng-click="ctrl.cancel()") Cancelar
+.well
+  | {{ ctrl.selectedStockEntry.storageEntryType | json }}

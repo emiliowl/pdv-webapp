@@ -19,19 +19,18 @@
             }).error(self.handleError);
         };
 
-        self.create = function(stock_entry) {
+        self.create = function(stockEntry) {
             var stock_entry_data = {};
-            stock_entry_data.id = stock_entry.id;
-            stock_entry_data.movement_date = stock_entry.movement_date;
-            stock_entry_data.reason = stock_entry.reason;
-            if(stock_entry.product) {
-                stock_entry_data.product_id = stock_entry.product.id;
+            stock_entry_data.id = stockEntry.id;
+            stock_entry_data.movement_date = stockEntry.movement_date;
+            if(stockEntry.product) {
+                stock_entry_data.product_id = stockEntry.product.id;
             }
-            stock_entry_data.quantity = stock_entry.quantity;
-            return $http.post($rootScope.app.env.backend
-                + '/point_of_sales/'
-                + $rootScope.pos.id
-                + '/storage/entries.json', stock_entry_data).success(function (data) {
+            if(stockEntry.storageEntryType) {
+                stock_entry_data.storage_entry_type_id = stockEntry.storageEntryType.id;
+            }
+            stock_entry_data.quantity = stockEntry.quantity;
+            return $http.post($rootScope.app.env.backend + '/point_of_sales/' + $rootScope.pos.id + '/storage/entries.json', stock_entry_data).success(function (data) {
                 toaster.success('Mensagem', 'Entrada de estoque criada com sucesso!');
                 self.loadAll();
             }).error(self.handleError);

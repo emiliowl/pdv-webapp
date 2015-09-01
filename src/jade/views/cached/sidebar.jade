@@ -16,6 +16,12 @@
                 a(ui-sref='app.products', title='produtos', ripple='')
                   em.sidebar-item-icon.fa.fa-table
                   span Produtos
+              li.nav-heading
+                span.text-muted Sub-Cadastros
+              li(ui-sref-active="active")
+                a(ui-sref='app.stock_entry_types', title='tipos de movimentação de estoque', ripple='')
+                  em.sidebar-item-icon.fa.fa-archive
+                  span Tipos de Movimentação
           li(ng-class="{active:$state.includes('management')}")
             a(href='', title='Gestão', ripple='')
               em.sidebar-item-icon.fa.fa-bar-chart

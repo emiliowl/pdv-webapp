@@ -27,7 +27,7 @@
                               <span ng-bind="stock_entry.movement_date | date:'shortDate'"></span>
                            </td>
                            <td>
-                              <span ng-bind="stock_entry.reason"></span>
+                              <span ng-bind="stock_entry.storage_entry_type.reason"></span>
                            </td>
                            <td>
                               <span ng-bind="stock_entry.product.name"></span>
@@ -78,9 +78,8 @@
                   <div class="form-group">
                      <label for="stock_entry_reason" class="col-md-2 control-label">Motivo</label>
                      <div class="col-md-10">
-                        <select id="stock_entry_reason" ng-model="ctrl.selectedStockEntry.reason" name="reasons" class="form-control shadow-z1">
+                        <select id="storage_entry_type" ng-model="ctrl.selectedStockEntry.storageEntryType" name="storage_entry_type" ng-options="storageEntryType.reason for storageEntryType in ctrl.storageEntryTypes | filter: {sell_marker: false}" class="form-control shadow-z1">
                            <option selected="selected" value="">Selecione um motivo na lista</option>
-                           <option ng-repeat="reason in ctrl.reasons" value="{{reason}}">{{reason}}</option>
                         </select>
                      </div>
                   </div>
@@ -112,3 +111,4 @@
       </div>
    </div>
 </div>
+<div class="well">{{ ctrl.selectedStockEntry.storageEntryType | json }}</div>

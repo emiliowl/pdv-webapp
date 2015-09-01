@@ -1,0 +1,104 @@
+<div class="app-view-header">Tipos de Movimentação de Estoque</div>
+<div class="container-fluid">
+   <br/>
+   <div class="row">
+      <div ng-if="!ctrl.status.fullscreen || !ctrl.selectedStorageEntryType" class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="btn-offset-inner">
+               <button type="button" ripple="" ng-click="ctrl.new()" class="btn btn-primary btn-circle btn-lg shadow-z1">
+                  <em class="fa fa-plus"></em>
+               </button>
+            </div>
+            <div class="panel-heading">Para editar selecione um item</div>
+            <div class="panel-body">
+               <div class="table-responsive">
+                  <table class="table table-hover">
+                     <thead>
+                        <tr>
+                           <th>Motivo</th>
+                           <th>Positivo/Negativo</th>
+                           <th>Venda</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-repeat="storageEntryType in ctrl.storageEntryTypes" ng-class="{active: (storageEntryType.id === ctrl.selectedStorageEntryType.id)}" ng-click="ctrl.edit(storageEntryType)">
+                           <td>
+                              <span ng-bind="storageEntryType.reason"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="storageEntryType.plus_minus_marker | yesNo"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="storageEntryType.sell_marker | yesNo"></span>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div ng-show="ctrl.selectedStorageEntryType" ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}" class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="panel-heading">Cadastro de Tipo de Movimentação de Estoque
+               <!-- START button group-->
+               <div dropdown="dropdown" ripple="" class="btn-group pull-right">
+                  <button type="button" dropdown-toggle="" class="btn btn-xs btn-primary btn-flat btn-offset-only shadow-z1 dropdown-toggle">
+                     <em class="fa fa-ellipsis-v"></em>
+                  </button>
+                  <ul role="menu" class="dropdown-menu">
+                     <li><a href="#" ng-click="ctrl.destroy(ctrl.selectedStorageEntryType)">Remover</a>
+                     </li>
+                     <li class="divider"></li>
+                     <li><a href="#" ng-click="ctrl.toggleFullScreen()">Tela Cheia</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="panel-body">
+               <form action="#" name="storage_entry_type_form" class="form-validate form-horizontal">
+                  <fieldset>
+                     <div class="form-group">
+                        <label for="storage_entry_type_reason" class="col-md-2 control-label">Motivo</label>
+                        <div class="col-md-10">
+                           <input id="storage_entry_type_reason" ng-model="ctrl.selectedStorageEntryType.reason" type="text" class="form-control shadow-z1" />
+                        </div>
+                     </div>
+                  </fieldset>
+                  <fieldset>
+                     <div class="form-group">
+                        <label for="storage_entry_type_plus_minus_marker" class="col-md-2 control-label">Positivo/negativo</label>
+                        <div class="col-md-10">
+                           <div class="clearfix">
+                              <div class="checkbox c-checkbox pull-left mt0">
+                                 <label>
+                                    <input type="checkbox" ng-model="ctrl.selectedStorageEntryType.plus_minus_marker" />
+                                    <span class="fa fa-check"></span>Selecione para valores positivos</label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </fieldset>
+                  <fieldset>
+                     <div class="form-group">
+                        <label for="storage_entry_type_sell_marker" class="col-md-2 control-label">Movimentação de Venda</label>
+                        <div class="col-md-10">
+                           <div class="clearfix">
+                              <div class="checkbox c-checkbox pull-left mt0">
+                                 <label>
+                                    <input type="checkbox" ng-model="ctrl.selectedStorageEntryType.sell_marker" />
+                                    <span class="fa fa-check"></span>Selecione para marcar como tipo que qualifica as vendas</label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </fieldset>
+               </form>
+               <hr/>
+               <div class="form-group"><a href="#" ripple="" ng-click="ctrl.save()" class="btn btn-md btn-success btn-flat"> Salvar</a>&nbsp;<a href="#" ripple="" ng-click="ctrl.cancel()" class="btn btn-md btn-danger btn-flat">Cancelar</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -7,14 +7,14 @@
     angular.module('naut').controller('StockEntriesCtrl', StockEntriesCtrl);
 
     /* @ngInject */
-    function StockEntriesCtrl(SweetAlert, stockEntriesService, productsService) {
+    function StockEntriesCtrl(SweetAlert, stockEntriesService, productsService, storageEntryTypesService) {
         var self = this;
 
         self.stock_entries = stockEntriesService.stock_entries;
         self.products = productsService.products;
+        self.storageEntryTypes = storageEntryTypesService.storageEntryTypes;
         self.selectedStockEntry = null;
         self.status = {fullscreen: false, datepicker_opened: false};
-        self.reasons = ['Produto(s) vencido(s)', 'Compra de mercadorias'];
 
         self.openDatepicker = function($event) {
             $event.preventDefault();

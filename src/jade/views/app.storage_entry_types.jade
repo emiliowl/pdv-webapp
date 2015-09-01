@@ -1,0 +1,80 @@
+.app-view-header
+  | Tipos de Movimentação de Estoque
+.container-fluid
+  br
+  .row
+    .col-md-6(ng-if='!ctrl.status.fullscreen || !ctrl.selectedStorageEntryType')
+      .panel.panel-primary
+        .btn-offset-inner
+          button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.new()")
+            em.fa.fa-plus
+        .panel-heading
+          | Para editar selecione um item
+        .panel-body
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr
+                  th Motivo
+                  th Positivo/Negativo
+                  th Venda
+              tbody
+                tr(ng-repeat="storageEntryType in ctrl.storageEntryTypes" ng-class='{active: (storageEntryType.id === ctrl.selectedStorageEntryType.id)}' ng-click="ctrl.edit(storageEntryType)")
+                  td
+                    span(ng-bind="storageEntryType.reason")
+                  td
+                    span(ng-bind="storageEntryType.plus_minus_marker | yesNo")
+                  td
+                    span(ng-bind="storageEntryType.sell_marker | yesNo")
+
+    .col-md-6(ng-show="ctrl.selectedStorageEntryType" ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}")
+      .panel.panel-primary
+        .panel-heading
+          | Cadastro de Tipo de Movimentação de Estoque
+          // START button group
+          .btn-group.pull-right(dropdown='dropdown' ripple="")
+            button.btn.btn-xs.btn-primary.btn-flat.btn-offset-only.shadow-z1.dropdown-toggle( type='button' dropdown-toggle="" )
+              em.fa.fa-ellipsis-v
+            ul.dropdown-menu(role='menu')
+              li
+                a( href='#' ng-click="ctrl.destroy(ctrl.selectedStorageEntryType)")
+                  | Remover
+              li.divider
+              li
+                a( href='#' ng-click="ctrl.toggleFullScreen()")
+                  | Tela Cheia
+        .panel-body
+          form.form-validate.form-horizontal(action='#', name="storage_entry_type_form")
+            fieldset
+              .form-group
+                label(class='col-md-2 control-label' for='storage_entry_type_reason')
+                  | Motivo
+                .col-md-10
+                  input(id='storage_entry_type_reason' ng-model='ctrl.selectedStorageEntryType.reason' class='form-control shadow-z1' type='text')
+            fieldset
+              .form-group
+                label(class='col-md-2 control-label' for='storage_entry_type_plus_minus_marker')
+                  | Positivo/negativo
+                .col-md-10
+                  .clearfix
+                    .checkbox.c-checkbox.pull-left.mt0
+                      label
+                        input(type='checkbox', ng-model="ctrl.selectedStorageEntryType.plus_minus_marker")
+                        span.fa.fa-check
+                        | Selecione para valores positivos
+            fieldset
+              .form-group
+                label(class='col-md-2 control-label' for='storage_entry_type_sell_marker')
+                  | Movimentação de Venda
+                .col-md-10
+                  .clearfix
+                    .checkbox.c-checkbox.pull-left.mt0
+                      label
+                        input(type='checkbox', ng-model="ctrl.selectedStorageEntryType.sell_marker")
+                        span.fa.fa-check
+                        | Selecione para marcar como tipo que qualifica as vendas
+          hr
+          .form-group
+            a.btn.btn-md.btn-success.btn-flat(href="#" ripple="" ng-click="ctrl.save()")  Salvar
+            |&nbsp;
+            a.btn.btn-md.btn-danger.btn-flat(href="#" ripple="" ng-click="ctrl.cancel()") Cancelar

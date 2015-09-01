@@ -63,6 +63,15 @@
             }]
         });
 
+        $stateProvider.state('app.stock_entry_types', {
+            url: '/stock_entry_types',
+            templateUrl: Route.base('app.storage_entry_types.html'),
+            controller: 'StorageEntryTypesCtrl as ctrl',
+            onEnter: ['storageEntryTypesService', function(storageEntryTypesService) {
+                storageEntryTypesService.loadAll();
+            }]
+        });
+
         $stateProvider.state('app.sales', {
             url: '/sales',
             templateUrl: Route.base('app.sales.html'),
@@ -116,9 +125,10 @@
             url: '/stock',
             templateUrl: Route.base('management.stock.html'),
             controller: 'StockEntriesCtrl as ctrl',
-            onEnter: ['stockEntriesService', 'productsService', function(stockEntriesService, productsService) {
+            onEnter: ['stockEntriesService', 'productsService', 'storageEntryTypesService', function(stockEntriesService, productsService, storageEntryTypesService) {
                 stockEntriesService.loadAll();
                 productsService.loadAll();
+                storageEntryTypesService.loadAll();
             }],
             resolve: {
                 assets: Route.require('ngTable', 'ngTableExport')
