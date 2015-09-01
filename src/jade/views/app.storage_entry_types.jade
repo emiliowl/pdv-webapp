@@ -47,15 +47,15 @@
           form.form-validate.form-horizontal(action='#', name="storage_entry_type_form")
             fieldset
               .form-group
-                label(class='col-md-2 control-label' for='storage_entry_type_reason')
+                label(class='col-md-3 control-label' for='storage_entry_type_reason')
                   | Motivo
-                .col-md-10
+                .col-md-7
                   input(id='storage_entry_type_reason' ng-model='ctrl.selectedStorageEntryType.reason' class='form-control shadow-z1' type='text')
             fieldset
               .form-group
-                label(class='col-md-2 control-label' for='storage_entry_type_plus_minus_marker')
-                  | Positivo/negativo
-                .col-md-10
+                label(class='col-md-3 control-label' for='storage_entry_type_plus_minus_marker')
+                  | Positivo / negativo
+                .col-md-7
                   .clearfix
                     .checkbox.c-checkbox.pull-left.mt0
                       label
@@ -64,9 +64,9 @@
                         | Selecione para valores positivos
             fieldset
               .form-group
-                label(class='col-md-2 control-label' for='storage_entry_type_sell_marker')
+                label(class='col-md-3 control-label' for='storage_entry_type_sell_marker')
                   | Movimentação de Venda
-                .col-md-10
+                .col-md-7
                   .clearfix
                     .checkbox.c-checkbox.pull-left.mt0
                       label

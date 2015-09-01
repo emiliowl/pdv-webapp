@@ -78,7 +78,7 @@
    </div>
    <div class="row">
       <div ng-repeat="item in ctrl.storage | filter:ctrl.search.barcode" class="col-lg-4 col-md-4 col-xs-6">
-         <div ng-click="ctrl.selectProduct(item.product)" class="row">
+         <div ng-click="ctrl.selectItem(item)" class="row">
             <div class="col-md-12 col-xs-12">
                <!-- START Panel-->
                <div chained-animation="fadeInUp" ng-style="{'background-image':'url({{item.product.images[0].secure_url}})'}" class="panel panel-card-xs panel-card-image">

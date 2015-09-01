@@ -86,7 +86,9 @@
             return self.selectedStorageEntryType.plus_minus_marker;
         }, function() {
             if (!self.selectedStorageEntryType) return;
-            self.selectedStorageEntryType.sell_marker = !self.selectedStorageEntryType.plus_minus_marker;
+            if (self.selectedStorageEntryType.sell_marker && self.selectedStorageEntryType.plus_minus_marker) {
+                self.selectedStorageEntryType.sell_marker = false;
+            }
             if (!$scope.$$phase) {
                 $scope.$apply();
             }

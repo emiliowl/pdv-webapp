@@ -11,7 +11,7 @@
         var self = this;
 
         self.storage = posService.storageList;
-        self.selectedProduct = null;
+        self.selectedItem = null;
         self.selectedSale = {items: []};
         self.search = {barcode: '', quantity: 1};
 
@@ -23,7 +23,7 @@
             self.selectedSale = {items: []};
             self.search.quantity = 1;
             self.search.barcode = '';
-            self.selectedProduct = null;
+            self.selectedItem = null;
             $('input#barcode').focus();
         };
 
@@ -60,32 +60,32 @@
         };
 
         self.sell = function() {
-            if (!self.search.quantity || self.search.quantity === "" || self.search.quantity < 1 ) {
+            if (!self.search.quantity || self.search.quantity === "" || parseInt(self.search.quantity) < 1 ) {
                 self.search.quantity = 1;
             }
-            if (!self.selectedProduct || self.selectedProduct === "") {
+            if (!self.selectedItem || !self.selectedItem.product || self.selectedItem.product === "") {
                 SweetAlert.swal("Erro", "Selecione um produto antes de adicionar a venda!", "warning");
                 $('input#barcode').focus();
                 return false;
             }
 
-            if (self.selectedProduct.quantity < self.search.quantity) {
+            if (parseInt(self.selectedItem.quantity) < parseInt(self.search.quantity)) {
                 SweetAlert.swal("Erro", "Quantidade insuficiente para adicionar a venda.", "warning");
                 $('input#barcode').focus();
                 return false;
             }
 
             self.selectedSale.items.push({ quantity: self.search.quantity,
-                                           product: self.selectedProduct,
-                                           product_id: self.selectedProduct.id });
+                                           product: self.selectedItem.product,
+                                           product_id: self.selectedItem.product.id });
             self.search.quantity = 1;
             self.search.barcode = '';
-            self.selectedProduct = null;
+            self.selectedItem = null;
             $('input#barcode').focus();
         };
 
-        self.selectProduct = function(product) {
-            self.selectedProduct = product;
+        self.selectItem = function(item) {
+            self.selectedItem = item;
             $('input#quantity').focus();
         };
 
@@ -102,11 +102,11 @@
         };
 
         self.doInferProductSelection = function() {
-            if((!self.selectedProduct || self.selectedProduct === "")
+            if((!self.selectedItem || self.selectedItem === "")
                 && self.search.barcode && self.search.barcode !== "") {
-                var filteredProducts = $filter('filter')(self.storage, self.search.barcode);
-                if (filteredProducts) {
-                    self.selectProduct(filteredProducts[0].product);
+                var filteredItens = $filter('filter')(self.storage, self.search.barcode);
+                if (filteredItens) {
+                    self.selectItem(filteredItens[0]);
                 } else {
                     SweetAlert.swal("Erro", "Selecione um produto!", "warning");
                     $('input#barcode').focus();
@@ -115,7 +115,7 @@
         };
 
         self.cancelProductSelection = function() {
-            self.selectedProduct = null;
+            self.selectedItem = null;
             $('input#barcode').focus();
         };
 
