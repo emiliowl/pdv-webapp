@@ -1,0 +1,68 @@
+<div class="app-view-header">Contas Financeiras</div>
+<div class="container-fluid">
+   <br/>
+   <div class="row">
+      <div ng-if="!ctrl.status.fullscreen || !ctrl.selectedAccount" class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="btn-offset-inner">
+               <button type="button" ripple="" ng-click="ctrl.new()" class="btn btn-primary btn-circle btn-lg shadow-z1">
+                  <em class="fa fa-plus"></em>
+               </button>
+            </div>
+            <div class="panel-heading">Para editar selecione um item</div>
+            <div class="panel-body">
+               <div class="table-responsive">
+                  <table class="table table-hover">
+                     <thead>
+                        <tr>
+                           <th>Nome</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-repeat="account in ctrl.accounts" ng-class="{active: (account.id === ctrl.selectedAccount.id)}" ng-click="ctrl.edit(account)">
+                           <td>
+                              <span ng-bind="account.name"></span>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div ng-show="ctrl.selectedAccount" ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}" class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="panel-heading">Cadastro de Conta
+               <!-- START button group-->
+               <div dropdown="dropdown" ripple="" class="btn-group pull-right">
+                  <button type="button" dropdown-toggle="" class="btn btn-xs btn-primary btn-flat btn-offset-only shadow-z1 dropdown-toggle">
+                     <em class="fa fa-ellipsis-v"></em>
+                  </button>
+                  <ul role="menu" class="dropdown-menu">
+                     <li><a href="#" ng-click="ctrl.destroy(ctrl.selectedAccount)">Remover</a>
+                     </li>
+                     <li class="divider"></li>
+                     <li><a href="#" ng-click="ctrl.toggleFullScreen()">Tela Cheia</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="panel-body">
+               <form action="#" name="financial_account_form" class="form-validate form-horizontal">
+                  <fieldset>
+                     <div class="form-group">
+                        <label for="financial_account_name" class="col-md-3 control-label">Nome</label>
+                        <div class="col-md-7">
+                           <input id="financial_account_name" ng-model="ctrl.selectedAccount.name" type="text" class="form-control shadow-z1" />
+                        </div>
+                     </div>
+                  </fieldset>
+               </form>
+               <hr/>
+               <div class="form-group"><a href="#" ripple="" ng-click="ctrl.save()" class="btn btn-md btn-success btn-flat"> Salvar</a>&nbsp;<a href="#" ripple="" ng-click="ctrl.cancel()" class="btn btn-md btn-danger btn-flat">Cancelar</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

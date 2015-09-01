@@ -1,5 +1,7 @@
 <!-- top navbar-->
 <header ng-include="'templates/top-navbar.html'" ng-class="app.theme.topbar"></header>
+<!-- Generic sidebar-->
+<aside ng-include="'templates/first-sidebar.html'" ng-class="app.theme.sidebar" ng-if="!$root.pos"></aside>
 <!-- Sidebar-->
 <aside ng-include="'templates/sidebar.html'" ng-class="app.theme.sidebar" ng-if="$root.pos"></aside>
 <!-- Main-->

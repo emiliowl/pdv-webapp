@@ -1,6 +1,8 @@
 // top navbar
 header(ng-include="'templates/top-navbar.html'", ng-class="app.theme.topbar")
 
+// Generic sidebar
+aside(ng-include="'templates/first-sidebar.html'", ng-class="app.theme.sidebar" ng-if='!$root.pos')
 // Sidebar
 aside(ng-include="'templates/sidebar.html'", ng-class="app.theme.sidebar" ng-if='$root.pos')
 

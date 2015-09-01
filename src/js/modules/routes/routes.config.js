@@ -54,6 +54,16 @@
             }]
         });
 
+        $stateProvider.state('app.financialAccounts', {
+            url: '/pos',
+            templateUrl: Route.base('app.financial_accounts.html'),
+            controller: 'FinancialAccountsCtrl as ctrl',
+            onEnter: ['financialAccountsService', '$rootScope', function(financialAccountsService,$rootScope) {
+                financialAccountsService.loadAll();
+                $rootScope.pos = null;
+            }]
+        });
+
         $stateProvider.state('app.products', {
             url: '/products',
             templateUrl: Route.base('app.products.html'),

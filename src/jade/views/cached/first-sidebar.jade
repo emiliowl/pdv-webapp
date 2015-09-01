@@ -1,0 +1,33 @@
+// START Sidebar
+.sidebar-wrapper
+  .sidebar(ui-sidebar="")
+    .sidebar-nav
+        ul.nav
+          // Iterates over all sidebar items
+          li.nav-heading
+            span.text-muted Navegação Principal
+          li(ng-class="{active:$state.includes('register')}")
+            a(href='', title='Cadastros', ripple='')
+              em.sidebar-item-icon.fa.fa-edit
+              em.sidebar-item-caret.fa.pull-right
+                span Cadastros
+            ul.nav.sidebar-subnav
+              li(ui-sref-active="active")
+                a(ui-sref='app.products', title='produtos', ripple='')
+                  em.sidebar-item-icon.fa.fa-table
+                  span Produtos
+              li(ui-sref-active="active")
+                a(ui-sref='app.financialAccounts', title='contas financeiras', ripple='')
+                  em.sidebar-item-icon.fa.fa-dollar
+                  span Contas Financeiras
+          li(ng-class="{active:$state.includes('management')}")
+            a(href='', title='Gestão', ripple='')
+              em.sidebar-item-icon.fa.fa-cog
+              em.sidebar-item-caret.fa.pull-right
+                span Parâmetros
+            ul.nav.sidebar-subnav
+              li(ui-sref-active="active")
+                a(ui-sref='app.stock_entry_types', title='tipos de movimentação de estoque', ripple='')
+                  em.sidebar-item-icon.fa.fa-archive
+                  span Tipos de Movimentação
+// END Sidebar

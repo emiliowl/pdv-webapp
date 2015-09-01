@@ -1,0 +1,52 @@
+<!-- START Sidebar-->
+<div class="sidebar-wrapper">
+   <div ui-sidebar="" class="sidebar">
+      <div class="sidebar-nav">
+         <ul class="nav">
+            <!-- Iterates over all sidebar items-->
+            <li class="nav-heading">
+               <span class="text-muted">Navegação Principal</span>
+            </li>
+            <li ng-class="{active:$state.includes('register')}">
+               <a href="" title="Cadastros" ripple="">
+                  <em class="sidebar-item-icon fa fa-edit"></em>
+                  <em class="sidebar-item-caret fa pull-right">
+                     <span>Cadastros</span>
+                  </em>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.products" title="produtos" ripple="">
+                        <em class="sidebar-item-icon fa fa-table"></em>
+                        <span>Produtos</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.financialAccounts" title="contas financeiras" ripple="">
+                        <em class="sidebar-item-icon fa fa-dollar"></em>
+                        <span>Contas Financeiras</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li ng-class="{active:$state.includes('management')}">
+               <a href="" title="Gestão" ripple="">
+                  <em class="sidebar-item-icon fa fa-cog"></em>
+                  <em class="sidebar-item-caret fa pull-right">
+                     <span>Parâmetros</span>
+                  </em>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.stock_entry_types" title="tipos de movimentação de estoque" ripple="">
+                        <em class="sidebar-item-icon fa fa-archive"></em>
+                        <span>Tipos de Movimentação</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+      </div>
+   </div>
+</div>
+<!-- END Sidebar-->

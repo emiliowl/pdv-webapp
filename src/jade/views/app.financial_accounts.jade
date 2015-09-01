@@ -1,0 +1,52 @@
+.app-view-header
+  | Contas Financeiras
+.container-fluid
+  br
+  .row
+    .col-md-6(ng-if='!ctrl.status.fullscreen || !ctrl.selectedAccount')
+      .panel.panel-primary
+        .btn-offset-inner
+          button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.new()")
+            em.fa.fa-plus
+        .panel-heading
+          | Para editar selecione um item
+        .panel-body
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr
+                  th Nome
+              tbody
+                tr(ng-repeat="account in ctrl.accounts" ng-class='{active: (account.id === ctrl.selectedAccount.id)}' ng-click="ctrl.edit(account)")
+                  td
+                    span(ng-bind="account.name")
+
+    .col-md-6(ng-show="ctrl.selectedAccount" ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}")
+      .panel.panel-primary
+        .panel-heading
+          | Cadastro de Conta
+          // START button group
+          .btn-group.pull-right(dropdown='dropdown' ripple="")
+            button.btn.btn-xs.btn-primary.btn-flat.btn-offset-only.shadow-z1.dropdown-toggle( type='button' dropdown-toggle="" )
+              em.fa.fa-ellipsis-v
+            ul.dropdown-menu(role='menu')
+              li
+                a( href='#' ng-click="ctrl.destroy(ctrl.selectedAccount)")
+                  | Remover
+              li.divider
+              li
+                a( href='#' ng-click="ctrl.toggleFullScreen()")
+                  | Tela Cheia
+        .panel-body
+          form.form-validate.form-horizontal(action='#', name="financial_account_form")
+            fieldset
+              .form-group
+                label(class='col-md-3 control-label' for='financial_account_name')
+                  | Nome
+                .col-md-7
+                  input(id='financial_account_name' ng-model='ctrl.selectedAccount.name' class='form-control shadow-z1' type='text')
+          hr
+          .form-group
+            a.btn.btn-md.btn-success.btn-flat(href="#" ripple="" ng-click="ctrl.save()")  Salvar
+            |&nbsp;
+            a.btn.btn-md.btn-danger.btn-flat(href="#" ripple="" ng-click="ctrl.cancel()") Cancelar
