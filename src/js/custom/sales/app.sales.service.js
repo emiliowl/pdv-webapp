@@ -6,7 +6,7 @@
     angular.module('naut').factory('salesService', salesService);
 
     /* @ngInject */
-    function salesService($rootScope, toaster, $http, SweetAlert) {
+    function salesService($rootScope, $http, SweetAlert) {
         var self = this;
         self.products = [];
 
@@ -22,9 +22,10 @@
             }).error(self.handleError);
         };
 
-        self.create = function(sale) {
+        self.create = function(sale, onSuccess) {
             return $http.post($rootScope.app.env.backend + '/point_of_sales/' + $rootScope.pos.id + '/sales.json', sale).success(function (data) {
                 SweetAlert.swal("Sucesso", "Venda realizada com sucesso!", "success");
+                onSuccess();
             }).error(self.handleError);
         };
 

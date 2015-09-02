@@ -7,6 +7,22 @@
             <li class="nav-heading">
                <span class="text-muted">Navegação Principal</span>
             </li>
+            <li ng-class="{active:$state.includes('app')}">
+               <a href="" title="Início" ripple="">
+                  <em class="sidebar-item-icon fa fa-rotate-left"></em>
+                  <em class="sidebar-item-caret fa pull-right">
+                     <span>Início</span>
+                  </em>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.pos" title="ponto de vendas" ripple="">
+                        <em class="sidebar-item-icon fa fa-laptop"></em>
+                        <span>Pontos de Vendas</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
             <li ng-class="{active:$state.includes('register')}">
                <a href="" title="Cadastros" ripple="">
                   <em class="sidebar-item-icon fa fa-edit"></em>

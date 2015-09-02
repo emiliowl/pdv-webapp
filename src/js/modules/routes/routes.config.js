@@ -86,8 +86,9 @@
             url: '/sales',
             templateUrl: Route.base('app.sales.html'),
             controller: 'SalesCtrl as ctrl',
-            onEnter: ['posService', function(posService) {
+            onEnter: ['posService', 'financialAccountsService', function(posService, financialAccountsService) {
                 posService.storage();
+                financialAccountsService.loadAll();
             }]
         });
 

@@ -6,6 +6,16 @@
           // Iterates over all sidebar items
           li.nav-heading
             span.text-muted Navegação Principal
+          li(ng-class="{active:$state.includes('app')}")
+            a(href='', title='Início', ripple='')
+              em.sidebar-item-icon.fa.fa-rotate-left
+              em.sidebar-item-caret.fa.pull-right
+                span Início
+            ul.nav.sidebar-subnav
+              li(ui-sref-active="active")
+                a(ui-sref='app.pos', title='ponto de vendas', ripple='')
+                  em.sidebar-item-icon.fa.fa-laptop
+                  span Pontos de Vendas
           li(ng-class="{active:$state.includes('register')}")
             a(href='', title='Cadastros', ripple='')
               em.sidebar-item-icon.fa.fa-edit

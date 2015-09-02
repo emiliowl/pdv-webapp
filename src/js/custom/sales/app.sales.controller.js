@@ -5,18 +5,27 @@
     'use strict';
 
     angular.module('naut').controller('SalesCtrl', SalesCtrl);
+    angular.module('naut').controller('FinalizeSellModalInstanceCtrl', FinalizeSellModalInstanceCtrl);
 
     /* @ngInject */
-    function SalesCtrl(SweetAlert, salesService, posService, $filter) {
+    function SalesCtrl(SweetAlert, salesService, posService, $filter, $modal) {
         var self = this;
 
         self.storage = posService.storageList;
         self.selectedItem = null;
-        self.selectedSale = {items: []};
+        self.selectedSale = {items: [], payment_methods: []};
         self.search = {barcode: '', quantity: 1};
 
         self.new = function() {
-            self.selectedSale = {items: []};
+            self.selectedSale = {items: [], payment_methods: []};
+        };
+
+        self.cancelSale = function() {
+            self.selectedSale.payment_methods = [];
+            self.search.quantity = 1;
+            self.search.barcode = '';
+            self.selectedItem = null;
+            $('input#barcode').focus();
         };
 
         self.cancel = function() {
@@ -29,9 +38,18 @@
 
         self.finalizeSell = function() {
             if(self.selectedSale != null) {
-                salesService.create(self.selectedSale);
+                $modal.open({
+                    animation: true,
+                    templateUrl: 'paymentBox.html',
+                    controller: 'FinalizeSellModalInstanceCtrl as modalCtrl',
+                    size: 'md',
+                    resolve: {
+                        parentScope: function() {
+                            return self;
+                        }
+                    }
+                });
             }
-            self.cancel();
         };
 
         self.reverseSale = function(sale) {
@@ -123,6 +141,50 @@
             return self.selectedSale.items.reduce(function(previousValue, current) {
                 return previousValue += (current.product.price * current.quantity);
             }, 0);
-        }
+        };
+    }
+
+    /* @ngInject */
+    function FinalizeSellModalInstanceCtrl(SweetAlert,$modalInstance,salesService,financialAccountsService, parentScope){
+        var self = this;
+        self.accounts = financialAccountsService.accounts;
+        self.newPaymentMethod = {};
+        self.parentScope = parentScope;
+
+        self.addPaymentMethod = function() {
+            if(self.newPaymentMethod.account && self.newPaymentMethod.value && self.newPaymentMethod.value > 0) {
+                self.newPaymentMethod.financial_account_id = self.newPaymentMethod.account.id;
+                self.parentScope.selectedSale.payment_methods.push(self.newPaymentMethod);
+                self.newPaymentMethod = {};
+            } else {
+                SweetAlert.swal("Erro", "Obrigatório preencher método de pagamento e valor.", "warning");
+            }
+        };
+
+        self.finalize = function() {
+            if (parentScope.calculateSellValue() > self.calculatePaymentValue()) {
+                SweetAlert.swal("Erro", "Pagamento menor do que total a pagar!", "warning");
+                return false;
+            }
+            salesService.create(self.parentScope.selectedSale,function() {
+                    self.parentScope.cancel();
+                    self.close();
+                });
+        };
+
+        self.close = function () {
+            $modalInstance.dismiss('cancel');
+            self.parentScope.cancelSale();
+        };
+
+        self.calculatePaymentValue = function() {
+            return self.parentScope.selectedSale.payment_methods.reduce(function(previousValue, current) {
+                return previousValue += parseFloat(current.value);
+            }, 0.0);
+        };
+
+        self.calculateChange = function() {
+            return parseFloat(self.calculatePaymentValue()) - parseFloat(self.parentScope.calculateSellValue());
+        };
     }
 })();

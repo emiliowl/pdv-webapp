@@ -4,7 +4,6 @@
 .container-fluid.container-flush
   .row
     .col-lg-12.col-md-12.col-xs-12
-
       .table-responsive
         table.table.table-striped
           thead
@@ -31,32 +30,32 @@
               td
               td
                 span(ng-bind="ctrl.calculateSellValue() | currency : 'R$' : 2")
-  hr
   .row
     fieldset
-      .col-lg-5.col-md-5
+      .col-lg-5.col-md-5.col-xs-6
         .form-group
           label(class='control-label' for='barcode')
             | Produto
           input(id='barcode'
-                ng-model='ctrl.search.barcode'
-                class='form-control shadow-z1'
-                type='text'
-                ng-keyup="ctrl.tryProductSelection($event)"
-                ng-blur="ctrl.tryProductSelection()")
-      .col-lg-5.col-md-5
+          ng-model='ctrl.search.barcode'
+          class='form-control shadow-z1'
+          type='text'
+          ng-keyup="ctrl.tryProductSelection($event)"
+          ng-blur="ctrl.tryProductSelection()")
+      .col-lg-5.col-md-5.col-xs-6
         .form-group
           label(class='control-label' for='quantity')
             | Quantidade
           input(id='quantity' ng-model='ctrl.search.quantity' class='form-control shadow-z1' type='text')
-      .col-lg-1.col-md-1
+      .col-lg-1.col-md-1.col-xs-6
         .form-group
           button.btn.btn-success.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.sell()")
             em.fa.fa-plus
-      .col-lg-1.col-md-1
+      .col-lg-1.col-md-1.col-xs-6
         .form-group
           button.btn.btn-primary.btn-circle.btn-lg.shadow-z1(type="button" ripple="" ng-click="ctrl.finalizeSell()")
             em.fa.fa-shopping-cart
+  hr
   .row
     .col-lg-4.col-md-4.col-xs-6(ng-repeat="item in ctrl.storage | filter:ctrl.search.barcode")
       .row(ng-click='ctrl.selectItem(item)')
@@ -65,7 +64,7 @@
           .panel.panel-card-xs.panel-card-image(chained-animation="fadeInUp" ng-style="{'background-image':'url({{item.product.images[0].secure_url}})'}")
             .panel-body-xs.text-center
             .panel-footer.text-center
-              .btn-offset-inner(ng-if="ctrl.selectedProduct && ctrl.selectedProduct.id == item.product.id")
+              .btn-offset-inner(ng-if="ctrl.selectedItem && ctrl.selectedItem.product.id == item.product.id")
                 button.btn.btn-success.btn-circle.btn-md.shadow-z1(type="button" ripple="" ng-click="ctrl.cancelProductSelection()")
                   em.fa.fa-check
               .row
@@ -80,3 +79,60 @@
                   br
                   label Quantidade no Estoque:
                   small.text-white(ng-bind="item.quantity")
+
+
+script(type="text/ng-template", id="typeahead.html")
+  a
+    span(bind-html-unsafe='match.label | typeaheadHighlight:query')
+script(type="text/ng-template" id="paymentBox.html")
+  .modal-content
+  .modal-header
+    h4(class="modal-title" id="paymentBox") Selecionar forma de pagamento
+  .modal-body
+    .row
+      .col-md-12.col-lg-12
+        label(class='col-md-2 control-label' for='sales_payment_method') Pagamento:
+        .col-md-10
+          .controls
+            input.form-control( type='text'
+                                class='form-control shadow-z1'
+                                ng-model='modalCtrl.newPaymentMethod.account'
+                                typeahead='account as account.name for account in modalCtrl.accounts | filter:{name:$viewValue} | limitTo:10'
+                                typeahead-template-url='typeahead.html'
+                                placeholder='Digite a forma de pagamento'
+                                id='sales_payment_method' )
+    .row
+      .col-md-12.col-lg-12
+        label(class='col-md-2 control-label' for="payment_method_value") Valor:
+        .col-md-10
+          .controls
+            input(id='payment_method_value' ng-model='modalCtrl.newPaymentMethod.value' class='form-control shadow-z1' type='text')
+    .row
+      .col-md-12.col-lg-12
+        .table-responsive
+        table.table.table-striped
+          thead
+            tr
+              th Forma de pagamento
+              th valor
+              th
+          tbody
+            tr(ng-repeat="paymentMethod in modalCtrl.parentScope.selectedSale.payment_methods")
+              td
+                span(ng-bind='paymentMethod.account.name')
+              td
+                span(ng-bind='paymentMethod.value | currency : "R$" : 2')
+              td
+          tfoot
+            tr
+              td
+                | Venda:
+                span(ng-bind="modalCtrl.parentScope.calculateSellValue() | currency : 'R$' : 2")
+              td
+                span(ng-bind="modalCtrl.calculatePaymentValue() | currency : 'R$' : 2")
+              td
+                span(ng-bind="modalCtrl.calculateChange() | currency : 'R$' : 2")
+  .modal-footer
+    button.btn.btn-md.btn-success(ng-click="modalCtrl.addPaymentMethod()") Adicionar
+    button.btn.btn-md.btn-primary(ng-click="modalCtrl.finalize()") Finalizar
+    button.btn.btn-sm.btn-danger(ng-click="modalCtrl.close()") Cancelar
