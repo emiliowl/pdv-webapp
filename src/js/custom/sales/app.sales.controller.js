@@ -139,26 +139,43 @@
 
         self.calculateSellValue = function() {
             return self.selectedSale.items.reduce(function(previousValue, current) {
-                return previousValue += (current.product.price * current.quantity);
+                var previousValue = parseFloat(previousValue) + parseFloat(current.product.price * current.quantity);
+                return previousValue;
             }, 0);
         };
     }
 
     /* @ngInject */
-    function FinalizeSellModalInstanceCtrl(SweetAlert,$modalInstance,salesService,financialAccountsService, parentScope){
+    function FinalizeSellModalInstanceCtrl(SweetAlert,$modalInstance,salesService,financialAccountsService, parentScope) {
         var self = this;
         self.accounts = financialAccountsService.accounts;
         self.newPaymentMethod = {};
         self.parentScope = parentScope;
+        self.change = 0;
 
         self.addPaymentMethod = function() {
-            if(self.newPaymentMethod.account && self.newPaymentMethod.value && self.newPaymentMethod.value > 0) {
-                self.newPaymentMethod.financial_account_id = self.newPaymentMethod.account.id;
-                self.parentScope.selectedSale.payment_methods.push(self.newPaymentMethod);
-                self.newPaymentMethod = {};
+            if(self.newPaymentMethod.account && self.newPaymentMethod.paid && self.newPaymentMethod.paid > 0) {
+                //prepare the register to be as expected by backend
+                if(self.preparePayment()) {
+                    self.parentScope.selectedSale.payment_methods.push(self.newPaymentMethod);
+                    self.newPaymentMethod = {};
+                } else {
+                    SweetAlert.swal("Erro", "Erro ao preparar registro de pagamento!", "warning");
+                }
             } else {
                 SweetAlert.swal("Erro", "Obrigatório preencher método de pagamento e valor.", "warning");
             }
+        };
+
+        self.preparePayment = function() {
+            self.newPaymentMethod.financial_account_id = self.newPaymentMethod.account.id;
+
+            if( (parseFloat(self.newPaymentMethod.paid) + self.calculateChange()) > 0 ) {
+                self.newPaymentMethod.value = Math.abs(self.calculateChange()).toFixed(2);
+            } else {
+                self.newPaymentMethod.value = Math.abs(parseFloat(self.newPaymentMethod.paid)).toFixed(2);
+            }
+            return true;
         };
 
         self.finalize = function() {
@@ -179,12 +196,13 @@
 
         self.calculatePaymentValue = function() {
             return self.parentScope.selectedSale.payment_methods.reduce(function(previousValue, current) {
-                return previousValue += parseFloat(current.value);
+                previousValue = parseFloat(previousValue) + parseFloat(current.paid);
+                return previousValue;
             }, 0.0);
         };
 
         self.calculateChange = function() {
-            return parseFloat(self.calculatePaymentValue()) - parseFloat(self.parentScope.calculateSellValue());
+            return (self.calculatePaymentValue() - self.parentScope.calculateSellValue());
         };
     }
 })();

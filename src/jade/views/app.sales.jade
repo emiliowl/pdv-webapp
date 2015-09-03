@@ -106,7 +106,7 @@ script(type="text/ng-template" id="paymentBox.html")
         label(class='col-md-2 control-label' for="payment_method_value") Valor:
         .col-md-10
           .controls
-            input(id='payment_method_value' ng-model='modalCtrl.newPaymentMethod.value' class='form-control shadow-z1' type='text')
+            input(id='payment_method_value' ng-model='modalCtrl.newPaymentMethod.paid' class='form-control shadow-z1' type='text')
     .row
       .col-md-12.col-lg-12
         .table-responsive
@@ -121,12 +121,21 @@ script(type="text/ng-template" id="paymentBox.html")
               td
                 span(ng-bind='paymentMethod.account.name')
               td
-                span(ng-bind='paymentMethod.value | currency : "R$" : 2')
+                span(ng-bind='paymentMethod.paid | currency : "R$" : 2')
               td
           tfoot
             tr
               td
-                | Venda:
+                span
+                  strong Venda
+              td
+                span
+                  strong Pago
+              td
+                span
+                  strong Diferença
+            tr
+              td
                 span(ng-bind="modalCtrl.parentScope.calculateSellValue() | currency : 'R$' : 2")
               td
                 span(ng-bind="modalCtrl.calculatePaymentValue() | currency : 'R$' : 2")
