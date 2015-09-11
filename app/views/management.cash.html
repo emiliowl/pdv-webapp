@@ -1,0 +1,106 @@
+<div class="app-view-header">Gestão do Caixa</div>
+<div class="container-fluid">
+   <br/>
+   <div class="row">
+      <div ng-if="!ctrl.status.fullscreen" class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="btn-offset-inner">
+               <button type="button" ripple="" ng-click="ctrl.doReport()" class="btn btn-primary btn-circle btn-lg shadow-z1">
+                  <em class="fa fa-filter"></em>
+               </button>
+            </div>
+            <div class="panel-heading">Filtros</div>
+            <div class="panel-body">
+               <fieldset>
+                  <div class="form-group">
+                     <label for="start_date" class="col-md-2 control-label">Data Inicial</label>
+                     <div class="col-md-10">
+                        <p class="input-group">
+                           <input type="text" datepicker-popup="dd/MM/yyyy" ng-model="ctrl.filter.start_date" is-open="ctrl.status.start_datepicker_opened" ng-required="true" close-text="Fechar" class="form-control" />
+                           <span class="input-group-btn">
+                              <button type="button" ng-click="ctrl.openDatepicker($event, &quot;start&quot;)" class="btn btn-default">
+                                 <em class="fa fa-calendar"></em>
+                              </button>
+                           </span>
+                        </p>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="end_date" class="col-md-2 control-label">Data Final</label>
+                     <div class="col-md-10">
+                        <p class="input-group">
+                           <input type="text" datepicker-popup="dd/MM/yyyy" ng-model="ctrl.filter.end_date" is-open="ctrl.status.end_datepicker_opened" ng-required="true" close-text="Fechar" class="form-control" />
+                           <span class="input-group-btn">
+                              <button type="button" ng-click="ctrl.openDatepicker($event, &quot;end&quot;)" class="btn btn-default">
+                                 <em class="fa fa-calendar"></em>
+                              </button>
+                           </span>
+                        </p>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="financial_account" class="col-md-2 control-label">Conta Financeira</label>
+                     <div class="col-md-10">
+                        <select id="financial_account" ng-model="ctrl.filter.financial_account" name="financial_account" ng-options="financial_account.name for financial_account in ctrl.financial_accounts" class="form-control shadow-z1">
+                           <option selected="selected" value="">Selecione uma conta na lista</option>
+                        </select>
+                     </div>
+                  </div>
+               </fieldset>
+            </div>
+         </div>
+      </div>
+      <div ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}" class="col-md-6">
+         <div class="panel panel-primary">
+            <div class="panel-heading">Movimentações Financeiras
+               <!-- START button group-->
+               <div dropdown="dropdown" ripple="" class="btn-group pull-right">
+                  <button type="button" ng-disabled="disabled" dropdown-toggle="" class="btn btn-xs btn-primary btn-flat btn-offset-only shadow-z1 dropdown-toggle">
+                     <em class="fa fa-ellipsis-v"></em>
+                  </button>
+                  <ul role="menu" class="dropdown-menu">
+                     <li><a href="#" ng-click="ctrl.toggleFullScreen()">Tela Cheia</a>
+                     </li>
+                  </ul>
+               </div>
+               <!-- END button group-->
+            </div>
+            <div class="panel-body">
+               <div class="table-responsive">
+                  <table class="table table-hover">
+                     <thead>
+                        <tr>
+                           <th>data</th>
+                           <th>ponto de vendas</th>
+                           <th>valor</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-repeat="cash_entry in ctrl.cash_entries">
+                           <td>
+                              <span ng-bind="cash_entry.date | date:'shortDate'"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="cash_entry.point_of_sale.name"></span>
+                           </td>
+                           <td>
+                              <span ng-bind="cash_entry.value | currency : 'R$' : 2"></span>
+                           </td>
+                        </tr>
+                     </tbody>
+                     <tfoot>
+                        <tr>
+                           <td></td>
+                           <td>Total</td>
+                           <td>
+                              <span ng-bind="ctrl.status.total_value | currency : 'R$' : 2"></span>
+                           </td>
+                        </tr>
+                     </tfoot>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

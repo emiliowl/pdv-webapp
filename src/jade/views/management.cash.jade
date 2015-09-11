@@ -1,0 +1,85 @@
+.app-view-header
+  | Gestão do Caixa
+.container-fluid
+  br
+  .row
+    .col-md-6(ng-if='!ctrl.status.fullscreen')
+      .panel.panel-primary
+        .btn-offset-inner
+          button(type="button", ripple="" ng-click="ctrl.doReport()").btn.btn-primary.btn-circle.btn-lg.shadow-z1
+            em.fa.fa-filter
+        .panel-heading
+          | Filtros
+        .panel-body
+          fieldset
+            .form-group
+              label(class='col-md-2 control-label' for='start_date')
+                | Data Inicial
+              .col-md-10
+                p.input-group
+                  input.form-control( type='text',
+                  datepicker-popup='dd/MM/yyyy',
+                  ng-model='ctrl.filter.start_date',
+                  is-open='ctrl.status.start_datepicker_opened',
+                  ng-required='true',
+                  close-text='Fechar')
+                  span.input-group-btn
+                    button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event, "start")')
+                      em.fa.fa-calendar
+            .form-group
+              label(class='col-md-2 control-label' for='end_date')
+                | Data Final
+              .col-md-10
+                p.input-group
+                  input.form-control( type='text',
+                  datepicker-popup='dd/MM/yyyy',
+                  ng-model='ctrl.filter.end_date',
+                  is-open='ctrl.status.end_datepicker_opened',
+                  ng-required='true',
+                  close-text='Fechar')
+                  span.input-group-btn
+                    button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event, "end")')
+                      em.fa.fa-calendar
+            .form-group
+              label(class='col-md-2 control-label' for='financial_account')
+                | Conta Financeira
+              .col-md-10
+                select(id='financial_account' ng-model='ctrl.filter.financial_account' class='form-control shadow-z1' name='financial_account' ng-options="financial_account.name for financial_account in ctrl.financial_accounts")
+                  option(selected="selected" value="") Selecione uma conta na lista
+    .col-md-6(ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}")
+      .panel.panel-primary
+        .panel-heading
+          | Movimentações Financeiras
+          // START button group
+          .btn-group.pull-right(dropdown='dropdown' ripple="")
+            button.btn.btn-xs.btn-primary.btn-flat.btn-offset-only.shadow-z1.dropdown-toggle( type='button'
+            ng-disabled='disabled'
+            dropdown-toggle="" )
+              em.fa.fa-ellipsis-v
+            ul.dropdown-menu(role='menu')
+              li
+                a( href='#' ng-click="ctrl.toggleFullScreen()")
+                  | Tela Cheia
+          // END button group
+        .panel-body
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr
+                  th data
+                  th ponto de vendas
+                  th valor
+              tbody
+                tr(ng-repeat="cash_entry in ctrl.cash_entries")
+                  td
+                    span(ng-bind="cash_entry.date | date:'shortDate'")
+                  td
+                    span(ng-bind="cash_entry.point_of_sale.name")
+                  td
+                    span(ng-bind="cash_entry.value | currency : 'R$' : 2")
+              tfoot
+                tr
+                  td
+                  td Total
+                  td
+                    span(ng-bind="ctrl.status.total_value | currency : 'R$' : 2")

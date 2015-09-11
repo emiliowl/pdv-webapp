@@ -118,7 +118,7 @@
             abstract: true,
             templateUrl: Route.base('app.html'),
             resolve: {
-                _assets: Route.require('icons', 'toaster', 'animate', 'sparklines', 'slimscroll', 'oitozero.ngSweetAlert')
+                _assets: Route.require('icons', 'toaster', 'animate', 'sparklines', 'slimscroll', 'oitozero.ngSweetAlert', 'moment')
             },
             onEnter: ['$state', 'Auth', 'authService', '$rootScope', function($state, Auth, authService, $rootScope) {
                 Auth.currentUser().then(function(user) {
@@ -145,6 +145,19 @@
                 assets: Route.require('ngTable', 'ngTableExport')
             }
         });
+
+        $stateProvider.state('management.cash', {
+            url: '/cash',
+            templateUrl: Route.base('management.cash.html'),
+            controller: 'CashReportCtrl as ctrl',
+            onEnter: ['financialAccountsService', function(financialAccountsService) {
+                financialAccountsService.loadAll();
+            }],
+            resolve: {
+                assets: Route.require('ngTable', 'ngTableExport')
+            }
+        });
+
     }
 
 })();
