@@ -1,5 +1,5 @@
 .app-view-header
-  | Gestão do Caixa
+  | Gestão das Vendas
 .container-fluid
   br
   .row
@@ -37,19 +37,13 @@
                     span.input-group-btn
                       button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event, "end")')
                         em.fa.fa-calendar
-              .form-group
-                label(class='col-md-2 control-label' for='financial_account')
-                  | Conta Financeira
-                .col-md-10
-                  select(id='financial_account' ng-model='ctrl.filter.financial_account' class='form-control shadow-z1' name='financial_account' ng-options="financial_account.name for financial_account in ctrl.financial_accounts")
-                    option(selected="selected" value="") Selecione uma conta na lista
           hr
           .form-group
             a.btn.btn-md.btn-primary.btn-flat(href="#" ripple="" ng-click="ctrl.doReport()") Gerar Relatório
     .col-md-6(ng-class="{'col-md-12': ctrl.status.fullscreen, 'col-md-6': !ctrl.status.fullscreen}")
       .panel.panel-primary
         .panel-heading
-          | Movimentações Financeiras
+          | Vendas realizadas
           // START button group
           .btn-group.pull-right(dropdown='dropdown' ripple="")
             button.btn.btn-xs.btn-primary.btn-flat.btn-offset-only.shadow-z1.dropdown-toggle( type='button'
@@ -67,16 +61,13 @@
               thead
                 tr
                   th data
-                  th ponto de vendas
                   th valor
               tbody
-                tr(ng-repeat="cash_entry in ctrl.cash_entries")
+                tr.clickable(ng-repeat="sell in ctrl.sells" ng-click="ctrl.selectSell(sell)")
                   td
-                    span(ng-bind="cash_entry.date | date:'shortDate'")
+                    span(ng-bind="sell.created_at | date:'shortDate'")
                   td
-                    span(ng-bind="cash_entry.point_of_sale.name")
-                  td
-                    span(ng-bind="cash_entry.value | currency : 'R$' : 2")
+                    span(ng-bind="sell.value | currency : 'R$' : 2")
               tfoot
                 tr
                   td
@@ -85,3 +76,22 @@
                   td
                     strong
                       span(ng-bind="ctrl.status.total_value | currency : 'R$' : 2")
+          .panel.panel-default(ng-if="ctrl.selectedSell")
+            .panel-heading
+              | Detalhes da venda
+            .panel-body
+              .table-responsive
+                table.table.table-hover
+                  thead
+                    tr
+                      th produto
+                      th quantidade
+                      th preço
+                  tbody
+                    tr(ng-repeat="entry in ctrl.selectedSell.entries")
+                      td
+                        span(ng-bind="entry.product.name")
+                      td
+                        span(ng-bind="entry.quantity | number : 2")
+                      td
+                        span(ng-bind="entry.price_at_date | currency : 'R$' : 2")

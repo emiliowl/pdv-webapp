@@ -158,6 +158,15 @@
             }
         });
 
+        $stateProvider.state('management.sells', {
+            url: '/sells',
+            templateUrl: Route.base('management.sells.html'),
+            controller: 'SellsReportCtrl as ctrl',
+            resolve: {
+                assets: Route.require('ngTable', 'ngTableExport')
+            }
+        });
+
     }
 
 })();
