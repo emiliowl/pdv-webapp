@@ -9,12 +9,16 @@
     function stockEntriesService($rootScope, toaster, $http) {
         var self = this;
         self.stock_entries = [];
+        self.filter = {
+            order: [{id: 'storage_entries.movement_date', name: 'Data'}],
+            params:{ page: 1, search: {ordened: ['storage_entries.movement_date']} }
+        };
 
         self.loadAll = function() {
             return $http.get($rootScope.app.env.backend
                 + '/point_of_sales/'
                 + $rootScope.pos.id
-                + '/storage/entries.json').success(function (data) {
+                + '/storage/entries.json', self.filter).success(function (data) {
                 angular.copy(data, self.stock_entries);
             }).error(self.handleError);
         };

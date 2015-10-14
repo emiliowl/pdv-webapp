@@ -1,5 +1,87 @@
 .app-view-header
-  | Gestão do Estoque
+  // START search panel
+  .panel.panel-default(ng-init="hpanel = [false, true, false, false]")
+    .row
+      .col-md-4
+        .row.row-flush.text-center.text-muted.m0
+          .col-xs-3.col-md-6.bb.br.pv-xxl.clickable(ripple="", ng-click="hpanel = [false, true, false, false]", ng-class="{'bg-purple': hpanel[1]}")
+            em.fa.fa-calendar.fa-2x.mv
+          .col-xs-3.col-md-6.bb-lg.br.pv-xxl.clickable(ripple="", ng-click="hpanel = [false, false, true, false]", ng-class="{'bg-pink': hpanel[2]}")
+            em.icon-share.fa-2x.mv
+          .col-xs-3.col-md-6.bb-lg.br.pv-xxl.clickable(ripple="", ng-click="hpanel = [false, false, false, true]", ng-class="{'bg-primary': hpanel[3]}")
+            em.fa.fa-table.fa-2x.mv
+      .col-md-8(ng-if="hpanel[1]")
+        .row.row-table
+          .col-sm-8.col-xs-12
+            .p
+              .form-group
+                h5
+                  label(class='col-md-2 control-label' for='search_init_date')
+                    | Data Inicial
+                .col-md-10
+                  p.input-group
+                    input.form-control( id='search_init_date',
+                                        type='text',
+                                        datepicker-popup='dd/MM/yyyy',
+                                        ng-model='ctrl.filter.params.search.minDate',
+                                        is-open='ctrl.status.init_date_opened',
+                                        ng-required='true',
+                                        close-text='Fechar',
+                                        current-text='Hoje',
+                                        clear-text='Limpar',
+                                        max-date='ctrl.filter.params.search.maxDate')
+                    span.input-group-btn
+                      button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event, "init_date_opened")')
+                        em.fa.fa-calendar
+              .form-group
+                h5
+                  label(class='col-md-2 control-label' for='search_end_date')
+                    | Data Final
+                .col-md-10
+                  p.input-group
+                    input.form-control( id='search_end_date',
+                                        type='text',
+                                        datepicker-popup='dd/MM/yyyy',
+                                        ng-model='ctrl.filter.params.search.maxDate',
+                                        is-open='ctrl.status.end_date_opened',
+                                        ng-required='true',
+                                        close-text='Fechar',
+                                        current-text='Hoje',
+                                        clear-text='Limpar',
+                                        min-date='ctrl.filter.params.search.minDate')
+                    span.input-group-btn
+                      button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event, "end_date_opened")')
+                        em.fa.fa-calendar
+      .col-md-8(ng-if="hpanel[2]")
+        .row.row-table
+          .col-sm-8.col-xs-12
+            .p
+              .form-group
+                h5
+                  label(class='col-md-2 control-label' for='search_reason')
+                    | Motivo
+                .col-md-10
+                  select(id='search_reason' ng-model='ctrl.filter.params.search.reason' class='form-control shadow-z1'
+                         name='search_reason'
+                         ng-options="storageEntryType.reason for storageEntryType in ctrl.storageEntryTypes")
+                    option(selected="selected" value="") Selecione um motivo na lista
+      .col-md-8(ng-if="hpanel[3]")
+        .row.row-table
+          .col-sm-8.col-xs-12
+            .p
+              .form-group
+                h5
+                  label(class='col-md-2 control-label' for='search_product')
+                    | Produto
+                .col-md-10
+                  .controls
+                    input.form-control(type='text' class='form-control shadow-z1' ng-model='ctrl.filter.params.search.product'
+                                       typeahead='product as product.name for product in ctrl.products | filter:{name:$viewValue} | limitTo:10'
+                                       typeahead-template-url='typeahead.html' placeholder='Digite o produto para filtrar')
+    .btn-offset
+      button(type="button", ripple="" ng-click="ctrl.refresh()").btn.btn-primary.btn-lg.shadow-z1
+        em.fa.fa-filter
+  // END search panel
 .container-fluid
   br
   .row
@@ -20,7 +102,9 @@
                   th produto
                   th quantidade
               tbody
-                tr(ng-repeat="stock_entry in ctrl.stock_entries" ng-class='{active: (stock_entry.id === ctrl.selectedStockEntry.id)}' ng-click="ctrl.edit(stock_entry)")
+                tr(ng-repeat="stock_entry in ctrl.stock_entries"
+                   ng-class='{active: (stock_entry.id === ctrl.selectedStockEntry.id)}'
+                   ng-click="ctrl.edit(stock_entry)")
                   td
                     span(ng-bind="stock_entry.movement_date | date:'shortDate'")
                   td
@@ -61,9 +145,11 @@
                                       ng-model='ctrl.selectedStockEntry.movement_date',
                                       is-open='ctrl.status.datepicker_opened',
                                       ng-required='true',
-                                      close-text='Fechar')
+                                      close-text='Fechar',
+                                      current-text='Hoje',
+                                      clear-text='Limpar')
                   span.input-group-btn
-                    button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event)')
+                    button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event, "datepicker_opened")')
                       em.fa.fa-calendar
             .form-group
               label(class='col-md-2 control-label' for='stock_entry_reason')

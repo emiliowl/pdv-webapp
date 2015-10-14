@@ -27,7 +27,7 @@ build/Release
 node_modules
 
 # Ignore RubyMine config
-/.idea
-/.idea/*
-/.idea/*.xml
+.idea
+.idea/*
+.idea/*.xml
 

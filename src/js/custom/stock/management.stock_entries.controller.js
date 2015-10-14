@@ -8,28 +8,34 @@
 
     /* @ngInject */
     function StockEntriesCtrl(SweetAlert, stockEntriesService, productsService, storageEntryTypesService) {
+
         var self = this;
 
         self.stock_entries = stockEntriesService.stock_entries;
         self.products = productsService.products;
         self.storageEntryTypes = storageEntryTypesService.storageEntryTypes;
         self.selectedStockEntry = null;
-        self.status = {fullscreen: false, datepicker_opened: false};
+        self.filter = stockEntriesService.filter;
+        self.status = {fullscreen: false, datepicker_opened: false, init_date_opened: false, end_date_opened: false};
 
-        self.openDatepicker = function($event) {
+        self.openDatepicker = function($event, datepicker_name) {
             $event.preventDefault();
             $event.stopPropagation();
 
-            self.status.datepicker_opened = true;
+            self.status[datepicker_name] = true;
         };
 
         self.new = function() {
             self.selectedStockEntry = {};
         };
 
-        self.cancel = function() {
+        self.refresh = function() {
             self.selectedStockEntry = null;
             stockEntriesService.loadAll();
+        };
+
+        self.cancel = function() {
+            self.refresh();
         };
 
         self.save = function() {
