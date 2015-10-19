@@ -51,15 +51,62 @@
       </div>
       <div class="col-lg-6">
          <div class="panel panel-default">
-            <div class="panel-heading"><a ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv" class="pull-right btn btn-sm btn-primary">Exportar para CSV</a>
+            <div class="panel-heading">
+               <!-- START button group-->
+               <div dropdown="dropdown" ripple="" class="btn-group pull-right">
+                  <button type="button" ng-disabled="disabled" dropdown-toggle="" class="btn btn-md btn-default btn-flat btn-offset-only dropdown-toggle">
+                     <em class="fa fa-ellipsis-v"></em>
+                  </button>
+                  <ul role="menu" class="dropdown-menu">
+                     <li><a href="#" ng-click="ctrl.doGroupedSalesReport()">Atualizar</a>
+                     </li>
+                  </ul>
+               </div>
+               <!-- END button group-->
                <div class="panel-title">Histórico de Vendas</div>
+               <hr/>
+               <div class="div form-horizontal">
+                  <div class="form-group">
+                     <label for="start_date" class="col-md-2 control-label">Data Inicial</label>
+                     <div class="col-md-10">
+                        <p class="input-group">
+                           <input type="text" datepicker-popup="dd/MM/yyyy" ng-model="ctrl.filter.start_date" is-open="ctrl.status.start_datepicker_opened" ng-required="true" close-text="Fechar" current-text="Hoje" clear-text="Limpar" class="form-control"
+                           />
+                           <span class="input-group-btn">
+                              <button type="button" ng-click="ctrl.openDatepicker($event, &quot;start&quot;)" class="btn btn-default">
+                                 <em class="fa fa-calendar"></em>
+                              </button>
+                           </span>
+                        </p>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="end_date" class="col-md-2 control-label">Data Final</label>
+                     <div class="col-md-10">
+                        <p class="input-group">
+                           <input type="text" datepicker-popup="dd/MM/yyyy" ng-model="ctrl.filter.end_date" is-open="ctrl.status.end_datepicker_opened" ng-required="true" close-text="Fechar" current-text="Hoje" clear-text="Limpar" class="form-control" />
+                           <span class="input-group-btn">
+                              <button type="button" ng-click="ctrl.openDatepicker($event, &quot;end&quot;)" class="btn btn-default">
+                                 <em class="fa fa-calendar"></em>
+                              </button>
+                           </span>
+                        </p>
+                     </div>
+                  </div>
+               </div>
             </div>
             <div class="table-responsive">
-               <table ng-table="ctrl.sales" export-csv="csv" class="table table-bordered table-striped">
+               <table class="table table-bordered table-striped">
+                  <thead>
+                     <tr>
+                        <th>Data</th>
+                        <th>Valor</th>
+                     </tr>
+                  </thead>
                   <tbody>
-                     <tr ng-repeat="sale in $data">
-                        <td data-title="'Data'">{{sale.date | date:shortDate}}</td>
-                        <td data-title="'Valor'">{{sale.value | currency}}</td>
+                     <tr ng-repeat="sale in ctrl.sales">
+                        <td>{{sale.date | date:shortDate}}</td>
+                        <td>{{sale.value | currency : 'R$' : 2}}</td>
                      </tr>
                   </tbody>
                </table>

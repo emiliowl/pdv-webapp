@@ -11,7 +11,7 @@
         self.filter = {start_date: '01/01/2000', end_date: '01/01/2100'};
         self.sells = [];
 
-        ///point_of_sales/1/sales/report.json?start_date=01/01/2000&end_date=01/01/2020
+        ///point_of_sales/1/sells/report.json?start_date=01/01/2000&end_date=01/01/2020
         self.doReport = function() {
             return $http.get($rootScope.app.env.backend
                 + '/point_of_sales/'

@@ -37,7 +37,9 @@
             url: '/dashboard',
             templateUrl: Route.base('app.dashboard.html'),
             resolve: {
-                assets: Route.require('ngTable', 'ngTableExport')
+                load_sales: ['dashboardService', function(dashboardService) {
+                    dashboardService.doGroupedSalesReport();
+                }]
             }
         });
 

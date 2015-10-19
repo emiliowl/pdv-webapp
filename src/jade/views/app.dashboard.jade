@@ -53,11 +53,59 @@
     .col-lg-6
       .panel.panel-default
         .panel-heading
-          a.pull-right.btn.btn-sm.btn-primary(ng-mousedown='csv.generate()', ng-href='{{ csv.link() }}', download='test.csv') Exportar para CSV
+          // START button group
+          .btn-group.pull-right(dropdown='dropdown' ripple="")
+            button.btn.btn-md.btn-default.btn-flat.btn-offset-only.dropdown-toggle( type='button'
+            ng-disabled='disabled'
+            dropdown-toggle="" )
+              em.fa.fa-ellipsis-v
+            ul.dropdown-menu(role='menu')
+              li
+                a( href='#' ng-click="ctrl.doGroupedSalesReport()")
+                  | Atualizar
+          // END button group
           .panel-title Histórico de Vendas
+          hr
+          .div.form-horizontal
+            .form-group
+              label(class='col-md-2 control-label' for='start_date')
+                | Data Inicial
+              .col-md-10
+                p.input-group
+                  input.form-control( type='text',
+                                      datepicker-popup='dd/MM/yyyy',
+                                      ng-model='ctrl.filter.start_date',
+                                      is-open='ctrl.status.start_datepicker_opened',
+                                      ng-required='true',
+                                      close-text='Fechar',
+                                      current-text='Hoje',
+                                      clear-text='Limpar')
+                  span.input-group-btn
+                    button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event, "start")')
+                      em.fa.fa-calendar
+            .form-group
+              label(class='col-md-2 control-label' for='end_date')
+                | Data Final
+              .col-md-10
+                p.input-group
+                  input.form-control( type='text',
+                                      datepicker-popup='dd/MM/yyyy',
+                                      ng-model='ctrl.filter.end_date',
+                                      is-open='ctrl.status.end_datepicker_opened',
+                                      ng-required='true',
+                                      close-text='Fechar',
+                                      current-text='Hoje',
+                                      clear-text='Limpar')
+                  span.input-group-btn
+                    button.btn.btn-default(type='button', ng-click='ctrl.openDatepicker($event, "end")')
+                      em.fa.fa-calendar
         .table-responsive
-          table.table.table-bordered.table-striped(ng-table='ctrl.sales', export-csv='csv')
+          table.table.table-bordered.table-striped
+            thead
+              tr
+                th Data
+                th Valor
             tbody
-              tr(ng-repeat='sale in $data')
-                td(data-title="'Data'") {{sale.date | date:shortDate}}
-                td(data-title="'Valor'") {{sale.value | currency}}
+              tr(ng-repeat='sale in ctrl.sales')
+                td {{sale.date | date:shortDate}}
+                td {{sale.value | currency : 'R$' : 2}}
